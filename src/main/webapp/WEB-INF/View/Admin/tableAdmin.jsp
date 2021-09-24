@@ -265,7 +265,10 @@
                         </div>
                     </div>
                 </div>
-       <!-- table dynamic -->       
+       <!-- table dynamic -->  
+       
+       
+      <form action="Delete_Table_Grammar" method="post">   
 <div class="container">
 	<div class="row">
 		
@@ -293,13 +296,12 @@
                        </tr>
                    </thead>
                      
-    <tbody>
-    <%= (request.getAttribute("msggrammer")!=null)?request.getAttribute("msggrammer"):" " %>
+  <!--   <tbody>--> 
+
     
-    
-     <%= (request.getAttribute("listgrammarguidemanager")!=null)?request.getAttribute("listgrammarguidemanager"):" " %>
+
  
-    
+   
   <c:forEach items="${listgrammarguidemanager}" var="listgrammarguidemanager">
     <tr>
     <td><input type="checkbox" class="checkthis" /></td>
@@ -310,24 +312,105 @@
       <td>${listgrammarguidemanager.grammarguideimage}</td>
 
 
-    <td><p data-placement="top" data-toggle="tooltip" title="Edit"><button class="btn btn-primary btn-xs" data-title="Edit" data-toggle="modal" data-target="#edit" ><span class="glyphicon glyphicon-pencil"></span></button></p></td>
-    <td><p data-placement="top" data-toggle="tooltip" title="Delete"><button class="btn btn-danger btn-xs" data-title="Delete" data-toggle="modal" data-target="#delete" ><span class="glyphicon glyphicon-trash"></span></button></p></td>
-    </tr>
+    <td><p data-placement="top" data-toggle="tooltip" title="Edit"><button  class="btn btn-primary btn-xs" data-title="Edit" data-toggle="modal" data-target="#edit" value="${listgrammarguidemanager.idgrammarguide}"  name="edit1"><span class="glyphicon glyphicon-pencil"></span></button></p></td>
+    <td><p data-placement="top" data-toggle="tooltip" title="Delete"><button class="btn btn-danger btn-xs" data-title="Delete" data-toggle="modal" data-target="#delete"  value="${listgrammarguidemanager.idgrammarguide}"  name="delete1"><span class="glyphicon glyphicon-trash" ></span></button></p></td>
+    	
+    	</tr>
+    
    </c:forEach>
     
-    </tbody>
+  <!--   </tbody>--> 
         
 </table>
 
+
+
+<!-- table -->
+ <div class="modal fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
+      <div class="modal-dialog">
+    <div class="modal-content">
+          <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+        <h4 class="modal-title custom_align" id="Heading">Delete this entry</h4>
+      </div>
+          <div class="modal-body">
+       
+       <div class="alert alert-danger"><span class="glyphicon glyphicon-warning-sign"></span> Are you sure you want to delete this Record?</div>
+       
+      </div>
+      
+        <div class="modal-footer ">
+        
+      
+          <input type="submit" class="btn btn-success" class="glyphicon glyphicon-ok-sign" value="yes"> 
+     
+      
+        <!--<button type="button" class="btn btn-default" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> No</button>  -->
+      </div>
+        </div>
+    <!-- /.modal-content --> 
+  </div>
+      <!-- /.modal-dialog --> 
+    </div>
+    
+    <!-- End table dynamic -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <div class="clearfix"></div>
 <ul class="pagination pull-right">
-  <li class="disabled"><a href="#"><span class="glyphicon glyphicon-chevron-left"></span></a></li>
-  <li class="active"><a href="#">1</a></li>
-  <li><a href="#">2</a></li>
-  <li><a href="#">3</a></li>
-  <li><a href="#">4</a></li>
-  <li><a href="#">5</a></li>
-  <li><a href="#"><span class="glyphicon glyphicon-chevron-right"></span></a></li>
+
+  
+  
+  <c:if test="${currentpage==1}">
+  	
+
+    <li class="disabled"><a class="page-link" href="#">Previous</a></li>
+   <!--  <li ><a class="page-link" href="pagination?pageid=1">1</a></li>
+    <li ><a class="page-link" href="pagination?pageid=2">2</a></li>
+    <li ><a class="page-link" href="pagination?pageid=3">3</a></li> -->
+    <li ><a class="page-link" href="tableAdminForward?pageid=${currentpage+1}">Next</a></li>
+ 	   	
+  	</c:if>
+  	<c:if test="${currentpage == totalpage}">
+  	
+
+    <li class=""><a class="page-link" href="tableAdminForward?pageid=${currentpage-1}">Previous</a></li>
+      <!--  <li ><a class="page-link" href="pagination?pageid=1">1</a></li>
+    <li ><a class="page-link" href="pagination?pageid=2">2</a></li>
+    <li ><a class="page-link" href="pagination?pageid=3">3</a></li> -->
+    <li class="disabled"><a class="page-link" href="#">Next</a></li>
+ 	   	
+  	</c:if>
+  		<c:if test="${(currentpage >1) && (currentpage <totalpage)}">
+  	
+
+    <li class="page-item"><a class="page-link" href="tableAdminForward?pageid=${currentpage-1}">Previous</a></li>
+   <!--  <li ><a class="page-link" href="pagination?pageid=1">1</a></li>
+    <li ><a class="page-link" href="pagination?pageid=2">2</a></li>
+    <li ><a class="page-link" href="pagination?pageid=3">3</a></li> -->
+    <li class="page-item"><a class="page-link" href="tableAdminForward?pageid=${currentpage+1}">Next</a></li>
+ 	   	
+  	</c:if>
+  
 </ul>
                 
             </div>
@@ -335,7 +418,7 @@
         </div>
 	</div>
 </div>
-
+</form>
 
 <div class="modal fade" id="edit" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
       <div class="modal-dialog">
@@ -369,40 +452,12 @@
     
     
     
-    <div class="modal fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
-      <div class="modal-dialog">
-    <div class="modal-content">
-          <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
-        <h4 class="modal-title custom_align" id="Heading">Delete this entry</h4>
-      </div>
-          <div class="modal-body">
-       
-       <div class="alert alert-danger"><span class="glyphicon glyphicon-warning-sign"></span> Are you sure you want to delete this Record?</div>
-       
-      </div>
-        <div class="modal-footer ">
-        <button type="button" class="btn btn-success" ><span class="glyphicon glyphicon-ok-sign"></span> Yes</button>
-        <button type="button" class="btn btn-default" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> No</button>
-      </div>
-        </div>
-    <!-- /.modal-content --> 
-  </div>
-      <!-- /.modal-dialog --> 
-    </div>
-    
-    <!-- End table dynamic -->
+   
+   
+   
     
     
-    	  <h2>Demo JSP-Servlet Upload File</h2>
-  <form method="post" action="upLoadFileController" enctype="multipart/form-data">
-    Select file to upload: <input type="file" name="file" size="60" /><br /><br /> 
-    <input type="submit" value="Upload" />
-  </form>
-    
-    	<h2>${requestScope.message}</h2>
-    
- 	<h2>${requestScope.message1}</h2>
+
   <a href="grammarGuideForward">  <button name="btnadd" value="btnadd" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal"><img alt="" src="${pageContext.request.contextPath}/imagesmall/edit.png"> addtitle</button> 
     </a>
 

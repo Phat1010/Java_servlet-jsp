@@ -173,7 +173,7 @@
                             </a>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="tableAdminForward"
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="tableAdminForward?pageid=1"
                                 aria-expanded="false">
                                 <i class="fa fa-table" aria-hidden="true"></i>
                                 <span class="hide-menu">Basic Table</span>

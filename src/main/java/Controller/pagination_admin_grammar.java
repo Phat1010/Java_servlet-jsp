@@ -2,7 +2,6 @@ package Controller;
 
 import java.io.IOException;
 import java.sql.Connection;
-
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -13,22 +12,21 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import Bean.GrammarGuide;
-
 import DAO.HomeDAO;
 import DAO.PaginationDAO;
 import DB.DBConnection;
 
 /**
- * Servlet implementation class tableAdminForward
+ * Servlet implementation class pagination_admin_grammar
  */
-@WebServlet("/tableAdminForward")
-public class tableAdminForward extends HttpServlet {
+@WebServlet("/pagination_admin_grammar")
+public class pagination_admin_grammar extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public tableAdminForward() {
+    public pagination_admin_grammar() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -37,28 +35,7 @@ public class tableAdminForward extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	/*	try {
-			Connection conn = DBConnection.CreateConnection();
-			List<GrammarGuide> list = GrammarGuideManageDAO.grammarguide(request, conn);
-			
-			request.setAttribute("listgrammarguidemanager", list);
-		
-			conn.close();
-			
-		} catch (SQLException e) {
-			request.setAttribute("msggrammer", e.getMessage());
-		}*/
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		Connection conn = DBConnection.CreateConnection();
+	Connection conn = DBConnection.CreateConnection();
 		
 		String getcurrentpage = request.getParameter("pageid");
 	
@@ -98,7 +75,7 @@ public class tableAdminForward extends HttpServlet {
 		//List<Emp> list = QuizDAO.selectAnswser(1,3 , conn);
 		List<GrammarGuide> listTitle =PaginationDAO.selectGrammar(start, totalItemsPerPage, "grammarguide", conn,request);
 
-		request.setAttribute("listgrammarguidemanager", listTitle);
+		request.setAttribute("listTitle", listTitle);
 		
 		
 		
@@ -106,16 +83,8 @@ public class tableAdminForward extends HttpServlet {
 		request.setAttribute("totalpage",totalpage);
 		request.setAttribute("pageid",getcurrentpage);
 		request.setAttribute("currentpag1",currentpag1);
-
-		
-		
-
-		
-		
-		
-RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/View/Admin/tableAdmin.jsp");
-		rd.forward(request, response);
-	
+		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/View/Admin/GrammarGuide.jsp");
+		rd.forward(request, response);	
 	}
 
 	/**

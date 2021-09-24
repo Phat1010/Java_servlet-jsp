@@ -30,7 +30,7 @@
 
                     <div class="signin-form">
                         <h2 class="form-title">Sign In</h2>
-                        <form method="POST" class="register-form" id="login-form">
+                        <form method="POST" class="register-form" id="login-form" action="SignIn_Controller">
                             <div class="form-group">
                                 <label for="your_name"><i class="zmdi zmdi-account material-icons-name"></i></label>
                                 <input type="text" name="your_name" id="your_name" placeholder="Your Name"/>
@@ -56,8 +56,11 @@
                             </ul>
                         </div>
                     </div>
+                                		
                 </div>
+                <div style="text-align: center"><%= request.getAttribute("msg")!=null?request.getAttribute("msg"):""  %></div> 
             </div>
+
         </section>
 
     </div>

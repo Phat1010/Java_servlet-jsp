@@ -2,6 +2,7 @@ package Controller;
 
 import java.io.IOException;
 import java.sql.Connection;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -10,21 +11,20 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import Bean.account;
-import DAO.LoginDAO;
+
 import DB.DBConnection;
 
 /**
- * Servlet implementation class SignUpController
+ * Servlet implementation class Comment_Grammar
  */
-@WebServlet("/SignUpController")
-public class SignUpController extends HttpServlet {
+@WebServlet("/Comment_Grammar")
+public class Comment_Grammar extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public SignUpController() {
+    public Comment_Grammar() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -41,45 +41,37 @@ public class SignUpController extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		if(request.getCharacterEncoding()==null)
-		{
-			request.setCharacterEncoding("UTF-8");
-		}
-		
-		Connection conn = DBConnection.CreateConnection();
-		
-		
-		String username = request.getParameter("name");
-		
-		String email = request.getParameter("email");
-		String pass = request.getParameter("pass");
-		
-		boolean check = LoginDAO.checkaccount(username, conn, request);
-		
-		if(check)
-		{
-			account account  = new account();
-			account.setUsername(username);
-			account.setPassword(pass);
-			account.setEmail(email);
-			boolean test1 = LoginDAO.InsertAccount(request, conn,account );
-			
-			if (test1) {
-				
-				request.setAttribute("mgsregister", "register success");
-				
-			}
-		}
-		
+/*
+Connection conn = DBConnection.CreateConnection();
+		String name = request.getParameter("name");
+String comment = request.getParameter("comment");
+Emp emp = new Emp();
+emp.setName(name);
+emp.setComment(comment);
 
+
+request.setAttribute("name", name);
+request.setAttribute("comment", comment);
+
+boolean check =  QuizDAO.Insertcomment(request, conn, emp);
+
+//boolean check =  QuizDAO.InsertAccount(request, conn, emp);
+
+if(check)
+{
+	request.setAttribute("check", 1);
+}
+else {
+	request.setAttribute("check", 2);
+}
 	
-		else {
-			request.setAttribute("mgsregister", "register Faild because the account is already registered ");
-			
-		}
+		List<Emp> list = QuizDAO.selectAnswser2(conn, "commentdata");
 		
-		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/View/signup.jsp");
+		request.setAttribute("listcomment", list);
+	
+		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/View/result.jsp");
 		rd.forward(request, response);
+	}*/
 	}
 
 }

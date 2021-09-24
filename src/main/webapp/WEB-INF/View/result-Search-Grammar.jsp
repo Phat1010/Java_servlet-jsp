@@ -39,10 +39,7 @@
   
   <!-- pointer block -->
 
-      <link href="${pageContext.request.contextPath}/cssExtra/poiterBlock.css" rel="stylesheet">
-<link href="${pageContext.request.contextPath}/cssExtra/centerbutton.css" rel="stylesheet">
-  <link href="${pageContext.request.contextPath}/cssExtra/hundered_pagination.css" rel="stylesheet">
-
+    
 
  
     </head>

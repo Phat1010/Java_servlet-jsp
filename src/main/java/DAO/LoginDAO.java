@@ -2,7 +2,9 @@ package DAO;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -38,4 +40,115 @@ public class LoginDAO {
 		}
 		return false;
 	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	public static boolean checkaccount (String account, Connection conn,HttpServletRequest request){
+		 
+	
+		
+		try {
+			
+			PreparedStatement ptmt = null;
+			String sql = "select * from account";
+			ptmt = conn.prepareStatement(sql);
+			
+			
+			ResultSet rs = ptmt.executeQuery();
+			while(rs.next()) {
+			
+		
+				 String nameaccount= rs.getString("username");
+				 if(account.equals(nameaccount) )
+				 {
+					 return false;
+				 }
+				
+				
+				
+			
+			}
+			ptmt.close();
+			rs.close();
+			
+			
+			
+			
+			
+		} catch (SQLException e) {
+			request.setAttribute("error", e.getMessage());
+		}	
+		return true ;
+	}
+	
+	
+	
+	
+	
+	public static boolean checkaccountlogin (String account,String password, Connection conn,HttpServletRequest request){
+		 
+	
+		
+		try {
+			
+			PreparedStatement ptmt = null;
+			String sql = "select * from account";
+			ptmt = conn.prepareStatement(sql);
+			
+			
+			ResultSet rs = ptmt.executeQuery();
+			while(rs.next()) {
+			
+		
+				 String nameaccount= rs.getString("username");
+				 String passaccount= rs.getString("password");
+				 if(account.equals(nameaccount) && password.equals(passaccount))
+				 {
+					 return false;
+				 }
+				
+				
+				
+			
+			}
+			ptmt.close();
+			rs.close();
+			
+			
+			
+			
+			
+		} catch (SQLException e) {
+			request.setAttribute("error", e.getMessage());
+		}	
+		return true ;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }

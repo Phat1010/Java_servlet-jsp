@@ -1,5 +1,6 @@
 package DAO;
 
+import java.io.UnsupportedEncodingException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -117,7 +118,16 @@ public class GrammarGuideManageDAO {
 	
 	public static List<GrammarGuide> selectlastgrammarguide (HttpServletRequest request ,Connection conn, int id){
 		 
-	
+		if(request.getCharacterEncoding()==null)
+		{
+			try {
+				request.setCharacterEncoding("UTF-8");
+			} catch (UnsupportedEncodingException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+
 			
 			List<GrammarGuide> list = new ArrayList<GrammarGuide>();
 			
@@ -202,6 +212,29 @@ public class GrammarGuideManageDAO {
 	}
 	
 	
+	
+	
+	public static   boolean deleteGrammar(HttpServletRequest request, Connection conn, int id, String table) {
+		PreparedStatement ptmt = null;
+		
+		String sql  = "delete from "+table+" where idgrammarguide = "+id+"";
+		try {
+			ptmt = conn.prepareStatement(sql);
+		
+			
+			
+			int kt = ptmt.executeUpdate();
+			if(kt!=0)
+			{
+				return true;
+			}
+			ptmt.close();
+			
+		} catch (SQLException e) {
+			request.setAttribute("msgregister",e.getMessage());
+		}
+		return false;
+	}
 	
 	
 

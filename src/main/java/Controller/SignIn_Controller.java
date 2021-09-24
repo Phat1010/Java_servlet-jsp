@@ -9,22 +9,22 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
-import Bean.account;
 import DAO.LoginDAO;
 import DB.DBConnection;
 
 /**
- * Servlet implementation class SignUpController
+ * Servlet implementation class SignIn_Controller
  */
-@WebServlet("/SignUpController")
-public class SignUpController extends HttpServlet {
+@WebServlet("/SignIn_Controller")
+public class SignIn_Controller extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public SignUpController() {
+    public SignIn_Controller() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -41,45 +41,32 @@ public class SignUpController extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		if(request.getCharacterEncoding()==null)
-		{
-			request.setCharacterEncoding("UTF-8");
-		}
-		
 		Connection conn = DBConnection.CreateConnection();
 		
+		String username = request.getParameter("your_name");
+		String pass = request.getParameter("your_pass");
 		
-		String username = request.getParameter("name");
-		
-		String email = request.getParameter("email");
-		String pass = request.getParameter("pass");
-		
-		boolean check = LoginDAO.checkaccount(username, conn, request);
-		
+		boolean check = LoginDAO.checkaccountlogin(username, pass, conn, request);
 		if(check)
 		{
-			account account  = new account();
-			account.setUsername(username);
-			account.setPassword(pass);
-			account.setEmail(email);
-			boolean test1 = LoginDAO.InsertAccount(request, conn,account );
+			request.setAttribute("msg", "Incorrect account or password");
+			RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/View/Login.jsp");
+			rd.forward(request, response);	
 			
-			if (test1) {
-				
-				request.setAttribute("mgsregister", "register success");
-				
-			}
 		}
-		
-
-	
 		else {
-			request.setAttribute("mgsregister", "register Faild because the account is already registered ");
+			HttpSession session = request.getSession(true);
+			session.setAttribute("account", username);
 			
+			RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/View/TestConnection.jsp");
+			rd.forward(request, response);	
 		}
 		
-		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/View/signup.jsp");
-		rd.forward(request, response);
+		
+		
+		
+		
+		
 	}
 
 }
