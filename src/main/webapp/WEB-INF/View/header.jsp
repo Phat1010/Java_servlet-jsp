@@ -58,7 +58,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-sm-6 col-xs-4">
-                        <div class="top-number"><p><i class="fa fa-phone-square"></i>  +0123 456 70 90</p></div>
+                        <div class="top-number"><p><i class="fa fa-phone-square"></i>  + 0965290754</p></div>
                     </div>
                     <div class="col-sm-6 col-xs-8">
                        <div class="social">
@@ -90,14 +90,14 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="index.html"><img src="${pageContext.request.contextPath}/Template_frontend/images/logo.png" alt="logo"></a>
+                    <a class="navbar-brand" href="TestConnectionForward"><img src="${pageContext.request.contextPath}/Template_frontend/images/logo.png" alt="logo"></a>
                 </div>
 				
                 <div class="collapse navbar-collapse navbar-right">
                     <ul class="nav navbar-nav">
-                        <li class="active"><a href="index.html">Home</a></li>
-                        <li><a href="LoginForward">About Us</a></li>
-                        <li><a href="services.html">Services</a></li>
+                        <li class="active"><a href="TestConnectionForward">Home</a></li>
+                        <li><a href="LoginForward">Register</a></li>
+                        <li><a href="a">Services</a></li>
                         <li><a href="portfolio.html">Portfolio</a></li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Pages <i class="fa fa-angle-down"></i></a>
@@ -109,7 +109,7 @@
                             </ul>
                         </li>
                         <li><a href="blog.html">Blog</a></li> 
-                        <li><a href="contact-us.html">Contact</a></li>                        
+                        <li><a href="contact-us.html"><%=session.getAttribute("accountsession")!=null?session.getAttribute("accountsession"):"user"  %></a></li>                        
                     </ul>
                 </div>
             </div><!--/.container-->

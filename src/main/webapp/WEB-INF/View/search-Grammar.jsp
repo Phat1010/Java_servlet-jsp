@@ -43,52 +43,8 @@
 <link href="${pageContext.request.contextPath}/cssExtra/centerbutton.css" rel="stylesheet">
   <link href="${pageContext.request.contextPath}/cssExtra/hundered_pagination.css" rel="stylesheet">
 
-
-  <script type="text/javascript">
-
-
-        function search()
-        {
-        	
-        	 
-        	var search = document.myform.search.value;
-         
-        	var url = "find_Grammar_Client?search="+search;
-        	
-        	if (window.XMLHttpRequest) 
-        	{        
-        	    xhttp = new XMLHttpRequest(); 
-        	} 
-        	else
-        	{            
-        		xhttp = new ActiveXObject("Microsoft.XMLHTTP");
-        	}
-        	
-        	
-        	xhttp.onreadystatechange= function()
-        	{
-        		if (xhttp.readyState == 4)
-        		{
-        			var data = xhttp.responseText;
-        			document.getElementById("findgrammar").innerHTML=data;
-        		}
-        			
-
-        	}
-        	xhttp.open("POST",url,true);
-        	xhttp.send();
-
-        }
-        	
-
-        </script>
- 
     </head>
-    
-    
 
-    
-  
 <body class="homepage">
 <jsp:include page="header.jsp"></jsp:include>
 
@@ -97,27 +53,25 @@
 
 
 
-<form name="myform">
- <input type="text" name="search" onkeyup="search()">
-</form>
 
-<div id="findgrammar">
-hello
-	
-</div>
 
-<form action="pagination" method="post" name="myform">
+
+<form action="pagination" method="get">
     <section id="services" class="service-item">
 	   <div class="container">
             <div class="center wow fadeInDown">
                 <h2>Our Service</h2>
                 <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut <br> et dolore magna aliqua. Ut enim ad minim veniam</p>
-            	 <!--  area find grammar -->
-            	   <!-- <input type="text" name="search" onkeyup="search()"> --> 
+            	
+            	    <input type="text" name="search" onkeyup="search()">
             </div>
 
 
  <!--  area find grammar -->
+<div id="findgrammar">
+
+	
+</div>
 
 
 

@@ -11,22 +11,50 @@
         <meta name="author" content="" />
         
         
-        <title>Scrolling Nav - Start Bootstrap Template</title>
-        <link rel="icon" type="image/x-icon"  href="${pageContext.request.contextPath}/template_scroll/assets/favicon.ico" />
-        <!-- Core theme CSS (includes Bootstrap)-->
-        <link  href="${pageContext.request.contextPath}/template_scroll/css/styles.css" rel="stylesheet" />
         
+                
+        
+        <!-- HeaderHeader -->
+     	
+	
+	
+	<!-- core CSS -->
+    <link href="${pageContext.request.contextPath}/Template_frontend/css/bootstrap.min.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/Template_frontend/css/font-awesome.min.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/Template_frontend/css/animate.min.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/Template_frontend/css/prettyPhoto.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/Template_frontend/css/main.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/Template_frontend/css/responsive.css" rel="stylesheet">
+ 
+    <link rel="shortcut icon" href="${pageContext.request.contextPath}/Template_frontend/images/ico/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="${pageContext.request.contextPath}/Template_frontend/images/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="${pageContext.request.contextPath}/Template_frontend/images/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="${pageContext.request.contextPath}/Template_frontend/images/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="${pageContext.request.contextPath}/Template_frontend/images/ico/apple-touch-icon-57-precomposed.png">
+  <!-- HeaderHeader -->
+        
+
+
+
         <script type="text/javascript">
-        
 
 
-        function comment()
+        function Display()
         {
-        	var xhttp;
-
-        	var comment = document.myform.comment.value;
         	
-        	var url = "Comment_Grammar?comment="+comment+"";
+        	   var today = new Date();
+        	   var date = today.getDate()+'-'+(today.getMonth()+1)+'-'+today.getFullYear();
+        	   var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+        	   var dateTime = date+' '+time;
+        	   
+        	var xhttp;
+        
+        	var comment = document.myform.comment.value;
+            
+        	var id = document.myform.id.value;
+            
+        	var name = document.myform.name.value;
+        	var url = "Comment_Grammar?comment="+comment+"&id="+id+"&name="+name+"&dateTime="+dateTime;
         	
         	if (window.XMLHttpRequest) 
         	{        
@@ -43,7 +71,7 @@
         		if (xhttp.readyState == 4)
         		{
         			var data = xhttp.responseText;
-        			document.getElementById("result").innerHTML=data;
+        			document.getElementById("ketqua").innerHTML=data;
         		}
         			
 
@@ -52,24 +80,14 @@
         	xhttp.send();
 
         }
+        	
+
         </script>
     </head>
-    <body id="page-top">
-        <!-- Navigation-->
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
-            <div class="container px-4">
-                <a class="navbar-brand"  href="${pageContext.request.contextPath}/template_scroll/#page-top">Start Bootstrap</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-                <div class="collapse navbar-collapse" id="navbarResponsive">
-                    <ul class="navbar-nav ms-auto">
-                        <li class="nav-item"><a class="nav-link"  href="${pageContext.request.contextPath}/template_scroll/#about">About</a></li>
-                        <li class="nav-item"><a class="nav-link"  href="${pageContext.request.contextPath}/template_scroll/#services">Services</a></li>
-                        <li class="nav-item"><a class="nav-link"  href="${pageContext.request.contextPath}/template_scroll/#contact">Contact</a></li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-        <!-- Header-->
+    <body id="page-top"> 
+    
+<jsp:include page="header.jsp"></jsp:include>
+
         <header class="bg-primary bg-gradient text-white">
             <div class="container px-4 text-center">
                 <h1 class="fw-bolder">Welcome to Scrolling Nav</h1>
@@ -100,18 +118,45 @@
                 <div class="row gx-4 justify-content-center">
                     <div class="col-lg-8">
                         <h2>Comment</h2>
-                        <p id="account">commentdata21</p>
+                        <p id="account" style="color: red;"><%=session.getAttribute("accountsession")!=null?session.getAttribute("accountsession"):"user"  %></p>
+	<% if(session.getAttribute("accountsession")==null) 
+	{	
+	%>
+<form name="myform">
+<textarea rows="5" cols="120" name="comment"></textarea>
+
+
+<br/>
+<br/>
+<input type="button" value="Post" onclick="Comment()" disabled="disabled"/>
+
+</form>
+
+<% }
+	else{
+		
+	
+%>
 <form name="myform">
 
 
-<textarea rows="10" cols="100" name="comment"></textarea>
+<textarea rows="5" cols="120" name="comment"></textarea>
 
 
 <br/>
 <br/>
-<input type="button" value="Post" onclick="Comment()"/>
+<input type="button" value="comment" onclick="Display()" />
+<input type="text" name="id" value="${idgrammar}" hidden="true">
+<input type="text" name="name" value="<%= session.getAttribute("accountsession")%>" hidden="true"> 
 
 </form>
+	
+	
+
+
+
+<%} %>
+
                     </div>
                 </div>
             </div>
@@ -125,8 +170,10 @@
             <div class="container px-4">
                 <div class="row gx-4 justify-content-center">
                     <div class="col-lg-8">
-                        <h2 >About this page</h2>
-                        <p class="lead">This is a great place to talk about your webpage. This template is purposefully unstyled so you can use it as a boilerplate or starting point for you own landing page designs! This template features:</p>
+                    <p id="ketqua">  <jsp:include page="comment-Grammar.jsp"/></p>
+                   
+                        
+                        <p class="lead" >This is a great place to talk about your webpage. This template is purposefully unstyled so you can use it as a boilerplate or starting point for you own landing page designs! This template features:</p>
                         <ul>
                             <li>Clickable nav links that smooth scroll to page sections</li>
                             <li>Responsive behavior when clicking nav links perfect for a one page website</li>
@@ -134,7 +181,7 @@
                             <li>Minimal custom CSS so you are free to explore your own unique design options</li>
                         </ul>
                         
-                       <p id="result"></p>
+                 
                     </div>
                 </div>
             </div>
@@ -148,15 +195,6 @@
         
         
         
-        
-        <!-- Footer-->
-        <footer class="py-5 bg-dark">
-            <div class="container px-4"><p class="m-0 text-center text-white">Copyright &copy; Your Website 2021</p></div>
-        </footer>
-        <!-- Bootstrap core JS-->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
-        <!-- Core theme JS-->
-        <script src="${pageContext.request.contextPath}/template_scroll/js/scripts.js">
-        </script>
+  <jsp:include page="footer.jsp"></jsp:include>
     </body>
 </html>

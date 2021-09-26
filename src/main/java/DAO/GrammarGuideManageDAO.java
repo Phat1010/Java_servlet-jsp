@@ -290,6 +290,97 @@ public class GrammarGuideManageDAO {
 	
 
 
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	public static List<GrammarGuide> searchGrammarGuide (HttpServletRequest request ,Connection conn, String search){
+		 
+		List<GrammarGuide> list = new ArrayList<GrammarGuide>();
+		
+		try {
+			
+			PreparedStatement ptmt = null;
+			String sql = "select * from grammarguide where grammarguidename like '%"+search+"%'";
+			ptmt = conn.prepareStatement(sql);
+			
+			
+			ResultSet rs = ptmt.executeQuery();
+			if(rs.isBeforeFirst()) {//have data
+				while(rs.next()) {
+					GrammarGuide bn = new GrammarGuide();
+					 Integer idgrammarguide = rs.getInt("idgrammarguide");
+					 String grammarguidename = rs.getString("grammarguidename");
+					 String grammarguideimage= rs.getString("grammarguideimage");
+					 String content= rs.getString("content");
+					 bn.setIdgrammarguide(idgrammarguide); 
+					 bn.setGrammarguidename(grammarguidename); 
+					 bn.setContent(content);
+					 bn.setGrammarguideimage(grammarguideimage);
+				
+				
+					
+				
+					 list.add(bn);
+			}
+			
+			
+			
+			}
+			else {
+				request.setAttribute("msggrammer", "There are no tutorials");
+			}
+			
+			ptmt.close();
+			rs.close();
+			
+			//co toi thieu 1 hang
+			
+		} catch (SQLException e) { //ko co hang nao
+			request.setAttribute("msggrammer", e.getMessage());
+			//
+		}	
+		return list ;
+}
+	
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }
 
 

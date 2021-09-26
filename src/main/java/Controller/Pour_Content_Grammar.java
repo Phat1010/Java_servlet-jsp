@@ -12,8 +12,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import Bean.GrammarGuide;
+import Bean.commentGrammar;
+import DAO.CommentDAO;
 import DAO.GrammarGuideManageDAO;
-
+import DAO.HomeDAO;
 import DB.DBConnection;
 
 /**
@@ -46,6 +48,8 @@ public class Pour_Content_Grammar extends HttpServlet {
 
 
 		int id = Integer.parseInt(request.getParameter("id"));
+		String idString = request.getParameter("id");//ko lay dc id int
+		
 		
 		List<GrammarGuide> content_pour = GrammarGuideManageDAO.selectlastgrammarguide(request, conn, id);
 		request.setAttribute("content_pour", content_pour);
@@ -57,10 +61,18 @@ public class Pour_Content_Grammar extends HttpServlet {
 		
 		request.setAttribute("star_in_database", "**");//return to surrender
 		request.setAttribute("star_in_html", "<br>");//1 line apart
+		request.setAttribute("idgrammar", idString);
 		
-		
-		
+		int countcoumment = HomeDAO.countslider(conn,"comment_grammar" );
+		List<commentGrammar> list =CommentDAO.selectComment(conn,id);
 
+
+		
+		
+		
+		
+		request.setAttribute("countcomment", countcoumment);
+		request.setAttribute("listcomment", list);
 		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/View/pour_grammar.jsp");
 		rd.forward(request, response);	
 	}

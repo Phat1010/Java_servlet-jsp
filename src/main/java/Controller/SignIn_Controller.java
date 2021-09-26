@@ -2,6 +2,7 @@ package Controller;
 
 import java.io.IOException;
 import java.sql.Connection;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -11,6 +12,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import Bean.banner;
+import DAO.HomeDAO;
 import DAO.LoginDAO;
 import DB.DBConnection;
 
@@ -55,8 +58,24 @@ public class SignIn_Controller extends HttpServlet {
 			
 		}
 		else {
-			HttpSession session = request.getSession(true);
-			session.setAttribute("account", username);
+			HttpSession session = request.getSession();
+			session.setAttribute("accountsession", username);
+			
+			
+			
+			
+			
+			//slideConnection conn = DBConnection.CreateConnection();
+			List<banner> listbanner = HomeDAO.listslide(conn);
+			
+			int countbanner= HomeDAO.countslider(conn, "banner");
+			
+			
+			request.setAttribute("listbanner", listbanner);
+			request.setAttribute("countbanner", countbanner);
+			
+			
+			//end slide
 			
 			RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/View/TestConnection.jsp");
 			rd.forward(request, response);	
