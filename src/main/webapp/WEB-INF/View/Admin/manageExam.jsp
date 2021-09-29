@@ -95,14 +95,14 @@
         <!-- ============================================================== -->
         <!-- Topbar header - style you can find in pages.scss -->
         <!-- ============================================================== -->
-        <jsp:include page="header.jsp"></jsp:include>
+      <jsp:include page="header.jsp"></jsp:include>
         <!-- ============================================================== -->
         <!-- End Topbar header -->
         <!-- ============================================================== -->
         <!-- ============================================================== -->
         <!-- Left Sidebar - style you can find in sidebar.scss  -->
         <!-- ============================================================== -->
-       <jsp:include page="barmenu.jsp"></jsp:include>
+      <jsp:include page="barmenu.jsp"></jsp:include>
         <!-- ============================================================== -->
         <!-- End Left Sidebar - style you can find in sidebar.scss  -->
         <!-- ============================================================== -->
@@ -133,7 +133,7 @@
        <!-- table dynamic -->  
        
        
-      <form action="Delete_Table_Grammar" method="post">   
+    
 <div class="container">
 	<div class="row">
 		
@@ -152,7 +152,6 @@
                    <th>ID</th>
                     <th>Grammar Title</th>
                          <th>Content</th>
-                     <th>Grammar guide image</th>
                 
                      
                       <th>Edit</th>
@@ -167,18 +166,18 @@
 
  
    
-  <c:forEach items="${listgrammarguidemanager}" var="listgrammarguidemanager">
+  <c:forEach items="${listexamination}" var="listexamination">
     <tr>
     <td><input type="checkbox" class="checkthis" /></td>
-<td>${listgrammarguidemanager.idgrammarguide}</td>
-      <td>${listgrammarguidemanager.grammarguidename}</td>
+<td>${listexamination.idexamination}</td>
+      <td>${listexamination.examinationname}</td>
     
-           <td>${listgrammarguidemanager.content}</td>
-      <td>${listgrammarguidemanager.grammarguideimage}</td>
+           <td>${listexamination.examinationimage}</td>
+     
 
 
-    <td><p data-placement="top" data-toggle="tooltip" title="Edit"><button  class="btn btn-primary btn-xs" data-title="Edit" data-toggle="modal" data-target="#edit" value="${listgrammarguidemanager.idgrammarguide}"  name="edit1"><span class="glyphicon glyphicon-pencil"></span></button></p></td>
-    <td><p data-placement="top" data-toggle="tooltip" title="Delete"><button class="btn btn-danger btn-xs" data-title="Delete" data-toggle="modal" data-target="#delete"  value="${listgrammarguidemanager.idgrammarguide}"  name="delete1"><span class="glyphicon glyphicon-trash" ></span></button></p></td>
+    <td><p data-placement="top" data-toggle="tooltip" title="Edit"><a href=""> <button  class="btn btn-primary btn-xs" data-title="Edit" data-toggle="modal" data-target="#edit" value="${listexamination.idexamination}"  name="edit1"><span class="glyphicon glyphicon-pencil"></span></button></a></p></td>
+    <td><p data-placement="top" data-toggle="tooltip" title="Delete"><a href="Delete_Table_Exam?delete1=${listexamination.idexamination}"><button class="btn btn-danger btn-xs" data-title="Delete" data-toggle="modal" data-target="#delete"  value="${listexamination.idexamination}"  name="delete1"><span class="glyphicon glyphicon-trash"></span></button></a></p></td>
     	
     	</tr>
     
@@ -207,7 +206,7 @@
         <div class="modal-footer ">
         
       
-          <input type="submit" class="btn btn-success" class="glyphicon glyphicon-ok-sign" value="yes"> 
+          <input type="button" class="btn btn-success" class="glyphicon glyphicon-ok-sign" value="yes"> 
      
       
         <!--<button type="button" class="btn btn-default" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> No</button>  -->
@@ -252,13 +251,13 @@
    <!--  <li ><a class="page-link" href="pagination?pageid=1">1</a></li>
     <li ><a class="page-link" href="pagination?pageid=2">2</a></li>
     <li ><a class="page-link" href="pagination?pageid=3">3</a></li> -->
-    <li ><a class="page-link" href="tableAdminForward?pageid=${currentpage+1}">Next</a></li>
+    <li ><a class="page-link" href="manageexam?pageid=${currentpage+1}">Next</a></li>
  	   	
   	</c:if>
   	<c:if test="${currentpage == totalpage}">
   	
 
-    <li class=""><a class="page-link" href="tableAdminForward?pageid=${currentpage-1}">Previous</a></li>
+    <li class=""><a class="page-link" href="manageexam?pageid=${currentpage-1}">Previous</a></li>
       <!--  <li ><a class="page-link" href="pagination?pageid=1">1</a></li>
     <li ><a class="page-link" href="pagination?pageid=2">2</a></li>
     <li ><a class="page-link" href="pagination?pageid=3">3</a></li> -->
@@ -268,11 +267,11 @@
   		<c:if test="${(currentpage >1) && (currentpage <totalpage)}">
   	
 
-    <li class="page-item"><a class="page-link" href="tableAdminForward?pageid=${currentpage-1}">Previous</a></li>
+    <li class="page-item"><a class="page-link" href="manageexam?pageid=${currentpage-1}">Previous</a></li>
    <!--  <li ><a class="page-link" href="pagination?pageid=1">1</a></li>
     <li ><a class="page-link" href="pagination?pageid=2">2</a></li>
     <li ><a class="page-link" href="pagination?pageid=3">3</a></li> -->
-    <li class="page-item"><a class="page-link" href="tableAdminForward?pageid=${currentpage+1}">Next</a></li>
+    <li class="page-item"><a class="page-link" href="manageexam?pageid=${currentpage+1}">Next</a></li>
  	   	
   	</c:if>
   
@@ -283,48 +282,58 @@
         </div>
 	</div>
 </div>
-</form>
 
-<div class="modal fade" id="edit" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
-      <div class="modal-dialog">
-    <div class="modal-content">
-          <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
-        <h4 class="modal-title custom_align" id="Heading">Edit Your Detail</h4>
-      </div>
-          <div class="modal-body">
-          <div class="form-group">
-        <input class="form-control " type="text" placeholder="Mohsin">
-        </div>
-        <div class="form-group">
-        
-        <input class="form-control " type="text" placeholder="Irshad">
-        </div>
-        <div class="form-group">
-        <textarea rows="2" class="form-control" placeholder="CB 106/107 Street # 11 Wah Cantt Islamabad Pakistan"></textarea>
+<!-- MODEL --><!-- MODEL --><!-- MODEL -->
+<form action="manageexam" method="post">
+<div class="container">
+  <h2>Modal Example</h2>
+  <!-- Trigger the modal with a button -->
+  <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button>
+
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
     
-        
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Modal Header</h4>
+        </div>
+        <div class="modal-body">
+          <p>Some text in the modal.</p>
+          <input type="text" name="titleExam" required>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-default" >Next</button>
         </div>
       </div>
-          <div class="modal-footer ">
-        <button type="button" class="btn btn-warning btn-lg" style="width: 100%;"><span class="glyphicon glyphicon-ok-sign"></span> Update</button>
-      </div>
-        </div>
-    <!-- /.modal-content --> 
-  </div>
-      <!-- /.modal-dialog --> 
+      
     </div>
-    
-    
-    
-   
-   
-   
-    
-    
+  </div>
+  
+</div>
+</form>
+<!-- MODEL --><!-- MODEL --><!-- MODEL -->
 
-  <a href="grammarGuideForward">  <button name="btnadd" value="btnadd" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal"><img alt="" src="${pageContext.request.contextPath}/imagesmall/edit.png"> addtitle</button> 
-    </a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
                 <!-- ============================================================== -->
@@ -344,7 +353,7 @@
             <!-- ============================================================== -->
             <!-- footer -->
             <!-- ============================================================== -->
-          <jsp:include page="footer.jsp"></jsp:include>
+        <jsp:include page="footer.jsp"></jsp:include>
             <!-- ============================================================== -->
             <!-- End footer -->
             <!-- ============================================================== -->

@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%><!DOCTYPE html>
+    
+    <%@ taglib prefix="c" uri="http://java.sun.com/jstl/core_rt" %>
 <html dir="ltr" lang="en">
 
 <head>
@@ -68,10 +70,6 @@
             <div class="lds-pos"></div>
         </div>
     </div>
-    
-    
-    
-    
     <!-- ============================================================== -->
     <!-- Main wrapper - style you can find in pages.scss -->
     <!-- ============================================================== -->
@@ -80,14 +78,14 @@
         <!-- ============================================================== -->
         <!-- Topbar header - style you can find in pages.scss -->
         <!-- ============================================================== -->
-      <jsp:include page="header.jsp"></jsp:include>
+     <jsp:include page="header.jsp"></jsp:include>
         <!-- ============================================================== -->
         <!-- End Topbar header -->
         <!-- ============================================================== -->
         <!-- ============================================================== -->
         <!-- Left Sidebar - style you can find in sidebar.scss  -->
         <!-- ============================================================== -->
-        <jsp:include page="barmenu.jsp"></jsp:include>
+       <jsp:include page="barmenu.jsp"></jsp:include>
         <!-- ============================================================== -->
         <!-- End Left Sidebar - style you can find in sidebar.scss  -->
         <!-- ============================================================== -->
@@ -101,7 +99,7 @@
             <div class="page-breadcrumb bg-white">
                 <div class="row align-items-center">
                     <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-                        <h1 class="page-title">ADD GUIDE </h1>
+                        <h1 class="page-title">ADD EXCEl EXAM </h1>
                     </div>
                     <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
                         <div class="d-md-flex">
@@ -116,96 +114,51 @@
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
-            <!-- ============================================================== -->
-            <!-- End Bread crumb and right sidebar toggle -->
-            <!-- ============================================================== -->
-            <!-- ============================================================== -->
-            <!-- Container fluid  -->
-            <!-- ============================================================== -->
+
           
           
-          
-          
-                  <div class="page-breadcrumb bg-white">
+                    <div class="page-breadcrumb bg-white">
                 <div class="row align-items-center">
                     <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
                         <h4 class="page-title">IMAGE</h4>
                     </div>
                    
-                </div>
-                <!-- /.col-lg-12 -->
-            </div>         
-          
-          
+              
           <!-- image -->
+          
    
+
+</div>
+             <form method="post" action="upload_file_excel_exam" enctype="multipart/form-data">
+      
+
+      
+    Select file to upload: <input type="file" name="file" size="60" /><br />
+    <input type="submit" value="Upload" />
+  </form>
+             	<h5>${requestScope.message}</h5>
+             	 	<h5>${requestScope.message1}${requestScope.message2}</h5>
+             	<%= request.getAttribute("imageexists") %>
+             	
+             	
+             	<h5>${requestScope.message2}</h5>
+	
+	
         <!-- end image -->  
           
           
           
+                
+          
+           <div><%= request.getAttribute("mgsregister")%></div> 
           
           
           
           
-          
-	
+       	<%= request.getAttribute("mgsupdatate") %>
              	
-             	
-             	<!-- TITLE AND CONTENT -->
+	     	<%= request.getAttribute("mgsupdatate") %>
            
-           <form method="post" action="grammarGuideGrammar" >
-          
-            <div class="page-breadcrumb bg-white">
-                <div class="row align-items-center">
-                    <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-                        <h4 class="page-title">TITLE</h4>
-                    </div>
-                   
-                </div>
-                <!-- /.col-lg-12 -->
-            </div>         
-          
-          <input type="text" name="titlegrammar" class="txttitlegrammar">
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-                <div class="page-breadcrumb bg-white">
-                <div class="row align-items-center">
-                    <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-                        <h4 class="page-title">CONTENT</h4>
-                    </div>
-                   
-                </div>
-                <!-- /.col-lg-12 -->
-            </div>      
-          
-          <textarea id="kv-01" rows="15" class="markdown" required data-bs-version="3" data-theme="fa4" title="Krajee Markdown Editor" name="content" data-hidden-buttons="Image">
-</textarea>
-
-    <hr>
-    <div class="row">
-        <div class="col-sm-4">
-        </div>
-        <div class="col-sm-2">
-            <input type="submit" class="btn btn-block btn-primary"><i class="fa fa-check"></i> Submit
-        </div>
-        <div class="col-sm-2">
-            <button type="reset" class="btn btn-block btn-default"><i class="fa fa-ban"></i> Reset</button>
-        </div>
-        <div class="col-sm-4">
-        </div>
-    </div>
-          
-          </form>
-          
           
           
           
@@ -214,15 +167,16 @@
           
          
           
+          <form action="add_image_exam" method="post">
+          	<input type="text" value="${requestScope.message2}" name="imageexam" hidden="false">
+          
+          	<input type="submit">
+          </form>
           
           
           
           
-          
-          
-          
-           <div><%= request.getAttribute("mgsregister")%></div> 
-          
+    
           
           
           
@@ -236,6 +190,7 @@
             <!-- ============================================================== -->
             <!-- End footer -->
             <!-- ============================================================== -->
+        </div>
         </div>
         <!-- ============================================================== -->
         <!-- End Page wrapper  -->

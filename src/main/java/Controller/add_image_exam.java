@@ -12,23 +12,25 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import Bean.GrammarGuide;
-
-
+import Bean.commentGrammar;
+import Bean.examination;
+import DAO.CommentDAO;
 import DAO.GrammarGuideManageDAO;
-
+import DAO.HomeDAO;
+import DAO.ManageExamDAO;
 import DB.DBConnection;
 
 /**
- * Servlet implementation class find_Grammar_Client
+ * Servlet implementation class add_image_exam
  */
-@WebServlet("/find_Grammar_Client")
-public class find_Grammar_Client extends HttpServlet {
+@WebServlet("/add_image_exam")
+public class add_image_exam extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public find_Grammar_Client() {
+    public add_image_exam() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -37,23 +39,8 @@ public class find_Grammar_Client extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		if(request.getCharacterEncoding()==null)
-		{
-			request.setCharacterEncoding("UTF-8");
-		}
-Connection conn = DBConnection.CreateConnection();
-
-
-		String name = request.getParameter("search");
-		
-			List<GrammarGuide> list = GrammarGuideManageDAO.searchGrammarGuide(request, conn, name);
-			
-			request.setAttribute("listTitle", list);
-RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/View/result-Search-Grammar.jsp");
-rd.forward(request, response);
-	
-	
-	
+		// TODO Auto-generated method stub
+		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
 	/**
@@ -64,18 +51,36 @@ rd.forward(request, response);
 		{
 			request.setCharacterEncoding("UTF-8");
 		}
-Connection conn = DBConnection.CreateConnection();
-
-
-		String name = request.getParameter("search");
 		
-			List<GrammarGuide> list = GrammarGuideManageDAO.searchGrammarGuide(request, conn, name);
+		Connection conn = DBConnection.CreateConnection();
+		
+
+		
+		int idlast = GrammarGuideManageDAO.lastgrammarguide(request, conn,"examination");
+		//do dl ra 2 bagn
+
+		//!do dl ra 2 bagn
+		
+		String nameimage = request.getParameter("imageexam");
+		
+	examination ex = new examination();
+	ex.setExaminationimage(nameimage);
+		
+		
+		boolean test = ManageExamDAO.UpdateExam(request, conn, ex, idlast);
+		
+		if (test) {
 			
-			request.setAttribute("listTitle", list);
-RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/View/result-Search-Grammar.jsp");
-rd.forward(request, response);
-	
-	
+		
+			RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/View/Admin/addExam.jsp");
+			rd.forward(request, response);
+			
+		}
+		else {
+			request.setAttribute("mgsregister", "register Faild");
+			
+		}
 	}
+	
 
 }

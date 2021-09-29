@@ -10,6 +10,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 
 import Bean.GrammarGuide;
+import Bean.examination;
 
 
 
@@ -39,6 +40,53 @@ public class PaginationDAO {
 				 grammarGuide.setContent(content);
 			
 				 list.add(grammarGuide);
+			
+			}
+			ptmt.close();
+			rs.close();
+			
+			
+			
+		} catch (SQLException e) {
+			request.setAttribute("error", e.getMessage());
+		}	
+		return list ;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	public static List<examination> selectExam (int start, int count ,String table,Connection conn,HttpServletRequest request){
+		 
+		List<examination> list = new ArrayList<examination>();
+		
+		try {
+			
+			PreparedStatement ptmt = null;
+			String sql = "select * from "+ table +" limit "+start+","+count+"";
+			ptmt = conn.prepareStatement(sql);
+			
+			
+			ResultSet rs = ptmt.executeQuery();
+			while(rs.next()) {
+		
+			examination ex= new examination();
+			 Integer idexamination = rs.getInt("idexamination");
+			 String examinationname = rs.getString("examinationname");
+			 String examinationimage= rs.getString("examinationimage");
+			
+		ex.setIdexamination(idexamination);
+			ex.setIdexamination(idexamination);
+			ex.setExaminationname(examinationname);
+			ex.setExaminationimage(examinationimage);
+		
+		
+			
+		 list.add(ex);
 			
 			}
 			ptmt.close();
