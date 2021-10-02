@@ -3,32 +3,26 @@ package Controller;
 import java.io.IOException;
 import java.sql.Connection;
 
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-
-import Bean.examination;
-
-import DAO.GrammarGuideManageDAO;
-
-import DAO.ManageExamDAO;
+import DAO.detailsExamExcelDAO;
 import DB.DBConnection;
 
 /**
- * Servlet implementation class add_image_exam
+ * Servlet implementation class addFileExcel
  */
-@WebServlet("/add_image_exam")
-public class add_image_exam extends HttpServlet {
+@WebServlet("/addFileExcel")
+public class addFileExcel extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public add_image_exam() {
+    public addFileExcel() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -49,35 +43,13 @@ public class add_image_exam extends HttpServlet {
 		{
 			request.setCharacterEncoding("UTF-8");
 		}
-		
 		Connection conn = DBConnection.CreateConnection();
+		int id = Integer.parseInt(request.getParameter("idexam"));
+		String address = request.getParameter("address");
 		
-
-		
-		int idlast = GrammarGuideManageDAO.lastgrammarguide(request, conn,"examination");
-		//do dl ra 2 bagn
-
-		//!do dl ra 2 bagn
-		
-		String nameimage = request.getParameter("imageexam");
-		
-	examination ex = new examination();
-	ex.setExaminationimage(nameimage);
+		detailsExamExcelDAO.ImportExcel(request, response, conn, address, id);
 		
 		
-		boolean test = ManageExamDAO.UpdateExam(request, conn, ex, idlast);
-		
-		if (test) {
-			
-		
-			
-			
-		}
-		else {
-			request.setAttribute("mgsregister", "register Faild");
-			
-		}
 	}
-	
 
 }

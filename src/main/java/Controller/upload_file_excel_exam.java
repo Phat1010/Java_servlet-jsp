@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.nio.file.Paths;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
@@ -12,6 +13,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import javax.servlet.http.Part;
 
 /**
@@ -45,8 +47,12 @@ public class upload_file_excel_exam extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		String id = request.getParameter("id");
+		HttpSession session = request.getSession(true);
+		session.setAttribute("id", id);
+		
+		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/View/Admin/addExam.jsp");
+		rd.forward(request, response);
 	}
 
 	/**
@@ -76,7 +82,7 @@ public class upload_file_excel_exam extends HttpServlet {
 		  
 			   //TURUN FORM
 		    ServletContext context = request.getServletContext();
-		    request.setAttribute("message1",context.getRealPath("/ImageUpload/"));
+		    request.setAttribute("message1",context.getRealPath("/upload_Excel/"));
 		
 		    getServletContext().getRequestDispatcher("/WEB-INF/View/Admin/addExam.jsp").forward(request, response);
 		  }
@@ -97,7 +103,7 @@ public class upload_file_excel_exam extends HttpServlet {
 		  //  File folderUpload = new File(System.getProperty("user.home") + "/Uploads");
 		   // File folderUpload = new File("E:" + "/Uploads");
 			  ServletContext context = request.getServletContext();
-			  File folderUpload = new File(context.getRealPath("/imageExamUpload/") );
+			  File folderUpload = new File(context.getRealPath("/upload_Excel/") );
 		    if (!folderUpload.exists()) {
 				try {
 					PrintWriter out =   response.getWriter();

@@ -58,7 +58,7 @@ public class SignIn_Controller extends HttpServlet {
 			
 		}
 		else {
-			HttpSession session = request.getSession();
+			HttpSession session = request.getSession(true);
 			session.setAttribute("accountsession", username);
 			
 			

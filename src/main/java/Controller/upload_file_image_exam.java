@@ -75,9 +75,9 @@ public class upload_file_image_exam extends HttpServlet {
 			  
 				   //TURUN FORM
 			    ServletContext context = request.getServletContext();
-			    request.setAttribute("message1",context.getRealPath("/ImageUpload/"));
+			    request.setAttribute("message1",context.getRealPath("/imageExamUpload/"));
 			
-			    getServletContext().getRequestDispatcher("/WEB-INF/View/Admin/addimageExam.jsp").forward(request, response);
+			    getServletContext().getRequestDispatcher("/WEB-INF/View/Admin/addExam.jsp").forward(request, response);
 			  }
 			  /**
 			   * Extracts file name from HTTP header content-disposition

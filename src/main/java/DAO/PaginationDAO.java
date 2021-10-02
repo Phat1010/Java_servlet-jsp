@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import Bean.GrammarGuide;
 import Bean.examination;
+import Bean.examinationquestion;
 
 
 
@@ -99,5 +100,71 @@ public class PaginationDAO {
 		}	
 		return list ;
 	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	/*
+
+public static void InsertDataFromExcel(HttpServletRequest request,examinationquestion ex,Connection conn)
+{
+	
+	
+	
+	String sql = "insert into account(idexaminationquestion,imagequestion,audio,audiomp3,paragraph,question,option1,option2,option3,option4,correctanswser,num,examinationid) values (?,?,?,?,?,?,?,?,?,?,?,?,?)";
+	try 
+	{
+		PreparedStatement ptmt = conn.prepareStatement(sql);
+		ex.getIdexaminationquestion();
+		
+		ptmt.setInt(1,ex.getIdexaminationquestion());
+		ptmt.setString(2,ex.getImagequestion());
+		ptmt.setString(3,ex.getAudio());
+		ptmt.setString(4,ex.getAudiomp3());
+		ptmt.setString(5,ex.getParagraph());
+		ptmt.setString(6,ex.getQuestion());
+		ptmt.setString(7,ex.getOption1());
+		ptmt.setString(8,ex.getOption2());
+		ptmt.setString(9,ex.getOption3());
+		ptmt.setString(10,ex.getOption4());
+		ptmt.setString(11,ex.getCorrectanswser());
+		ptmt.setInt(12,ex.getNum());
+		ptmt.setInt(13,ex.getExaminationid());
+		
+
+		
+		int kt = ptmt.executeUpdate();
+		
+		if (kt!=0)
+		{
+			request.setAttribute("message","Insert data from excel to mysql  success");
+		}
+		else 
+		{
+			request.setAttribute("message","Insert data from excel to mysql  failed");
+		}
+		
+		ptmt.close();
+		conn.close();
+		
+	} 
+	catch (SQLException e) 
+	{				
+		request.setAttribute("message",e.getMessage());
+	}
+}
+	*/
+	
+	
+	
+	
+	
 	
 }

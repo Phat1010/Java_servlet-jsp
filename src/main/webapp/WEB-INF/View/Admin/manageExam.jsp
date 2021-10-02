@@ -176,7 +176,7 @@
      
 
 
-    <td><p data-placement="top" data-toggle="tooltip" title="Edit"><a href=""> <button  class="btn btn-primary btn-xs" data-title="Edit" data-toggle="modal" data-target="#edit" value="${listexamination.idexamination}"  name="edit1"><span class="glyphicon glyphicon-pencil"></span></button></a></p></td>
+    <td><p data-placement="top" data-toggle="tooltip" title="Edit"><a href="upload_file_excel_exam?id=${listexamination.idexamination}"> <button  class="btn btn-primary btn-xs" data-title="Edit" data-toggle="modal" data-target="#edit" value="${listexamination.idexamination}"  name="edit1"><span class="glyphicon glyphicon-pencil"></span></button></a></p></td>
     <td><p data-placement="top" data-toggle="tooltip" title="Delete"><a href="Delete_Table_Exam?delete1=${listexamination.idexamination}"><button class="btn btn-danger btn-xs" data-title="Delete" data-toggle="modal" data-target="#delete"  value="${listexamination.idexamination}"  name="delete1"><span class="glyphicon glyphicon-trash"></span></button></a></p></td>
     	
     	</tr>

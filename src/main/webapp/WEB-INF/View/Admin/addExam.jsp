@@ -158,6 +158,7 @@
        	<%= request.getAttribute("mgsupdatate") %>
              	
 	     	<%= request.getAttribute("mgsupdatate") %>
+	     	day la id	<%= session.getAttribute("id") %>
            
           
           
@@ -167,9 +168,10 @@
           
          
           
-          <form action="add_image_exam" method="post">
-          	<input type="text" value="${requestScope.message2}" name="imageexam" hidden="false">
-          
+          <form action="addFileExcel" method="post">
+          	<input type="text" value="${requestScope.message1}${requestScope.message2}" name="address" hidden="true">
+          	<input type="text" value="<%= session.getAttribute("id") %>" name="idexam"  hidden="true">
+          <br>
           	<input type="submit">
           </form>
           
