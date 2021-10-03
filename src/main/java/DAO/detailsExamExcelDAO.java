@@ -32,23 +32,69 @@ public class detailsExamExcelDAO {
 			
 			Sheet sheet = wb.getSheetAt(0);
 			
+			int num = 0;
+			String imagequestion = " ";
+			String audio = " ";
+			String audiomp3 = " ";
+			String paragraph = " ";
+			String question = " ";
+			String option1 = " ";
+			String option2 = " ";
+			String option3 = " ";
+			String option4 = " ";
+			String correctanswser = " ";
+			
 			
 			
 			for (int i=1; i<=sheet.getLastRowNum();i++)
 			{
 				Row row = sheet.getRow(i);
 				
-				int num = (int) row.getCell(0).getNumericCellValue();
-				String imagequestion = row.getCell(1).getStringCellValue();
-				String audio = row.getCell(2).getStringCellValue();
-				String audiomp3 = row.getCell(3).getStringCellValue();
-				String paragraph = row.getCell(4).getStringCellValue();
-				String question = row.getCell(5).getStringCellValue();
-				String option1 = row.getCell(6).getStringCellValue();
-				String option2 = row.getCell(7).getStringCellValue();
-				String option3 = row.getCell(8).getStringCellValue();
-				String option4 = row.getCell(9).getStringCellValue();
-				String correctanswser = row.getCell(10).getStringCellValue();
+				if(row.getCell(1)==null) {
+					imagequestion = " ";
+					}
+				else if(row.getCell(2)==null) {
+					audio = " ";
+					}
+				else if(row.getCell(3)==null) {
+					audiomp3 = " ";
+					}
+				else if(row.getCell(4)==null) {
+					paragraph = " ";
+					}
+				else if(row.getCell(5)==null) {
+					question = " ";
+					}
+				else if(row.getCell(6)==null) {
+					option1 = " ";
+					}
+				else if(row.getCell(7)==null) {
+					option2 = " ";
+					}
+				else if(row.getCell(8)==null) {
+					option3 = " ";
+					}
+				else if(row.getCell(9)==null) {
+					option4 = " ";
+					}
+				else if(row.getCell(10)==null) {
+					correctanswser = " ";
+					}
+				else {
+					 num = (int) row.getCell(0).getNumericCellValue();
+					 imagequestion = row.getCell(1).getStringCellValue();
+					 audio = row.getCell(2).getStringCellValue();
+					 audiomp3 = row.getCell(3).getStringCellValue();
+					 paragraph = row.getCell(4).getStringCellValue();
+					 question = row.getCell(5).getStringCellValue();
+					 option1 = row.getCell(6).getStringCellValue();
+					 option2 = row.getCell(7).getStringCellValue();
+					 option3 = row.getCell(8).getStringCellValue();
+					 option4 = row.getCell(9).getStringCellValue();
+					 correctanswser = row.getCell(10).getStringCellValue();
+					
+				}
+				
 				
 				
 				
@@ -96,7 +142,7 @@ public static void InsertDataFromExcel(HttpServletRequest request,examinationque
 	
 	
 	
-	String sql = "insert into account(imagequestion,audio,audiomp3,paragraph,question,option1,option2,option3,option4,correctanswser,num,examinationid) values (?,?,?,?,?,?,?,?,?,?,?,?)";
+	String sql = "insert into examinationquestion(num,imagequestion,audio,audiomp3,paragraph,question,option1,option2,option3,option4,correctanswser,examinationid) values (?,?,?,?,?,?,?,?,?,?,?,?)";
 	try 
 	{
 		PreparedStatement ptmt = conn.prepareStatement(sql);
