@@ -169,7 +169,7 @@
           
           <form action="add_image_exam" method="post">
           	<input type="text" value="${requestScope.message2}" name="imageexam" hidden="false">
-          
+          <input type="text" value="${requestScope.message2}" name="idexam" hidden="false">
           	<input type="submit">
           </form>
           

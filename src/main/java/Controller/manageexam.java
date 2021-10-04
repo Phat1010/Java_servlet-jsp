@@ -79,11 +79,12 @@ public class manageexam extends HttpServlet {
 
 		//List<Emp> list = QuizDAO.selectAnswser(1,3 , conn);
 		List<examination> listTitle =PaginationDAO.selectExam(start, totalItemsPerPage, "examination", conn,request);
-
-		request.setAttribute("listexamination", listTitle);
 		
 		
 		
+		
+		
+		request.setAttribute("listexamination", listTitle);		
 		request.setAttribute("currentpage", currentpage);
 		request.setAttribute("totalpage",totalpage);
 		request.setAttribute("pageid",getcurrentpage);

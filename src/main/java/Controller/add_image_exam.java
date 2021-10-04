@@ -3,7 +3,7 @@ package Controller;
 import java.io.IOException;
 import java.sql.Connection;
 
-
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -77,6 +77,8 @@ public class add_image_exam extends HttpServlet {
 			request.setAttribute("mgsregister", "register Faild");
 			
 		}
+		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/View/Admin/manageExam.jsp");
+		rd.forward(request, response);
 	}
 	
 

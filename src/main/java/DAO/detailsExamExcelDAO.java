@@ -21,14 +21,14 @@ import org.apache.poi.ss.usermodel.Sheet;
 import Bean.examinationquestion;
 
 public class detailsExamExcelDAO {
-	public static void ImportExcel(HttpServletRequest request,HttpServletResponse response,Connection conn,String address, int idexam) throws ServletException, IOException
+	public static boolean ImportExcel(HttpServletRequest request,HttpServletResponse response,Connection conn,String address, int idexam) throws ServletException, IOException
 	{
 	
 		
 		FileInputStream inp;
 		try 
 		{
-			inp = new FileInputStream("D://addfileexcel.xls");
+			inp = new FileInputStream(address);
 			HSSFWorkbook wb = new HSSFWorkbook(new POIFSFileSystem(inp));
 			
 			Sheet sheet = wb.getSheetAt(0);
@@ -165,7 +165,7 @@ public class detailsExamExcelDAO {
 		
 		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/View/Result.jsp");
 		rd.forward(request,response);
-	
+		return true;
 	}
 
 public static void InsertDataFromExcel(HttpServletRequest request,examinationquestion ex,Connection conn)

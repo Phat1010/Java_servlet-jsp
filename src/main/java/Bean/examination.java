@@ -4,6 +4,7 @@ public class examination {
 	private int idexamination;
 	private String examinationname;
 	private String examinationimage;
+	private int checktable;
 	public int getIdexamination() {
 		return idexamination;
 	}
@@ -21,6 +22,12 @@ public class examination {
 	}
 	public void setExaminationimage(String examinationimage) {
 		this.examinationimage = examinationimage;
+	}
+	public int getChecktable() {
+		return checktable;
+	}
+	public void setChecktable(int checktable) {
+		this.checktable = checktable;
 	}
 
 }

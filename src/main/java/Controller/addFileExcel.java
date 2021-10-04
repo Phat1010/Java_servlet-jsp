@@ -48,7 +48,10 @@ public class addFileExcel extends HttpServlet {
 		int id = Integer.parseInt(request.getParameter("idexam"));
 		String address = request.getParameter("address");
 		
-		detailsExamExcelDAO.ImportExcel(request, response, conn, address, id);
+		boolean check =  detailsExamExcelDAO.ImportExcel(request, response, conn, address, id);
+		if(check) {
+			DAO.CheckedDataDAO.Checked(request, conn, id);
+		}
 		try {
 			conn.close();
 		} catch (SQLException e) {

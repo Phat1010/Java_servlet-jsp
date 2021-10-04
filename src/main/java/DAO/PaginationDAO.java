@@ -79,12 +79,13 @@ public class PaginationDAO {
 			 Integer idexamination = rs.getInt("idexamination");
 			 String examinationname = rs.getString("examinationname");
 			 String examinationimage= rs.getString("examinationimage");
+			 Integer checktable = rs.getInt("checktable");
 			
 		ex.setIdexamination(idexamination);
 			ex.setIdexamination(idexamination);
 			ex.setExaminationname(examinationname);
 			ex.setExaminationimage(examinationimage);
-		
+		ex.setChecktable(checktable);
 		
 			
 		 list.add(ex);

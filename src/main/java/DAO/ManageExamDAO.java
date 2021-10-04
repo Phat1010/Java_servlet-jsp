@@ -16,18 +16,18 @@ public class ManageExamDAO {
 	public static   boolean InsertGrammar(HttpServletRequest request, Connection conn, examination examination) {
 		PreparedStatement ptmt = null;
 		
-		String sql  = "insert into examination(examinationname,examinationimage) value (?,?)";
+		String sql  = "insert into examination(examinationname,checktable) value (?,?)";
 		try {
 			ptmt = conn.prepareStatement(sql);
 		
 			String title = examination.getExaminationname();
-			String img = examination.getExaminationimage();
+			
 		
 		
 			
 			
 			ptmt.setString(1, title);
-			ptmt.setString(2, img);
+			ptmt.setInt(2, 0);
 		
 			
 			int kt = ptmt.executeUpdate();
@@ -57,7 +57,7 @@ public class ManageExamDAO {
 	public static   boolean UpdateExam(HttpServletRequest request, Connection conn, examination examination , int id) {
 		PreparedStatement ptmt = null;
 		
-		String sql  = "update examination set examinationname='"+examination.getExaminationname()+"',examinationimage='"+examination.getExaminationimage()+"' where idexamination="+ id+" ";
+		String sql  = "update examination set examinationimage='"+examination.getExaminationimage()+"' where idexamination="+ id+" ";
 		try {
 			ptmt = conn.prepareStatement(sql);
 		
@@ -86,7 +86,7 @@ public class ManageExamDAO {
 	
 
 
-	public static List<examination> grammarguide (HttpServletRequest request ,Connection conn){
+	public static List<examination> listExam (HttpServletRequest request ,Connection conn){
 		 
 		List<examination> list = new ArrayList<examination>();
 		
@@ -104,12 +104,12 @@ public class ManageExamDAO {
 					 Integer idexamination = rs.getInt("idexamination");
 					 String examinationname = rs.getString("examinationname");
 					 String examinationimage= rs.getString("examinationimage");
-					
+					 Integer checktable = rs.getInt("checktable");
 				ex.setIdexamination(idexamination);
 					ex.setIdexamination(idexamination);
 					ex.setExaminationname(examinationname);
 					ex.setExaminationimage(examinationimage);
-				
+				ex.setChecktable(checktable);
 				
 					
 				
