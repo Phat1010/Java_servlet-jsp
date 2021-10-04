@@ -24,10 +24,11 @@ public class detailsExamExcelDAO {
 	public static void ImportExcel(HttpServletRequest request,HttpServletResponse response,Connection conn,String address, int idexam) throws ServletException, IOException
 	{
 	
+		
 		FileInputStream inp;
 		try 
 		{
-			inp = new FileInputStream(address);
+			inp = new FileInputStream("D://addfileexcel.xls");
 			HSSFWorkbook wb = new HSSFWorkbook(new POIFSFileSystem(inp));
 			
 			Sheet sheet = wb.getSheetAt(0);
@@ -43,44 +44,78 @@ public class detailsExamExcelDAO {
 			String option3 = " ";
 			String option4 = " ";
 			String correctanswser = " ";
-			
-			
-			
-			for (int i=1; i<=sheet.getLastRowNum();i++)
+		
+			for (int i=1; i<=sheet.getLastRowNum() ;i++)
 			{
 				Row row = sheet.getRow(i);
-				
-				if(row.getCell(1)==null) {
-					imagequestion = " ";
-					}
-				else if(row.getCell(2)==null) {
-					audio = " ";
-					}
-				else if(row.getCell(3)==null) {
-					audiomp3 = " ";
-					}
-				else if(row.getCell(4)==null) {
-					paragraph = " ";
-					}
-				else if(row.getCell(5)==null) {
-					question = " ";
-					}
-				else if(row.getCell(6)==null) {
-					option1 = " ";
-					}
-				else if(row.getCell(7)==null) {
-					option2 = " ";
-					}
-				else if(row.getCell(8)==null) {
-					option3 = " ";
-					}
-				else if(row.getCell(9)==null) {
-					option4 = " ";
-					}
-				else if(row.getCell(10)==null) {
-					correctanswser = " ";
+				if(row.getCell(0)==null) {
+					num = 0;
 					}
 				else {
+					 num = (int) row.getCell(0).getNumericCellValue();
+					}
+				
+				 if(row.getCell(1)==null) {
+					imagequestion = " ";
+					}
+				 else {
+					 imagequestion = row.getCell(1).getStringCellValue();
+				 }
+				 if(row.getCell(2)==null) {
+					audio = " ";
+					}
+				 else {
+					 audio = row.getCell(2).getStringCellValue();
+				 }
+				 if(row.getCell(3)==null) {
+					audiomp3 = " ";
+					}
+				 else {
+					 audiomp3 = row.getCell(3).getStringCellValue();
+				 }
+				 if(row.getCell(4)==null) {
+					paragraph = " ";
+					}
+				 else {
+					 paragraph = row.getCell(4).getStringCellValue(); 
+				 }
+				 if(row.getCell(5)==null) {
+					question = " ";
+					}
+				 else {
+					 question = row.getCell(5).getStringCellValue();
+				 }
+				 if(row.getCell(6)==null) {
+					option1 = " ";
+					}
+				 else {
+					 option1 = row.getCell(6).getStringCellValue();
+				 }
+				 if(row.getCell(7)==null) {
+					option2 = " ";
+					}
+				 else {
+					 option2 = row.getCell(7).getStringCellValue();
+				 }
+				 if(row.getCell(8)==null) {
+					option3 = " ";
+					}
+				 else {
+					 option2 = row.getCell(7).getStringCellValue();
+				 }
+				 if(row.getCell(9)==null) {
+					option4 = " ";
+					}
+				 else {
+					 option4 = row.getCell(9).getStringCellValue();
+				 }
+				 if(row.getCell(10)==null) {
+					correctanswser = " ";
+					}
+				 else {
+					 correctanswser = row.getCell(10).getStringCellValue(); 
+				 }
+			/*	else {
 					 num = (int) row.getCell(0).getNumericCellValue();
 					 imagequestion = row.getCell(1).getStringCellValue();
 					 audio = row.getCell(2).getStringCellValue();
@@ -93,11 +128,8 @@ public class detailsExamExcelDAO {
 					 option4 = row.getCell(9).getStringCellValue();
 					 correctanswser = row.getCell(10).getStringCellValue();
 					
-				}
-				
-				
-				
-				
+				}*/
+			
 				
 				examinationquestion ex = new examinationquestion();
 				ex.setNum(num);
@@ -112,8 +144,6 @@ public class detailsExamExcelDAO {
 				ex.setOption4(option4);
 				ex.setCorrectanswser(correctanswser);
 				ex.setExaminationid(idexam);
-				
-				
 				
 				detailsExamExcelDAO.InsertDataFromExcel(request, ex, conn);
 				
@@ -135,6 +165,7 @@ public class detailsExamExcelDAO {
 		
 		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/View/Result.jsp");
 		rd.forward(request,response);
+	
 	}
 
 public static void InsertDataFromExcel(HttpServletRequest request,examinationquestion ex,Connection conn)
@@ -175,7 +206,7 @@ public static void InsertDataFromExcel(HttpServletRequest request,examinationque
 		}
 		
 		ptmt.close();
-		conn.close();
+		
 		
 	} 
 	catch (SQLException e) 
@@ -184,4 +215,7 @@ public static void InsertDataFromExcel(HttpServletRequest request,examinationque
 	}
 
 
-}}
+}
+
+
+}
