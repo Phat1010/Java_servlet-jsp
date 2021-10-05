@@ -77,6 +77,28 @@
 
   <!-- popup -->
  
+ <script src="${pageContext.request.contextPath}/js/jquery-3.1.1.min.js">
+	</script>
+	<script>
+	    $(document)
+	            .ready(
+	                    function() {
+	                        //add more file components if Add is clicked
+	                        $('#addFile')
+	                                .click(
+	                                        function() {
+	                                            var fileIndex = $('#fileTable tr')
+	                                                    .children().length - 1;
+	                                            $('#fileTable')
+	                                                    .append(
+	                                                            '<tr><td>'
+	                                                                    + '   <input type="file" name="files['+ fileIndex +']" />'
+	                                                                    + '</td></tr>');
+	                                        });
+	 
+	                    });
+	</script>
+ 
 </head>
 
 <body>
@@ -301,7 +323,7 @@
 <div class="container">
   <h2>Modal Example</h2>
   <!-- Trigger the modal with a button -->
-  <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button>
+  <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Add Exam</button>
 
   <!-- Modal -->
   <div class="modal fade" id="myModal" role="dialog">
@@ -327,6 +349,63 @@
   
 </div>
 </form>
+
+
+
+
+
+
+<div class="container">
+  <h2>Modal Example</h2>
+  <!-- Trigger the modal with a button -->
+  <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal2">Add file and image</button>
+
+
+  <!-- Modal -->
+  <div class="modal fade" id="myModal2" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Modal Header</h4>
+        </div>
+        <div class="modal-body">
+          <!-- <p>Some text in the modal.</p>
+          <input type="text" name="titleExam" required>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-default" >Next</button> -->
+          
+           <form method="POST" enctype="multipart/form-data" action="Upload_Audio_Image">
+		 	<table id="fileTable">
+		 			 <tr>
+                   		 <td><input name="files[0]" type="file" /></td>
+               		 </tr>
+                	<tr>
+                   		 <td><input name="files[1]" type="file" /></td>
+                	</tr>		  	
+		 	 </table>
+			 <br/>
+			 <input type="submit" value="Upload multiple file">
+			 <input id="addFile" type="button" value="Add File" />
+	</form>
+          
+        </div>
+      </div>
+      
+    </div>
+  </div>
+
+</div>
+
+
+
+
+
+
+
 <!-- MODEL --><!-- MODEL --><!-- MODEL -->
 
 
