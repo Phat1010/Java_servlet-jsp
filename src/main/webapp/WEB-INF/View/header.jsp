@@ -17,7 +17,7 @@
    
      	<a href="pagination?pageid=1" ><img src="${pageContext.request.contextPath}/Template_frontend/images/logo.png" alt="logo"></a> <a href="pagination?pageid=1" >part Grammar</a>
      	<br>
-     	<br>	<a href="GrammarGuideClient"> <img src="${pageContext.request.contextPath}/Template_frontend/images/logo.png" alt="logo"></a> <a href="">part Voca1</a>
+     	<br>	<a href="GrammarGuideClient"> <img src="${pageContext.request.contextPath}/Template_frontend/images/logo.png" alt="logo"></a> <a href="Exam_DisplayList?pageid=1">part Exam</a>
         
       </div>
       <div class="modal-footer">

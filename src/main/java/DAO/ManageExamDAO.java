@@ -162,6 +162,27 @@ public class ManageExamDAO {
 	
 	
 	
+	public static   boolean deleteExamDetails(HttpServletRequest request, Connection conn, int id) {
+		PreparedStatement ptmt = null;
+		
+		String sql  = "delete from examinationquestion where examinationid = "+id+"";
+		try {
+			ptmt = conn.prepareStatement(sql);
+		
+			
+			
+			int kt = ptmt.executeUpdate();
+			if(kt!=0)
+			{
+				return true;
+			}
+			ptmt.close();
+			
+		} catch (SQLException e) {
+			request.setAttribute("msgregister",e.getMessage());
+		}
+		return false;
+	}
 	
 	
 	

@@ -50,11 +50,10 @@ public class TestConnectionForward extends HttpServlet {
 		
 		
 		
-	/*	RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/View/TestConnection.jsp");
+		/*RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/View/TestConnection.jsp");
 		rd.forward(request, response);*/
 		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/View/Admin/homeAdmin.jsp");
 		rd.forward(request, response);
-	
 	}
 
 	/**

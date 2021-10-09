@@ -101,7 +101,7 @@ public class detailsExamExcelDAO {
 					option3 = " ";
 					}
 				 else {
-					 option2 = row.getCell(7).getStringCellValue();
+					 option3 = row.getCell(8).getStringCellValue();
 				 }
 				 if(row.getCell(9)==null) {
 					option4 = " ";
