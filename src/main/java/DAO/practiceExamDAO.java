@@ -10,6 +10,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 
 import Bean.GrammarGuide;
+import Bean.account;
 import Bean.examinationquestion;
 
 
@@ -215,5 +216,52 @@ public class practiceExamDAO {
 	}
 	
 	
+	
+	
+	public static int head(Connection conn, int id) {
+		int count = 0;
+		String sql= "select  idexaminationquestion from examinationquestion where examinationid="+id+"";
+		
+		
+			try {
+				PreparedStatement ptmt = conn.prepareStatement(sql);
+				ResultSet rs = ptmt.executeQuery();
+				rs.next();
+				count = rs.getInt(1);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			
+			
+			
+			
+			return count;
+
+}public static int last(Connection conn, int id) {
+	int count = 0;
+	String sql= "SELECT idexaminationquestion FROM examinationquestion where examinationid="+id+" ORDER BY idexaminationquestion DESC";
+	
+	
+		try {
+			PreparedStatement ptmt = conn.prepareStatement(sql);
+			ResultSet rs = ptmt.executeQuery();
+			rs.next();
+			count = rs.getInt(1);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+		
+		
+		
+		return count;
+
+}
+
+
 	
 }

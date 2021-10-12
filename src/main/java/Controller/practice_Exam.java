@@ -1,7 +1,9 @@
 package Controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.Connection;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -12,6 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 
+import Bean.answeruser;
 import Bean.examinationquestion;
 
 import DAO.practiceExamDAO;
@@ -95,8 +98,12 @@ public class practice_Exam extends HttpServlet {
 		request.setAttribute("currentpage",currentpage);
 		request.setAttribute("currentpag1",currentpag1);
 		
-		request.setAttribute("currentpag1",currentpag1);
+	
 		request.setAttribute("total_record",total_record);
+		
+		
+		
+		
 		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/View/practice_Exam.jsp");
 		rd.forward(request, response);	
 		
@@ -106,8 +113,51 @@ public class practice_Exam extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+			/*PrintWriter out= response.getWriter();
+			response.setContentType("text/html");
+			out.println("<h1>Time out</h1>");*/
+		Connection conn = DBConnection.CreateConnection();
+		int idExam = Integer.parseInt(request.getParameter("idExam"));
+		
+		
+int get_Id_Head =practiceExamDAO.head(conn, idExam);
+		
+		int get_Id_Last =practiceExamDAO.last(conn, idExam);
+		
+		
+		
+	List<examinationquestion> list = practiceExamDAO.DisplayQuizAnswer(conn, idExam, request);
+	List<answeruser> listansweruser = new ArrayList<answeruser>();
+		request.setAttribute("list", list);
+
+
+		for(int i = get_Id_Head ; i <= get_Id_Last;i++)
+		{
+		
+			String answeruser = request.getParameter(""+i);
+			
+			
+		//request.setAttribute("answeruser", answeruser);//chi lay cai cuoi cung thoi vi vay can phai bo vao lst de luu
+		if(answeruser!=null)
+		{
+			answeruser answerUser = new answeruser();
+			 answerUser.setIdexaminationquestion(i);
+			answerUser.setAnswerUser(answeruser);
+			listansweruser.add(answerUser);
+			request.setAttribute("listansweruser", listansweruser);
+		}
+		else {
+			request.setAttribute("msg", "request do all questions");
+			
+			request.setAttribute("list", list);
+			
+		}	
+		
+		}
+		request.setAttribute("get_Id_Head", get_Id_Head);request.setAttribute("get_Id_Last", get_Id_Last);
+		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/View/resultExam.jsp");
+		rd.forward(request, response);
+
 	}
 
 }

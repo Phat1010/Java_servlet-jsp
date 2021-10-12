@@ -46,9 +46,20 @@
   });
 </script>
 
+<script type="text/javascript">
+	function auto_submit() {
+		document.form.submit();
+	}
+	function auto_submit1() {
+		setTimeout(auto_submit, 500000);
+	}
+	
+</script>
+
 
 <!-- Count Down timmer --><!-- Count Down timmer -->
     </head>
+    <body onload="auto_submit1()">
     <jsp:include page="header.jsp"></jsp:include>
     
     <div class="timer" data-seconds-left="25"></div>
@@ -95,78 +106,47 @@
     
     
     
+<form action="practice_Exam" method="post" name="form">
 
     <div class="right">
     <div class="container mt-sm-5 my-1">
     <div class="question ml-sm-5 pl-sm-5 pt-2">
-      <!--  -->
-       <%=  request.getAttribute("currentstartpage") %>
-          curent page <%=  request.getAttribute("currentpage") %>
-           total pagge  <%=  request.getAttribute("totalpage") %>
-                <%=  request.getAttribute("pageid") %>
-                   current page 1 <%=  request.getAttribute("currentpag1") %>
-                   total recore <%=  request.getAttribute("total_record") %>
-          <h1>alo</h1>
+    
+     
 <c:forEach items="${listpouranswer}" var="list">
-        <div class="ml-md-3 ml-sm-3 pl-md-5 pt-sm-0 pt-3" id="options"> 
+        <div class="ml-md-3 ml-sm-3 pl-md-5 pt-sm-0 pt-3" id="options" style="overflow: ::-webkit-scrollbar"> 
         <label class="options"> <B>${list.num}</B> </label> 
-        <label class="options"><input type="radio" name="${list.idexaminationquestion}"> <span class="checkmark"></span> </label> 
-        <label class="options"><input type="radio" name="${list.idexaminationquestion}"> <span class="checkmark"></span> </label>
-         <label class="options"><input type="radio" name="${list.idexaminationquestion}"> <span class="checkmark"></span> </label> 
-         <label class="options"> <input type="radio" name="${list.idexaminationquestion}"> <span class="checkmark"></span> 
+        <label class="options"><input type="radio" name="${list.idexaminationquestion}" value="${list.option1}"> <span class="checkmark"></span> </label> 
+        <label class="options"><input type="radio" name="${list.idexaminationquestion}" value="${list.option2}"> <span class="checkmark"></span> </label>
+         <label class="options"><input type="radio" name="${list.idexaminationquestion}" value="${list.option3}"> <span class="checkmark"></span> </label> 
+         <label class="options"> <input type="radio" name="${list.idexaminationquestion}" value="${list.option4}"> <span class="checkmark"></span> 
          </label> </div>
          
          </c:forEach>
          
-         
-       <!--   <div class="ml-md-3 ml-sm-3 pl-md-5 pt-sm-0 pt-3" id="options"> 
-        <label class="options"> <B>10</B> </label> 
-        <label class="options"><input type="radio" name="radio1"> <span class="checkmark"></span> </label> 
-        <label class="options"><input type="radio" name="radio1"> <span class="checkmark"></span> </label>
-         <label class="options"><input type="radio" name="radio1"> <span class="checkmark"></span> </label> 
-         <label class="options"> <input type="radio" name="radio1"> <span class="checkmark"></span> 
-         </label> </div><div class="ml-md-3 ml-sm-3 pl-md-5 pt-sm-0 pt-3" id="options"> 
-        <label class="options"> <B>1</B> </label> 
-        <label class="options"><input type="radio" name="radio2"> <span class="checkmark"></span> </label> 
-        <label class="options"><input type="radio" name="radio2"> <span class="checkmark"></span> </label>
-         <label class="options"><input type="radio" name="radio2"> <span class="checkmark"></span> </label> 
-         <label class="options"> <input type="radio" name="radio2"> <span class="checkmark"></span> 
-         </label> </div><div class="ml-md-3 ml-sm-3 pl-md-5 pt-sm-0 pt-3" id="options"> 
-        <label class="options"> <B>15</B> </label> 
-        <label class="options"><input type="radio" name="radio3"> <span class="checkmark"></span> </label> 
-        <label class="options"><input type="radio" name="radio3"> <span class="checkmark"></span> </label>
-         <label class="options"><input type="radio" name="radio3"> <span class="checkmark"></span> </label> 
-         <label class="options"> <input type="radio" name="radio3"> <span class="checkmark"></span> 
-         </label> </div><div class="ml-md-3 ml-sm-3 pl-md-5 pt-sm-0 pt-3" id="options"> 
-        <label class="options"> <B>1</B> </label> 
-        <label class="options"><input type="radio" name="radio4"> <span class="checkmark"></span> </label> 
-        <label class="options"><input type="radio" name="radio4"> <span class="checkmark"></span> </label>
-         <label class="options"><input type="radio" name="radio4"> <span class="checkmark"></span> </label> 
-         <label class="options"> <input type="radio" name="radio4"> <span class="checkmark"></span> 
-         </label> </div>-->
+  
          
     </div>
     
  </div> 
     </div>
 
-  
-    
-    
-<!-- 
-<div class="container mt-sm-5 my-1">
-    <div class="question ml-sm-5 pl-sm-5 pt-2">
-        <div class="py-2 h5"><b>Q. which option best describes your job role?</b></div>
-        <div class="ml-md-3 ml-sm-3 pl-md-5 pt-sm-0 pt-3" id="options"> <label class="options">Small Business Owner or Employee <input type="radio" name="radio"> <span class="checkmark"></span> </label> <label class="options">Nonprofit Owner or Employee <input type="radio" name="radio"> <span class="checkmark"></span> </label> <label class="options">Journalist or Activist <input type="radio" name="radio"> <span class="checkmark"></span> </label> <label class="options">Other <input type="radio" name="radio"> <span class="checkmark"></span> </label> </div>
-    </div>
-    <div class="d-flex align-items-center pt-3">
-        <div id="prev"> <button class="btn btn-primary">Previous</button> </div>
-        <div class="ml-auto mr-sm-5"> <button class="btn btn-success">Next</button> </div>
-    </div>
-</div>
- -->
-		<button type="button" class="btn btn-outline-primary mr-md-3 mb-md-0 mb-2">Default Outline</button>
-				<button type="button" class="btn btn-outline-primary mr-md-3 mb-md-0 mb-2">Default Outline</button> 
+
+ 
+		<input type="submit" class="btn btn-outline-primary mr-md-3 mb-md-0 mb-2" value="submit">				<button type="button" class="btn btn-outline-primary mr-md-3 mb-md-0 mb-2">Default Outline</button> 
+				
+				
+				<input type="text" value="<%=request.getParameter("id")%>" name="idExam">
+			head	<input type="text" value="${get_Id_Head}" name="idExam">
+				last<input type="text" value="<%=request.getAttribute("get_Id_Last")%>" name="idExam">
+				</form>
+				
+				
+				
+				
+		
+				
+				
 				
          <div class="clearfix"></div>
 <ul class="pagination pull-right">
