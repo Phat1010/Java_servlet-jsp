@@ -126,9 +126,9 @@ int get_Id_Head =practiceExamDAO.head(conn, idExam);
 		
 		
 		
-	List<examinationquestion> list = practiceExamDAO.DisplayQuizAnswer(conn, idExam, request);
+	List<examinationquestion> listpourdata = practiceExamDAO.DisplayQuizAnswer(conn, idExam, request);
 	List<answeruser> listansweruser = new ArrayList<answeruser>();
-		request.setAttribute("list", list);
+		request.setAttribute("listpourdata", listpourdata);
 
 
 		for(int i = get_Id_Head ; i <= get_Id_Last;i++)
@@ -147,9 +147,9 @@ int get_Id_Head =practiceExamDAO.head(conn, idExam);
 			request.setAttribute("listansweruser", listansweruser);
 		}
 		else {
-			request.setAttribute("msg", "request do all questions");
+		/*	request.setAttribute("msg", "request do all questions");
 			
-			request.setAttribute("list", list);
+			request.setAttribute("list", list);*/
 			
 		}	
 		
