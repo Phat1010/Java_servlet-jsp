@@ -13,15 +13,15 @@ import Bean.account;
 import Bean.result;
 
 public class UserAnwserDAO {
-	public static   boolean InsertAnswerUser(HttpServletRequest request,int idaccount, int idexamination, Connection conn, result re) {
+	public static   boolean InsertAnswerUser(HttpServletRequest request,int idexamination, String username, Connection conn, result re) {
 		PreparedStatement ptmt = null;
 		
-		String sql  = "insert into result(correctanswer,incorrectanswer,times,idaccount,idexamination) value (?,?,?,?,?)";
+		String sql  = "insert into result(correctanswer,incorrectanswer,times,username,idexamination) value (?,?,?,?,?)";
 		try {
 			ptmt = conn.prepareStatement(sql);
 		
 			int correctanswer = re.getCorrectanswer();
-			int incorrectanswer = re.getCorrectanswer();
+			int incorrectanswer = re.getIncorrectanswer();
 			String times = re.getTimes();
 			
 			
@@ -34,8 +34,9 @@ public class UserAnwserDAO {
 			ptmt.setInt(1, correctanswer);
 			ptmt.setInt(2, incorrectanswer);
 			ptmt.setString(3, times);
-			ptmt.setInt(4, idaccount);
+			ptmt.setString(4, username);
 			ptmt.setInt(5, idexamination);
+			
 			int kt = ptmt.executeUpdate();
 			if(kt!=0)
 			{

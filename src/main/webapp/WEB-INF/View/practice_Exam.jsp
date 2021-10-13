@@ -57,6 +57,8 @@
 </script>
 
 
+
+
 <!-- Count Down timmer --><!-- Count Down timmer -->
     </head>
     <body onload="auto_submit1()">
@@ -107,7 +109,7 @@
     
     
 <form action="practice_Exam" method="post" name="form">
-
+<input type="text" value="${accountsession}" name="namesession" >
     <div class="right">
     <div class="container mt-sm-5 my-1">
     <div class="question ml-sm-5 pl-sm-5 pt-2">

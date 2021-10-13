@@ -7,7 +7,7 @@ public class result {
 	private int correctanswer;
 	private int incorrectanswer;
 	private String times;
-	private int idaccount;
+	private String username;
 	private int idexamination;
 	public int getIdresult() {
 		return idresult;
@@ -33,16 +33,18 @@ public class result {
 	public void setTimes(String times) {
 		this.times = times;
 	}
-	public int getIdaccount() {
-		return idaccount;
-	}
-	public void setIdaccount(int idaccount) {
-		this.idaccount = idaccount;
-	}
+
 	public int getIdexamination() {
 		return idexamination;
 	}
 	public void setIdexamination(int idexamination) {
 		this.idexamination = idexamination;
 	}
+	public String getUsername() {
+		return username;
+	}
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
 }

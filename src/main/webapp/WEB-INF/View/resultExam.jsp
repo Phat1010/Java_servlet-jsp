@@ -875,6 +875,9 @@
 				<div class="question ml-sm-5 pl-sm-5 pt-2">
 
 					Answer your choice
+					so cau hoi dung ne<%=request.getAttribute("countcorrect") %>
+					so cau hoi sai ne<%=request.getAttribute("countincorrect") %>
+						so cau hoi sai ne<%=request.getAttribute("name") %>
 					<c:forEach items="${listansweruser}" var="list">
 
 
@@ -956,7 +959,7 @@
 
 	</ul>
 
-
+<input type="text" value="${accountsession}" name="namesession" >
 	<jsp:include page="footer.jsp"></jsp:include>
 </body>
 </html>

@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -16,6 +17,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import Bean.answeruser;
 import Bean.examinationquestion;
+import Bean.result;
 import DAO.UserAnwserDAO;
 import DAO.practiceExamDAO;
 import DB.DBConnection;
@@ -118,14 +120,15 @@ public class practice_Exam extends HttpServlet {
 			out.println("<h1>Time out</h1>");*/
 		Connection conn = DBConnection.CreateConnection();
 		int idExam = Integer.parseInt(request.getParameter("idExam"));
-		
+		String name = request.getParameter("namesession");
 		
 int get_Id_Head =practiceExamDAO.head(conn, idExam);
 		
 		int get_Id_Last =practiceExamDAO.last(conn, idExam);
 		
 		int countcorrect= 0;
-		
+		int countquestion = practiceExamDAO.getCountrow(conn, idExam);
+		int countincorrect=0;
 	List<examinationquestion> listpourdata = practiceExamDAO.DisplayQuizAnswer(conn, idExam, request);
 	List<answeruser> listansweruser = new ArrayList<answeruser>();
 		request.setAttribute("listpourdata", listpourdata);
@@ -160,6 +163,25 @@ int get_Id_Head =practiceExamDAO.head(conn, idExam);
 		}	
 		
 		}
+		
+		
+		
+		countincorrect = countquestion-countcorrect;
+		Date date = new Date();
+		result rs = new result();
+		rs.setCorrectanswer(countcorrect);
+		rs.setIncorrectanswer(countincorrect);
+		rs.setTimes(date.toString());
+		rs.setUsername(name);
+		rs.setIdexamination(idExam);
+	UserAnwserDAO.InsertAnswerUser(request, idExam, name, conn, rs);
+		
+		
+		
+		
+		request.setAttribute("countincorrect", countincorrect);
+		request.setAttribute("countcorrect", countcorrect);
+		request.setAttribute("name", name);
 		request.setAttribute("listansweruser", listansweruser);
 		request.setAttribute("get_Id_Head", get_Id_Head);request.setAttribute("get_Id_Last", get_Id_Last);
 		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/View/resultExam.jsp");
