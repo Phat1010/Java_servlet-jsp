@@ -197,12 +197,7 @@ public class practiceExamDAO {
 				
 			
 			}
-			
-			
-			
-			
-			
-			
+	
 			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block

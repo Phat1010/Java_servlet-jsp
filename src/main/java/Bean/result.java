@@ -1,6 +1,6 @@
 package Bean;
 
-import java.util.Date;
+
 
 public class result {
 	private int idresult;

@@ -16,7 +16,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import Bean.answeruser;
 import Bean.examinationquestion;
-
+import DAO.UserAnwserDAO;
 import DAO.practiceExamDAO;
 import DB.DBConnection;
 
@@ -124,7 +124,7 @@ int get_Id_Head =practiceExamDAO.head(conn, idExam);
 		
 		int get_Id_Last =practiceExamDAO.last(conn, idExam);
 		
-		
+		int countcorrect= 0;
 		
 	List<examinationquestion> listpourdata = practiceExamDAO.DisplayQuizAnswer(conn, idExam, request);
 	List<answeruser> listansweruser = new ArrayList<answeruser>();
@@ -144,16 +144,23 @@ int get_Id_Head =practiceExamDAO.head(conn, idExam);
 			 answerUser.setIdexaminationquestion(i);
 			answerUser.setAnswerUser(answeruser);
 			listansweruser.add(answerUser);
-			request.setAttribute("listansweruser", listansweruser);
+			String answercorrect =UserAnwserDAO.correctAnswer(conn, i);
+			if(answercorrect.equals(answeruser)) {
+				countcorrect++;
+			}
+			
 		}
 		else {
-		/*	request.setAttribute("msg", "request do all questions");
-			
-			request.setAttribute("list", list);*/
+		
+			answeruser answerUser = new answeruser();
+			 answerUser.setIdexaminationquestion(i);
+			answerUser.setAnswerUser(answeruser);
+			listansweruser.add(answerUser);
 			
 		}	
 		
 		}
+		request.setAttribute("listansweruser", listansweruser);
 		request.setAttribute("get_Id_Head", get_Id_Head);request.setAttribute("get_Id_Last", get_Id_Last);
 		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/View/resultExam.jsp");
 		rd.forward(request, response);

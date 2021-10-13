@@ -3,6 +3,7 @@ package DAO;
 import java.sql.Connection;
 
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Date;
 
@@ -49,5 +50,33 @@ public class UserAnwserDAO {
 	}
 	
 	
-	
+	public static String correctAnswer (Connection conn,int idexaminationquestion){
+		 
+		String correct="";
+			
+			try {
+				
+				PreparedStatement ptmt = null;
+				String sql = "select correctanswser from examinationquestion where idexaminationquestion="+idexaminationquestion+"";
+				ptmt = conn.prepareStatement(sql);
+				
+				
+				ResultSet rs = ptmt.executeQuery();
+				while(rs.next()) {
+				
+					correct = rs.getString(1);
+					 
+				
+				}
+				ptmt.close();
+				rs.close();
+				
+				
+				
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}	
+			return correct ;
+		}
 }
