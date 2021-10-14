@@ -10,25 +10,24 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-
 import Bean.examination;
-
+import Bean.vocabulary;
 import DAO.GrammarGuideManageDAO;
-
 import DAO.ManageExamDAO;
+import DAO.manageVocabularyDAO;
 import DB.DBConnection;
 
 /**
- * Servlet implementation class add_image_exam
+ * Servlet implementation class add_image_Vocabulary
  */
-@WebServlet("/add_image_exam")
-public class add_image_exam extends HttpServlet {
+@WebServlet("/add_image_Vocabulary")
+public class add_image_Vocabulary extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public add_image_exam() {
+    public add_image_Vocabulary() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -54,18 +53,18 @@ public class add_image_exam extends HttpServlet {
 		
 
 		
-		int idlast = GrammarGuideManageDAO.lastgrammarguide(request, conn,"examination");
+		int idlast = GrammarGuideManageDAO.lastgrammarguide(request, conn,"vocabulary");
 		//do dl ra 2 bagn
 
 		//!do dl ra 2 bagn
 		
 		String nameimage = request.getParameter("imageexam");
 		
-	examination ex = new examination();
-	ex.setExaminationimage(nameimage);
+		vocabulary voc = new vocabulary();
+		voc.setVocabularyimage(nameimage);
 		
 		
-		boolean test = ManageExamDAO.UpdateExam(request, conn, ex, idlast);
+		boolean test = manageVocabularyDAO.UpdateVocabulary(request, conn, voc, idlast);
 		
 		if (test) {
 			
@@ -77,9 +76,9 @@ public class add_image_exam extends HttpServlet {
 			request.setAttribute("mgsregister", "register Faild");
 			
 		}
-		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/View/Admin/manageVocabulary.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/View/Admin/manageExam.jsp");
 		rd.forward(request, response);
-	}
 	
+	}
 
 }

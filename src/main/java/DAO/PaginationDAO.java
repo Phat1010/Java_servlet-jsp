@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import Bean.GrammarGuide;
 import Bean.examination;
 import Bean.examinationquestion;
+import Bean.vocabulary;
 
 
 
@@ -103,7 +104,49 @@ public class PaginationDAO {
 	}
 	
 	
-	
+	public static List<vocabulary> selectVocabulary (int start, int count ,Connection conn,HttpServletRequest request){
+		 
+		List<vocabulary> list = new ArrayList<vocabulary>();
+		
+		try {
+			
+			PreparedStatement ptmt = null;
+			String sql = "select * from vocabulary limit "+start+","+count+"";
+			ptmt = conn.prepareStatement(sql);
+			
+			
+			ResultSet rs = ptmt.executeQuery();
+			while(rs.next()) {
+		
+				vocabulary ex= new vocabulary();
+				 Integer idvocabulary = rs.getInt("idvocabulary");
+				 String vocabularyname = rs.getString("vocabularyname");
+				 String vocabularyimage= rs.getString("vocabularyimage");
+				 Integer checktable = rs.getInt("checktable");
+				 
+			ex.setIdvocabulary(idvocabulary);
+				
+				ex.setVocabularyname(vocabularyname);
+				ex.setVocabularyimage(vocabularyimage);
+			ex.setChecktable(checktable);
+			
+				
+			
+				 list.add(ex);
+		
+		
+			
+			}
+			ptmt.close();
+			rs.close();
+			
+			
+			
+		} catch (SQLException e) {
+			request.setAttribute("error", e.getMessage());
+		}	
+		return list ;
+	}
 	
 	
 	

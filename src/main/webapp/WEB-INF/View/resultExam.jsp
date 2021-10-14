@@ -959,7 +959,7 @@
 
 	</ul>
 
-<input type="text" value="${accountsession}" name="namesession" >
+
 	<jsp:include page="footer.jsp"></jsp:include>
 </body>
 </html>
