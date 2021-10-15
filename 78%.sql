@@ -31,7 +31,7 @@ CREATE TABLE `account` (
   `password` text,
   `accountcategory` text,
   PRIMARY KEY (`idaccount`)
-) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=34 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -40,6 +40,7 @@ CREATE TABLE `account` (
 
 LOCK TABLES `account` WRITE;
 /*!40000 ALTER TABLE `account` DISABLE KEYS */;
+INSERT INTO `account` VALUES (33,'trantuanphat','trantuanphat1010@gmail.com','1234567','1');
 /*!40000 ALTER TABLE `account` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -107,7 +108,7 @@ CREATE TABLE `comment_grammar` (
   `comment_idgrammar` text,
   `times` text,
   PRIMARY KEY (`idcomment_Grammar`)
-) ENGINE=InnoDB AUTO_INCREMENT=218 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=219 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -116,7 +117,7 @@ CREATE TABLE `comment_grammar` (
 
 LOCK TABLES `comment_grammar` WRITE;
 /*!40000 ALTER TABLE `comment_grammar` DISABLE KEYS */;
-INSERT INTO `comment_grammar` VALUES (209,'ua ua','a','183','26-9-2021 8:49:48'),(210,'la sao ta','a','183','26-9-2021 8:49:53'),(211,'dác','a','183','26-9-2021 8:49:55'),(212,'la sao ta','a','179','26-9-2021 8:50:15'),(213,'uaua','a','179','26-9-2021 8:50:18'),(214,'áccas','trantuanphat','179','26-9-2021 8:51:22'),(215,'la sao ta','ac','182','26-9-2021 9:4:24'),(216,'ac','ac','182','26-9-2021 9:4:42'),(217,'lsa sao tao','ac','182','26-9-2021 9:6:5');
+INSERT INTO `comment_grammar` VALUES (209,'ua ua','a','183','26-9-2021 8:49:48'),(210,'la sao ta','a','183','26-9-2021 8:49:53'),(211,'dác','a','183','26-9-2021 8:49:55'),(212,'la sao ta','a','179','26-9-2021 8:50:15'),(213,'uaua','a','179','26-9-2021 8:50:18'),(214,'áccas','trantuanphat','179','26-9-2021 8:51:22'),(215,'la sao ta','ac','182','26-9-2021 9:4:24'),(216,'ac','ac','182','26-9-2021 9:4:42'),(217,'lsa sao tao','ac','182','26-9-2021 9:6:5'),(218,'dá','trantuanphat','179','8-10-2021 14:48:31');
 /*!40000 ALTER TABLE `comment_grammar` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -131,8 +132,9 @@ CREATE TABLE `examination` (
   `idexamination` int NOT NULL AUTO_INCREMENT,
   `examinationname` text,
   `examinationimage` varchar(45) DEFAULT NULL,
+  `checktable` int DEFAULT NULL,
   PRIMARY KEY (`idexamination`)
-) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=60 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -141,7 +143,7 @@ CREATE TABLE `examination` (
 
 LOCK TABLES `examination` WRITE;
 /*!40000 ALTER TABLE `examination` DISABLE KEYS */;
-INSERT INTO `examination` VALUES (6,'test',NULL),(7,'hêlllo',NULL),(8,'hêlllo',NULL),(9,'hêlllo3',NULL),(10,'null','iconfbend.png'),(11,NULL,NULL),(12,NULL,NULL),(16,'dethi2',NULL),(17,'null','background.jpg'),(18,'null','icongmail.png'),(19,'teascasc',NULL),(20,'null','Book1.xls'),(21,'cái j z troi',NULL),(22,'null','Book1.xls'),(23,'null','Book1.xls');
+INSERT INTO `examination` VALUES (53,'last ne','hinh1.png',1),(54,'a',NULL,1),(55,'b','hinh2.png',0),(56,'c',NULL,0),(57,'c',NULL,0),(58,'tesst lai',NULL,0),(59,'a',NULL,1);
 /*!40000 ALTER TABLE `examination` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -167,7 +169,7 @@ CREATE TABLE `examinationquestion` (
   `correctanswser` text,
   `examinationid` int DEFAULT NULL,
   PRIMARY KEY (`idexaminationquestion`)
-) ENGINE=InnoDB AUTO_INCREMENT=103 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=220 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -176,7 +178,7 @@ CREATE TABLE `examinationquestion` (
 
 LOCK TABLES `examinationquestion` WRITE;
 /*!40000 ALTER TABLE `examinationquestion` DISABLE KEYS */;
-INSERT INTO `examinationquestion` VALUES (94,222,'hinh1.png','audio1.mp3','audio1.ogg',' ','look at the picture and listen to the sentences. Choose the sentences that best describes ','hehe','hello',' ',' ','  ',9),(95,7,'hinh2.png','audio1.mp3','audio1.ogg',' ','look at the picture and listen to the sentences. Choose the sentences that best describes ','  ',' ',' ',' ','  ',9),(96,8,'hinh3.png','audio1.mp3','audio4.ogg','audio1.ogg','look at the picture and listen to the sentences. Choose the sentences that best describes ','  ',' ',' ',' ','  ',9),(97,9,'hinh4.png','audio1.mp3','audio1.ogg',' ','look at the picture and listen to the sentences. Choose the sentences that best describes ','  ','a',' ',' ','  ',9),(98,10,'hinh 5',' ',' ','alo',' ',' ',' ',' ',' ',' ',9),(99,11,' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',9),(100,12,' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',9),(101,13,'hinh 6 ',' ',' ',' ',' ',' ',' ',' ',' ',' ',9),(102,14,'hinh7',' ',' ',' ',' ',' ',' ',' ',' ',' ',9);
+INSERT INTO `examinationquestion` VALUES (94,222,'hinh1.png','audio1.mp3','audio1.ogg',' ','look at the picture and listen to the sentences. Choose the sentences that best describes ','hehe','hello',' ',' ','  ',9),(95,7,'hinh2.png','audio1.mp3','audio1.ogg',' ','look at the picture and listen to the sentences. Choose the sentences that best describes ','  ',' ',' ',' ','  ',9),(96,8,'hinh3.png','audio1.mp3','audio4.ogg','audio1.ogg','look at the picture and listen to the sentences. Choose the sentences that best describes ','  ',' ',' ',' ','  ',9),(97,9,'hinh4.png','audio1.mp3','audio1.ogg',' ','look at the picture and listen to the sentences. Choose the sentences that best describes ','  ','a',' ',' ','  ',9),(98,10,'hinh 5',' ',' ','alo',' ',' ',' ',' ',' ',' ',9),(99,11,' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',9),(100,12,' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',9),(101,13,'hinh 6 ',' ',' ',' ',' ',' ',' ',' ',' ',' ',9),(102,14,'hinh7',' ',' ',' ',' ',' ',' ',' ',' ',' ',9),(103,222,'hinh1.png','audio1.mp3','audio1.ogg',' ','look at the picture and listen to the sentences. Choose the sentences that best describes ','hehe','hello',' ',' ','  ',34),(104,7,'hinh2.png','audio1.mp3','audio1.ogg',' ','look at the picture and listen to the sentences. Choose the sentences that best describes ','  ',' ',' ',' ','  ',34),(105,8,'hinh3.png','audio1.mp3','audio4.ogg','audio1.ogg','look at the picture and listen to the sentences. Choose the sentences that best describes ','  ',' ',' ',' ','  ',34),(106,9,'hinh4.png','audio1.mp3','audio1.ogg',' ','look at the picture and listen to the sentences. Choose the sentences that best describes ','  ','a',' ',' ','  ',34),(107,10,'hinh 5',' ',' ','alo',' ',' ',' ',' ',' ',' ',34),(108,11,' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',34),(109,12,' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',34),(110,13,'hinh 6 ',' ',' ',' ',' ',' ',' ',' ',' ',' ',34),(111,14,'hinh7',' ',' ',' ',' ',' ',' ',' ',' ',' ',34),(112,222,'hinh1.png','audio1.mp3','audio1.ogg',' ','look at the picture and listen to the sentences. Choose the sentences that best describes ','hehe','hello',' ',' ','  ',31),(113,7,'hinh2.png','audio1.mp3','audio1.ogg',' ','look at the picture and listen to the sentences. Choose the sentences that best describes ','  ',' ',' ',' ','  ',31),(114,8,'hinh3.png','audio1.mp3','audio4.ogg','audio1.ogg','look at the picture and listen to the sentences. Choose the sentences that best describes ','  ',' ',' ',' ','  ',31),(115,9,'hinh4.png','audio1.mp3','audio1.ogg',' ','look at the picture and listen to the sentences. Choose the sentences that best describes ','  ','a',' ',' ','  ',31),(116,10,'hinh 5',' ',' ','alo',' ',' ',' ',' ',' ',' ',31),(117,11,' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',31),(118,12,' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',31),(119,13,'hinh 6 ',' ',' ',' ',' ',' ',' ',' ',' ',' ',31),(120,14,'hinh7',' ',' ',' ',' ',' ',' ',' ',' ',' ',31),(121,222,'hinh1.png','audio1.mp3','audio1.ogg',' ','look at the picture and listen to the sentences. Choose the sentences that best describes ','hehe','hello',' ',' ','  ',35),(122,7,'hinh2.png','audio1.mp3','audio1.ogg',' ','look at the picture and listen to the sentences. Choose the sentences that best describes ','  ',' ',' ',' ','  ',35),(123,8,'hinh3.png','audio1.mp3','audio4.ogg','audio1.ogg','look at the picture and listen to the sentences. Choose the sentences that best describes ','  ',' ',' ',' ','  ',35),(124,9,'hinh4.png','audio1.mp3','audio1.ogg',' ','look at the picture and listen to the sentences. Choose the sentences that best describes ','  ','a',' ',' ','  ',35),(125,10,'hinh 5',' ',' ','alo',' ',' ',' ',' ',' ',' ',35),(126,11,' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',35),(127,12,' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',35),(128,13,'hinh 6 ',' ',' ',' ',' ',' ',' ',' ',' ',' ',35),(129,14,'hinh7',' ',' ',' ',' ',' ',' ',' ',' ',' ',35),(139,222,'hinh1.png','audio1.mp3','audio1.ogg',' ','look at the picture and listen to the sentences. Choose the sentences that best describes ','hehe','hello',' ',' ','  ',47),(140,7,'hinh2.png','audio1.mp3','audio1.ogg',' ','look at the picture and listen to the sentences. Choose the sentences that best describes ','  ',' ',' ',' ','  ',47),(141,8,'hinh3.png','audio1.mp3','audio4.ogg','audio1.ogg','look at the picture and listen to the sentences. Choose the sentences that best describes ','  ',' ',' ',' ','  ',47),(142,9,'hinh4.png','audio1.mp3','audio1.ogg',' ','look at the picture and listen to the sentences. Choose the sentences that best describes ','  ','a',' ',' ','  ',47),(143,10,'hinh 5',' ',' ','alo',' ',' ',' ',' ',' ',' ',47),(144,11,' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',47),(145,12,' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',47),(146,13,'hinh 6 ',' ',' ',' ',' ',' ',' ',' ',' ',' ',47),(147,14,'hinh7',' ',' ',' ',' ',' ',' ',' ',' ',' ',47),(148,222,'hinh1.png','audio1.mp3','audio1.ogg',' ','look at the picture and listen to the sentences. Choose the sentences that best describes ','hehe','hello',' ',' ','  ',48),(149,7,'hinh2.png','audio1.mp3','audio1.ogg',' ','look at the picture and listen to the sentences. Choose the sentences that best describes ','  ',' ',' ',' ','  ',48),(150,8,'hinh3.png','audio1.mp3','audio4.ogg','audio1.ogg','look at the picture and listen to the sentences. Choose the sentences that best describes ','  ',' ',' ',' ','  ',48),(151,9,'hinh4.png','audio1.mp3','audio1.ogg',' ','look at the picture and listen to the sentences. Choose the sentences that best describes ','  ','a',' ',' ','  ',48),(152,10,'hinh 5',' ',' ','alo',' ',' ',' ',' ',' ',' ',48),(153,11,' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',48),(154,12,' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',48),(155,13,'hinh 6 ',' ',' ',' ',' ',' ',' ',' ',' ',' ',48),(156,14,'hinh7',' ',' ',' ',' ',' ',' ',' ',' ',' ',48),(208,1,'hinh1.png','audio1.ogg','audio1.mp3','It\'s only 36 centimeters tall, but to fans throughout the world, it represents the highest achievement in football. Every four years, teams from all over the globe compete to take home the FIFA World Cup Trophy, yet nobody ever does.','. This reading is mainly about……','the World Cup tournament','thieves','the World Cup trophy','World Cup stars','the World Cup tournament',53),(209,2,'hinh2.png','audio2.ogg','audio2.mp3','Carefully guiding a needle that\'s longer than his tiny fingers, a young boy in Pakistan stitches together the leather pieces of\na soccer ball','1.What is an example of dangerous work done by a child?','stitching a soccer ball','knotting carpet threads','ac','none of the above','knotting carpet threads',53),(210,3,' ','audio2.ogg','audio2.mp3','Carefully guiding a needle that\'s longer than his tiny fingers, a young boy in Pakistan stitches together the leather pieces of\na soccer ball','2.What is an example of dangerous work done by a child?','stitching a soccer ball','knotting carpet threads','mixing gunpowder1','none of the above','mixing gunpowder1',53),(211,4,'hinh1.png',' ',' ','Carefully guiding a needle that\'s longer than his tiny fingers, a young boy in Pakistan stitches together the leather pieces of\na soccer ball','3.What is an example of dangerous work done by a child?','stitching a soccer ball','knotting carpet threads','alo_ck','none of the above','none of the above',53),(212,1,'hinh1.png','audio1.ogg','audio1.mp3','It\'s only 36 centimeters tall, but to fans throughout the world, it represents the highest achievement in football. Every four years, teams from all over the globe compete to take home the FIFA World Cup Trophy, yet nobody ever does.','. This reading is mainly about……','the World Cup tournament','thieves',' the World Cup trophy\n','World Cup stars','  World Cup stars',54),(213,2,'hinh2.png','audio2.ogg','audio2.mp3','Carefully guiding a needle that\'s longer than his tiny fingers, a young boy in Pakistan stitches together the leather pieces of\na soccer ball','What is an example of dangerous work done by a child?','stitching a soccer ball','knotting carpet threads','mixing gunpowder\n','none of the above','none of the above',54),(214,3,' ','audio2.ogg','audio2.mp3','Carefully guiding a needle that\'s longer than his tiny fingers, a young boy in Pakistan stitches together the leather pieces of\na soccer ball','What is an example of dangerous work done by a child?','stitching a soccer ball','knotting carpet threads','mixing gunpowder\n','none of the above','none of the above',54),(215,4,'hinh1.png',' ',' ','Carefully guiding a needle that\'s longer than his tiny fingers, a young boy in Pakistan stitches together the leather pieces of\na soccer ball','What is an example of dangerous work done by a child?','stitching a soccer ball','knotting carpet threads','mixing gunpowder\n','none of the above','none of the above',54),(216,1,'hinh1.png','audio1.ogg','audio1.mp3','It\'s only 36 centimeters tall, but to fans throughout the world, it represents the highest achievement in football. Every four years, teams from all over the globe compete to take home the FIFA World Cup Trophy, yet nobody ever does.','. This reading is mainly about……','the World Cup tournament','thieves',' the World Cup trophy\n','World Cup stars','  World Cup stars',59),(217,2,'hinh2.png','audio2.ogg','audio2.mp3','Carefully guiding a needle that\'s longer than his tiny fingers, a young boy in Pakistan stitches together the leather pieces of\na soccer ball','What is an example of dangerous work done by a child?','stitching a soccer ball','knotting carpet threads','mixing gunpowder\n','none of the above','none of the above',59),(218,3,' ','audio2.ogg','audio2.mp3','Carefully guiding a needle that\'s longer than his tiny fingers, a young boy in Pakistan stitches together the leather pieces of\na soccer ball','What is an example of dangerous work done by a child?','stitching a soccer ball','knotting carpet threads','mixing gunpowder\n','none of the above','none of the above',59),(219,4,'hinh1.png',' ',' ','Carefully guiding a needle that\'s longer than his tiny fingers, a young boy in Pakistan stitches together the leather pieces of\na soccer ball','What is an example of dangerous work done by a child?','stitching a soccer ball','knotting carpet threads','mixing gunpowder\n','none of the above','none of the above',59);
 /*!40000 ALTER TABLE `examinationquestion` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -207,6 +209,91 @@ INSERT INTO `grammarguide` VALUES (179,'past simple','hear.png','Dấu hiệu nh
 UNLOCK TABLES;
 
 --
+-- Table structure for table `result`
+--
+
+DROP TABLE IF EXISTS `result`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `result` (
+  `idresult` int NOT NULL AUTO_INCREMENT,
+  `correctanswer` int DEFAULT NULL,
+  `incorrectanswer` int DEFAULT NULL,
+  `times` varchar(50) DEFAULT NULL,
+  `username` text,
+  `idexamination` int DEFAULT NULL,
+  PRIMARY KEY (`idresult`)
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `result`
+--
+
+LOCK TABLES `result` WRITE;
+/*!40000 ALTER TABLE `result` DISABLE KEYS */;
+INSERT INTO `result` VALUES (19,1,3,'Thu Oct 14 08:49:33 ICT 2021','trantuanphat',53),(20,0,4,'Fri Oct 15 10:22:23 ICT 2021','trantuanphat',59);
+/*!40000 ALTER TABLE `result` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `vocabulary`
+--
+
+DROP TABLE IF EXISTS `vocabulary`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `vocabulary` (
+  `idvocabulary` int NOT NULL AUTO_INCREMENT,
+  `vocabularyname` text,
+  `vocabularyimage` text,
+  `checktable` int DEFAULT NULL,
+  PRIMARY KEY (`idvocabulary`)
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `vocabulary`
+--
+
+LOCK TABLES `vocabulary` WRITE;
+/*!40000 ALTER TABLE `vocabulary` DISABLE KEYS */;
+INSERT INTO `vocabulary` VALUES (15,'tesst','competition.jpg',1);
+/*!40000 ALTER TABLE `vocabulary` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `vocabularydetails`
+--
+
+DROP TABLE IF EXISTS `vocabularydetails`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `vocabularydetails` (
+  `idvocabularydetails` int NOT NULL AUTO_INCREMENT,
+  `num` int DEFAULT NULL,
+  `vocabularydetailsname` text,
+  `transcribe` text,
+  `image` text,
+  `audiomp3` text,
+  `audioogg` text,
+  `mean` text,
+  `idvocabulary` int DEFAULT NULL,
+  PRIMARY KEY (`idvocabularydetails`)
+) ENGINE=InnoDB AUTO_INCREMENT=101 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `vocabularydetails`
+--
+
+LOCK TABLES `vocabularydetails` WRITE;
+/*!40000 ALTER TABLE `vocabularydetails` DISABLE KEYS */;
+INSERT INTO `vocabularydetails` VALUES (96,1,'competition  ract ','/,kɔmpi\'tiʃn/','competition.jpg','competition.mp3','competition.ogg','(v): ‹sự/cuộc› cạnh tranh, tranh giành, thi đấu',15),(97,2,'consume ','/kən\'sju:m/','consume.jpg','consume.mp3','consume.ogg','(v): tiêu thụ, tiêu dùng',15),(98,3,'inspiration ','/,inspə\'reiʃn/','inspiration.jpg','inspiration.mp3','inspiration.ogg','(n): ‹sự/người/vật› truyền cảm hứng, gây cảm hứng',15),(99,4,'market ','/\'mɑ:kit/','market.jpg','market.mp3','market.ogg','(v): thị trường, chợ, nơi mua bán sản phẩm…',15),(100,5,'satisfaction ','/,sætis\'fækʃn/','satisfaction.jpg','satisfaction.mp3','satisfaction.ogg','(n): sự làm thỏa mãn, sự hài lòng',15);
+/*!40000 ALTER TABLE `vocabularydetails` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Dumping routines for database 'toeic'
 --
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -219,4 +306,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-10-04 11:00:28
+-- Dump completed on 2021-10-15 11:29:33

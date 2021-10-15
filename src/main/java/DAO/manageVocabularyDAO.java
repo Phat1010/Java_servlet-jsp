@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import Bean.examination;
 import Bean.vocabulary;
+import Bean.vocabularydetails;
 
 public class manageVocabularyDAO {
 	public static   boolean InsertVocabulary(HttpServletRequest request, Connection conn, vocabulary vocabulary) {
@@ -64,31 +65,42 @@ public class manageVocabularyDAO {
 		return false;
 	}
 	
-	public static List<vocabulary> listVocabulary (HttpServletRequest request ,Connection conn){
+	public static List<vocabularydetails> listVocabularydetails (HttpServletRequest request ,Connection conn, int idvocab){
 		 
-		List<vocabulary> list = new ArrayList<vocabulary>();
+		List<vocabularydetails> list = new ArrayList<vocabularydetails>();
 		
 		try {
 			
 			PreparedStatement ptmt = null;
-			String sql = "select * from vocabulary";
+			String sql = "select * from vocabularydetails where idvocabulary= "+idvocab+"";
 			ptmt = conn.prepareStatement(sql);
 			
 			
 			ResultSet rs = ptmt.executeQuery();
 			if(rs.isBeforeFirst()) {//have data
 				while(rs.next()) {
-				vocabulary ex= new vocabulary();
+				vocabularydetails ex= new vocabularydetails();
+					 Integer idvocabularydetails = rs.getInt("idvocabularydetails");
+					 Integer num = rs.getInt("num");
+					 String vocabularydetailsname = rs.getString("vocabularydetailsname");
+		
+					 String transcribe= rs.getString("transcribe");
+					 String image= rs.getString("image");
+					 String audiomp3= rs.getString("audiomp3");
+					 String audioogg= rs.getString("audioogg");
+					 String mean= rs.getString("mean");
 					 Integer idvocabulary = rs.getInt("idvocabulary");
-					 String vocabularyname = rs.getString("vocabularyname");
-					 String vocabularyimage= rs.getString("vocabularyimage");
-					 Integer checktable = rs.getInt("checktable");
-					 
-				ex.setIdvocabulary(idvocabulary);
 					
-					ex.setVocabularyname(vocabularyname);
-					ex.setVocabularyimage(vocabularyimage);
-				ex.setChecktable(checktable);
+					 ex.setIdvocabularydetails(idvocabularydetails);
+					 ex.setNum(num);
+					 ex.setVocabularydetailsname(vocabularydetailsname);
+					 ex.setTranscribe(transcribe);
+					 ex.setImage(image);
+					 ex.setAudiomp3(audiomp3);
+					 ex.setAudioogg(audioogg);
+					 ex.setMean(mean);
+					 ex.setIdvocabulary(idvocab);
+					 
 				
 					
 				

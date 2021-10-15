@@ -89,7 +89,7 @@ public class upload_file_image_vocabulary extends HttpServlet {
 	  //  File folderUpload = new File(System.getProperty("user.home") + "/Uploads");
 	   // File folderUpload = new File("E:" + "/Uploads");
 		  ServletContext context = request.getServletContext();
-		  File folderUpload = new File(context.getRealPath("/imageExamUpload/") );
+		  File folderUpload = new File(context.getRealPath("/imageVocabulary/") );
 	    if (!folderUpload.exists()) {
 			try {
 				PrintWriter out =   response.getWriter();

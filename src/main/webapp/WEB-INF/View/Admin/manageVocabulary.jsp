@@ -377,7 +377,7 @@
         <div class="modal-footer">
           <button type="submit" class="btn btn-default" >Next</button> -->
           
-           <form method="POST" enctype="multipart/form-data" action="Upload_Audio_Image">
+           <form method="POST" enctype="multipart/form-data" action="upload_Multifile_Vocabulary">
 		 	<table id="fileTable">
 		 			 <tr>
                    		 <td><input name="files[0]" type="file" /></td>
@@ -390,7 +390,7 @@
 			 <input type="submit" value="Upload multiple file">
 			 <input id="addFile" type="button" value="Add File" />
 	</form>
-          
+          <%= request.getAttribute("message") %>
         </div>
       </div>
       

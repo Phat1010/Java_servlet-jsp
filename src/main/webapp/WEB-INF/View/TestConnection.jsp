@@ -139,7 +139,7 @@
 
                     <div class="col-md-4 col-sm-6 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
                         <div class="feature-wrap">
-                            <i class="fa fa-cloud-download"  class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal"></i>
+                           <a href="Vocabulary_Subject_View?pageid=1"> <i class="fa fa-cloud-download"  class="btn btn-info btn-lg" ></i></a>
                             <h2>mock exam</h2>
                             <h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit</h3>
                         </div>
