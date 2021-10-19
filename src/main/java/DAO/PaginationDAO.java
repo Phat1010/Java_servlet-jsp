@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import Bean.GrammarGuide;
 import Bean.examination;
 import Bean.examinationquestion;
+import Bean.read;
 import Bean.vocabulary;
 
 
@@ -149,6 +150,51 @@ public class PaginationDAO {
 	}
 	
 	
+	
+	public static List<read> selectRead (int start, int count ,Connection conn,HttpServletRequest request){
+		 
+		List<read> list = new ArrayList<read>();
+		
+		try {
+			
+			PreparedStatement ptmt = null;
+			String sql = "select * from toeic.read limit "+start+","+count+"";
+			ptmt = conn.prepareStatement(sql);
+			
+			
+			ResultSet rs = ptmt.executeQuery();
+			while(rs.next()) {
+		
+				read ex= new read();
+				 Integer idreadexercise = rs.getInt("idreadexercise");
+				 String readname = rs.getString("readname");
+				 String readimage= rs.getString("readimage");
+				 Integer checktable = rs.getInt("checktable");
+				 
+		ex.setIdreadexercise(idreadexercise);
+		ex.setReadname(readname);
+		ex.setReadimage(readimage);
+		ex.setChecktable(checktable);
+				
+		
+			
+				
+			
+				 list.add(ex);
+		
+		
+			
+			}
+			ptmt.close();
+			rs.close();
+			
+			
+			
+		} catch (SQLException e) {
+			request.setAttribute("error", e.getMessage());
+		}	
+		return list ;
+	}
 	
 	
 	

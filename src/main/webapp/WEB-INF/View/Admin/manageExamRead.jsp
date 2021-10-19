@@ -77,6 +77,28 @@
 
   <!-- popup -->
  
+ <script src="${pageContext.request.contextPath}/js/jquery-3.1.1.min.js">
+	</script>
+	<script>
+	    $(document)
+	            .ready(
+	                    function() {
+	                        //add more file components if Add is clicked
+	                        $('#addFile')
+	                                .click(
+	                                        function() {
+	                                            var fileIndex = $('#fileTable tr')
+	                                                    .children().length - 1;
+	                                            $('#fileTable')
+	                                                    .append(
+	                                                            '<tr><td>'
+	                                                                    + '   <input type="file" name="files['+ fileIndex +']" />'
+	                                                                    + '</td></tr>');
+	                                        });
+	 
+	                    });
+	</script>
+ 
 </head>
 
 <body>
@@ -95,14 +117,14 @@
         <!-- ============================================================== -->
         <!-- Topbar header - style you can find in pages.scss -->
         <!-- ============================================================== -->
-        <jsp:include page="header.jsp"></jsp:include>
+      <jsp:include page="header.jsp"></jsp:include>
         <!-- ============================================================== -->
         <!-- End Topbar header -->
         <!-- ============================================================== -->
         <!-- ============================================================== -->
         <!-- Left Sidebar - style you can find in sidebar.scss  -->
         <!-- ============================================================== -->
-       <jsp:include page="barmenu.jsp"></jsp:include>
+      <jsp:include page="barmenu.jsp"></jsp:include>
         <!-- ============================================================== -->
         <!-- End Left Sidebar - style you can find in sidebar.scss  -->
         <!-- ============================================================== -->
@@ -133,7 +155,7 @@
        <!-- table dynamic -->  
        
        
-   
+    
 <div class="container">
 	<div class="row">
 		
@@ -152,12 +174,12 @@
                    <th>ID</th>
                     <th>Grammar Title</th>
                          <th>Content</th>
-                     <th>Grammar guide image</th>
                 
                      
                       <th>Edit</th>
                       
                        <th>Delete</th>
+                       <th>Checked data</th>
                        </tr>
                    </thead>
                      
@@ -167,19 +189,30 @@
 
  
    
-  <c:forEach items="${listgrammarguidemanager}" var="listgrammarguidemanager">
+  <c:forEach items="${listread}" var="listread">
     <tr>
     <td><input type="checkbox" class="checkthis" /></td>
-<td>${listgrammarguidemanager.idgrammarguide}</td>
-      <td>${listgrammarguidemanager.grammarguidename}</td>
+<td>${listread.idreadexercise}</td>
+      <td>${listread.readname}</td> 
+      
     
-           <td>${listgrammarguidemanager.content}</td>
-      <td>${listgrammarguidemanager.grammarguideimage}</td>
+           <td>${listread.readimage}</td>
+              
 
 
-     <td><p data-placement="top" data-toggle="tooltip" title="Edit"><a href="EditGrammar?id=${listgrammarguidemanager.idgrammarguide}"> <button  class="btn btn-primary btn-xs" data-title="Edit" data-toggle="modal" data-target="#edit" value="${listgrammarguidemanager.idgrammarguide}"  name="edit1"><span class="glyphicon glyphicon-pencil"></span></button></a></p></td>
-    <td><p data-placement="top" data-toggle="tooltip" title="Delete"><a href="Delete_Table_Grammar?delete1=${listgrammarguidemanager.idgrammarguide}"><button class="btn btn-danger btn-xs" data-title="Delete" data-toggle="modal" data-target="#delete"  value="${listgrammarguidemanager.idgrammarguide}"  name="delete1"><span class="glyphicon glyphicon-trash" ></span></button></a></p></td>
+    <td><p data-placement="top" data-toggle="tooltip" title="Edit"><a href="upload_file_excel_read?id=${listread.idreadexercise}"> <button  class="btn btn-primary btn-xs" data-title="Edit" data-toggle="modal" data-target="#edit" value="${listread.idreadexercise}"  name="edit1"><span class="glyphicon glyphicon-pencil"></span></button></a></p></td>
+    <td><p data-placement="top" data-toggle="tooltip" title="Delete"><a href="Delete_Table_Read?delete1=${listread.idreadexercise}"><button class="btn btn-danger btn-xs" data-title="Delete" data-toggle="modal" data-target="#delete"  value="${listread.idreadexercise}"  name="delete1"><span class="glyphicon glyphicon-trash"></span></button></a></p></td>
     	
+    	<c:if test="${listread.checktable==1}">
+    	<td><p data-placement="top" data-toggle="tooltip" title="Checked data"><a><!--  --><span class="far fa-check-circle"></span></a></p></td>
+    	
+    	</c:if>
+    	
+    	   	
+    	<c:if test="${listread.checktable==0}">
+    	<td><p data-placement="top" data-toggle="tooltip" title="Checked data"><a><!--  --><span class="fas fa-file-excel"></span></a></p></td>
+    	
+    	</c:if>
     	</tr>
     
    </c:forEach>
@@ -188,7 +221,7 @@
         
 </table>
 
-<a href="EditGrammar?id=108">chao cac ban</a>
+
 
 <!-- table -->
  <div class="modal fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
@@ -207,7 +240,7 @@
         <div class="modal-footer ">
         
       
-          <input type="submit" class="btn btn-success" class="glyphicon glyphicon-ok-sign" value="yes"> 
+          <input type="button" class="btn btn-success" class="glyphicon glyphicon-ok-sign" value="yes"> 
      
       
         <!--<button type="button" class="btn btn-default" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> No</button>  -->
@@ -252,13 +285,13 @@
    <!--  <li ><a class="page-link" href="pagination?pageid=1">1</a></li>
     <li ><a class="page-link" href="pagination?pageid=2">2</a></li>
     <li ><a class="page-link" href="pagination?pageid=3">3</a></li> -->
-    <li ><a class="page-link" href="tableAdminForward?pageid=${currentpage+1}">Next</a></li>
+    <li ><a class="page-link" href="manageReadExam?pageid=${currentpage+1}">Next</a></li>
  	   	
   	</c:if>
   	<c:if test="${currentpage == totalpage}">
   	
 
-    <li class=""><a class="page-link" href="tableAdminForward?pageid=${currentpage-1}">Previous</a></li>
+    <li class=""><a class="page-link" href="manageReadExam?pageid=${currentpage-1}">Previous</a></li>
       <!--  <li ><a class="page-link" href="pagination?pageid=1">1</a></li>
     <li ><a class="page-link" href="pagination?pageid=2">2</a></li>
     <li ><a class="page-link" href="pagination?pageid=3">3</a></li> -->
@@ -268,11 +301,11 @@
   		<c:if test="${(currentpage >1) && (currentpage <totalpage)}">
   	
 
-    <li class="page-item"><a class="page-link" href="tableAdminForward?pageid=${currentpage-1}">Previous</a></li>
+    <li class="page-item"><a class="page-link" href="manageReadExam?pageid=${currentpage-1}">Previous</a></li>
    <!--  <li ><a class="page-link" href="pagination?pageid=1">1</a></li>
     <li ><a class="page-link" href="pagination?pageid=2">2</a></li>
     <li ><a class="page-link" href="pagination?pageid=3">3</a></li> -->
-    <li class="page-item"><a class="page-link" href="tableAdminForward?pageid=${currentpage+1}">Next</a></li>
+    <li class="page-item"><a class="page-link" href="manageReadExam?pageid=${currentpage+1}">Next</a></li>
  	   	
   	</c:if>
   
@@ -284,46 +317,114 @@
 	</div>
 </div>
 
-<div class="modal fade" id="edit" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
-      <div class="modal-dialog">
-    <div class="modal-content">
-          <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
-        <h4 class="modal-title custom_align" id="Heading">Edit Your Detail</h4>
-      </div>
-          <div class="modal-body">
-          <div class="form-group">
-        <input class="form-control " type="text" placeholder="Mohsin">
-        </div>
-        <div class="form-group">
-        
-        <input class="form-control " type="text" placeholder="Irshad">
-        </div>
-        <div class="form-group">
-        <textarea rows="2" class="form-control" placeholder="CB 106/107 Street # 11 Wah Cantt Islamabad Pakistan"></textarea>
-    
-        
-        </div>
-      </div>
-          <div class="modal-footer ">
-        <button type="button" class="btn btn-warning btn-lg" style="width: 100%;"><span class="glyphicon glyphicon-ok-sign"></span> Update</button>
-      </div>
-        </div>
-    <!-- /.modal-content --> 
-  </div>
-      <!-- /.modal-dialog --> 
-    </div>
-    
-    
-    
-   
-   
-   
-    
-    
+<!-- MODEL --><!-- MODEL --><!-- MODEL -->
+<form action="manageReadExam" method="post">
+<div class="container">
+  <h2>Modal Example</h2>
+  <!-- Trigger the modal with a button -->
+  <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Add Excercise Read</button>
 
-  <a href="grammarGuideForward">  <button name="btnadd" value="btnadd" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal"><img alt="" src="${pageContext.request.contextPath}/imagesmall/edit.png"> addtitle</button> 
-    </a>
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Modal Header</h4>
+        </div>
+        <div class="modal-body">
+          <p>Some text in the modal.</p>
+          <input type="text" name="titleExam" required>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-default" >Next</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  
+</div>
+</form>
+
+
+
+
+
+
+<div class="container">
+  <h2>Modal Example</h2>
+  <!-- Trigger the modal with a button -->
+  <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal2">Add file and image</button>
+
+
+  <!-- Modal -->
+  <div class="modal fade" id="myModal2" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Modal Header</h4>
+        </div>
+        <div class="modal-body">
+          <!-- <p>Some text in the modal.</p>
+          <input type="text" name="titleExam" required>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-default" >Next</button> -->
+          
+           <form method="POST" enctype="multipart/form-data" action="upload_Multifile_Vocabulary">
+		 	<table id="fileTable">
+		 			 <tr>
+                   		 <td><input name="files[0]" type="file" /></td>
+               		 </tr>
+                	<tr>
+                   		 <td><input name="files[1]" type="file" /></td>
+                	</tr>		  	
+		 	 </table>
+			 <br/>
+			 <input type="submit" value="Upload multiple file">
+			 <input id="addFile" type="button" value="Add File" />
+	</form>
+          <%= request.getAttribute("message") %>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+
+</div>
+
+
+
+
+
+
+
+<!-- MODEL --><!-- MODEL --><!-- MODEL -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
                 <!-- ============================================================== -->
@@ -343,7 +444,7 @@
             <!-- ============================================================== -->
             <!-- footer -->
             <!-- ============================================================== -->
-          <jsp:include page="footer.jsp"></jsp:include>
+        <jsp:include page="footer.jsp"></jsp:include>
             <!-- ============================================================== -->
             <!-- End footer -->
             <!-- ============================================================== -->

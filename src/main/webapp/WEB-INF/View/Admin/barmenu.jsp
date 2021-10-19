@@ -34,10 +34,10 @@
                             </a>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="map-google.html"
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="manageReadExam?pageid=1"
                                 aria-expanded="false">
                                 <i class="fa fa-globe" aria-hidden="true"></i>
-                                <span class="hide-menu">Google Map</span>
+                                <span class="hide-menu">Manage Read Exam</span>
                             </a>
                         </li>
                         <li class="sidebar-item">

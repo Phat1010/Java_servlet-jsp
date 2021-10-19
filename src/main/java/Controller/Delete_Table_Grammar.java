@@ -36,16 +36,7 @@ public class Delete_Table_Grammar extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		
-		
-	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		Connection conn = DBConnection.CreateConnection();
+Connection conn = DBConnection.CreateConnection();
 		
 		//String x = request.getParameter("delete1");
 		int id= Integer.parseInt(request.getParameter("delete1"));
@@ -115,6 +106,15 @@ public class Delete_Table_Grammar extends HttpServlet {
 			rd.forward(request, response);
 			
 		}
+		
+		
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
 		
 		
 		
