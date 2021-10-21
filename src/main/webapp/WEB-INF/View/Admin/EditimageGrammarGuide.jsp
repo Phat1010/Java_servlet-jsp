@@ -173,7 +173,7 @@
   </div> --> 
 
 </div>
-             <form method="post" action="upLoadFileController" enctype="multipart/form-data">
+             <form method="post" action="upLoadFileControllerEdit" enctype="multipart/form-data">
       
 
       
@@ -206,7 +206,7 @@
              	
              	<!-- TITLE AND CONTENT -->
            
-           <form method="post" action="grammarGuideImage" >
+           <form method="post" action="UpdateGrammarGuide" >
           
             <div class="page-breadcrumb bg-white">
                 <div class="row align-items-center">

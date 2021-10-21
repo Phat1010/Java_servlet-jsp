@@ -239,6 +239,28 @@ public class GrammarGuideManageDAO {
 	
 
 	
+	public static   boolean deleteGrammaredit(HttpServletRequest request, Connection conn, int id, String table) {
+		PreparedStatement ptmt = null;
+		
+		String sql  = "delete from "+table+" where idid = "+id+"";
+		try {
+			ptmt = conn.prepareStatement(sql);
+		
+			
+			
+			int kt = ptmt.executeUpdate();
+			if(kt!=0)
+			{
+				return true;
+			}
+			ptmt.close();
+			
+		} catch (SQLException e) {
+			request.setAttribute("msgregister",e.getMessage());
+		}
+		return false;
+	}
+	
 	
 	
 	
@@ -378,7 +400,28 @@ public class GrammarGuideManageDAO {
 	
 	
 	
+	public static   boolean insertid(HttpServletRequest request, Connection conn, int id) {
+		PreparedStatement ptmt = null;
+		
+		String sql  = "insert into id(idid) value ("+id+")";
+		try {
+			ptmt = conn.prepareStatement(sql);
+		
+		
+			int kt = ptmt.executeUpdate();
+			if(kt!=0)
+			{
+				return true;
+			}
+			ptmt.close();
+			
+		} catch (SQLException e) {
+			request.setAttribute("msgregister",e.getMessage());
+		}
+		return false;
+	}
 	
+
 	
 	
 }
