@@ -86,72 +86,20 @@
 
 	 <p > Question:${list.question}</p>
 
-	<input type="radio" name="${list.idexaminationquestion}" value="${list.option1}">${list.option1}
+	A. ${list.option1}
 	<br>
-	<input type="radio" name="${list.idexaminationquestion}" value="${list.option2}">${list.option2}
-	<br>	<input type="radio"  name="${list.idexaminationquestion}" value="${list.option3}">${list.option3}
-	<br>	<input type="radio"  name="${list.idexaminationquestion}" value="${list.option4}">${list.option4}
+	B. ${list.option2}
+	<br>
+	C. ${list.option3}
+	
+	<br>
+	D. ${list.option4}
 	<br>
 
 </c:forEach>
     
     
-     
-</div>
-            
-            
-
-    
-    
-    
-    
-    
-    
-    
-<form action="practice_Exam" method="post" name="form">
-<input type="text" value="${accountsession}" name="namesession" >
-    <div class="right">
-    <div class="container mt-sm-5 my-1">
-    <div class="question ml-sm-5 pl-sm-5 pt-2">
-    
-     
-<c:forEach items="${listpouranswer}" var="list">
-        <div class="ml-md-3 ml-sm-3 pl-md-5 pt-sm-0 pt-3" id="options" style="overflow: ::-webkit-scrollbar"> 
-        <label class="options"> <B>${list.num}</B> </label> 
-        <label class="options"><input type="radio" name="${list.idexaminationquestion}" value="${list.option1}"> <span class="checkmark"></span> </label> 
-        <label class="options"><input type="radio" name="${list.idexaminationquestion}" value="${list.option2}"> <span class="checkmark"></span> </label>
-         <label class="options"><input type="radio" name="${list.idexaminationquestion}" value="${list.option3}"> <span class="checkmark"></span> </label> 
-         <label class="options"> <input type="radio" name="${list.idexaminationquestion}" value="${list.option4}"> <span class="checkmark"></span> 
-         </label> </div>
-         
-         </c:forEach>
-         
-  
-         
-    </div>
-    
- </div> 
-    </div>
-
-
- 
-		<input type="submit" class="btn btn-outline-primary mr-md-3 mb-md-0 mb-2" value="submit">				<button type="button" class="btn btn-outline-primary mr-md-3 mb-md-0 mb-2">Default Outline</button> 
-				
-				
-				<input type="text" value="<%=request.getParameter("id")%>" name="idExam">
-			head	<input type="text" value="${get_Id_Head}" name="idExam">
-				last<input type="text" value="<%=request.getAttribute("get_Id_Last")%>" name="idExam">
-				</form>
-				
-				
-				
-				
-		
-				
-				
-				
-         <div class="clearfix"></div>
-<ul class="pagination pull-right">
+<ul class="pagination pull-right" style="width: 57%;">
 
   
 
@@ -187,6 +135,60 @@
   	</c:if>
   
 </ul>
+     
+</div>
+            
+            
+
+    
+    
+    
+    
+    
+    
+    
+<form action="practice_Exam" method="post" name="form">
+<input type="text" value="${accountsession}" name="namesession" hidden="true">
+    <div class="right">
+    <div class="container mt-sm-5 my-1">
+    <div class="question ml-sm-5 pl-sm-5 pt-2">
+    
+     
+<c:forEach items="${listpouranswer}" var="list">
+        <div class="ml-md-3 ml-sm-3 pl-md-5 pt-sm-0 pt-3" id="options" style="overflow: ::-webkit-scrollbar"> 
+        <label class="options"> <B>${list.num}</B> </label> 
+        <label class="options"><input type="radio" name="${list.idexaminationquestion}" value="${list.option1}"> <span class="checkmark"></span> </label> 
+        <label class="options"><input type="radio" name="${list.idexaminationquestion}" value="${list.option2}"> <span class="checkmark"></span> </label>
+         <label class="options"><input type="radio" name="${list.idexaminationquestion}" value="${list.option3}"> <span class="checkmark"></span> </label> 
+         <label class="options"> <input type="radio" name="${list.idexaminationquestion}" value="${list.option4}"> <span class="checkmark"></span> 
+         </label> </div>
+         
+         </c:forEach>
+         
+  
+         
+    </div>
+    
+ </div> 
+    </div>
+
+
+ 
+		<input type="submit" class="btn btn-outline-primary mr-md-3 mb-md-0 mb-2" value="submit">			
+				
+				<input type="text" value="<%=request.getParameter("id")%>" name="idExam" hidden="true">
+				<input type="text" value="${get_Id_Head}" name="idExam" hidden="true">
+				<input type="text" value="<%=request.getAttribute("get_Id_Last")%>" name="idExam" hidden="true">
+				</form>
+				
+				
+				
+				
+		
+				
+				
+				
+         <div class="clearfix"></div>
       
             
  <jsp:include page="footer.jsp"></jsp:include>

@@ -123,16 +123,16 @@
                 <div class="features">
                     <div class="col-md-4 col-sm-6 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
                         <div class="feature-wrap">
-                            <i class="fa fa-bullhorn"  class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">                            </i>
-                            <h2>Vocabulary and grammar guide</h2>
+                          <a href="pagination?pageid=1">   <i class="fa fa-bullhorn"  class="btn btn-info btn-lg" >                        </i> </a>  
+                            <h2>Grammar</h2>
                             <h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit</h3>
                         </div>
                     </div><!--/.col-md-4-->
 
                     <div class="col-md-4 col-sm-6 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
                         <div class="feature-wrap">
-                            <i  class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">   <img class="img-responsive" src="${pageContext.request.contextPath}/Template_frontend/images/services/services1.png"></i>
-                            <h2>listening and reading exercises</h2>
+                            	<a href="Exam_DisplayList?pageid=1"><i  class="btn btn-info btn-lg" >   <img class="img-responsive" src="${pageContext.request.contextPath}/Template_frontend/images/services/services1.png"></i></a>
+                            <h2>Exercise</h2>
                             <h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit</h3>
                         </div>
                     </div><!--/.col-md-4-->
@@ -140,19 +140,19 @@
                     <div class="col-md-4 col-sm-6 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
                         <div class="feature-wrap">
                            <a href="Vocabulary_Subject_View?pageid=1"> <i class="fa fa-cloud-download"  class="btn btn-info btn-lg" ></i></a>
-                            <h2>mock exam</h2>
+                            <h2>Vocabulary</h2>
                             <h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit</h3>
                         </div>
                     </div><!--/.col-md-4-->
                 
-                  <!--   <div class="col-md-4 col-sm-6 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
+               <!--   <div class="col-md-4 col-sm-6 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
                         <div class="feature-wrap">
-                            <i class="fa fa-leaf"></i>
-                            <h2>Adipisicing elit</h2>
+                            <a href="list_Read_View?pageid=1"> <i class="fa fa-leaf"></i></a>
+                            <h2>Exercise REad</h2>
                             <h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit</h3>
                         </div>
-                    </div>
-
+                    </div> -->
+   <!-- 
                     <div class="col-md-4 col-sm-6 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
                         <div class="feature-wrap">
                             <i class="fa fa-cogs"></i>

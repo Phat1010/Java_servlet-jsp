@@ -6,7 +6,7 @@
     border: 2px solid #261b1b;
 }
 
-.right {width: 30%;float: left;height: auto;border: 2px solid;margin-bottom: 1%;}
+.right {width: 33%;float: left;height: auto;border: 2px solid;margin-bottom: 1%;margin-left: 1%;}
 
 footer#footer {
     clear: both;

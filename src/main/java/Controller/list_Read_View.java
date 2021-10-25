@@ -11,25 +11,23 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-
+import Bean.read;
 import Bean.vocabulary;
 import DAO.HomeDAO;
-
 import DAO.PaginationDAO;
-import DAO.manageVocabularyDAO;
 import DB.DBConnection;
 
 /**
- * Servlet implementation class manage_Vocabulary
+ * Servlet implementation class list_Read_View
  */
-@WebServlet("/manage_Vocabulary")
-public class manage_Vocabulary extends HttpServlet {
+@WebServlet("/list_Read_View")
+public class list_Read_View extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public manage_Vocabulary() {
+    public list_Read_View() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -47,7 +45,7 @@ Connection conn = DBConnection.CreateConnection();
 		int currentpag1 = Integer.parseInt(request.getParameter("pageid"));
 		
 		
-	int total_record = HomeDAO.countslider(conn,"vocabulary");
+	int total_record = HomeDAO.countslider(conn,"toeic.read");
 		
 		int totalItemsPerPage = 4;
 	
@@ -76,13 +74,11 @@ Connection conn = DBConnection.CreateConnection();
 		int start = (currentpage-1)*totalItemsPerPage;
 
 		//List<Emp> list = QuizDAO.selectAnswser(1,3 , conn);
-		List<vocabulary> listTitle =PaginationDAO.selectVocabulary(start, totalItemsPerPage, conn, request);
+	
+		List<read> listTitle =PaginationDAO.selectRead(start, totalItemsPerPage, conn, request);
 		
-		
-		
-		
-		
-	request.setAttribute("listvocalbulary", listTitle);		
+
+	request.setAttribute("listRead", listTitle);		
 		request.setAttribute("currentpage", currentpage);
 		request.setAttribute("totalpage",totalpage);
 		request.setAttribute("pageid",getcurrentpage);
@@ -94,7 +90,7 @@ Connection conn = DBConnection.CreateConnection();
 		
 		
 		
-RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/View/Admin/manageVocabulary.jsp");
+RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/View/list_exam_read.jsp");
 		rd.forward(request, response);
 		
 	}
@@ -103,36 +99,8 @@ RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/View/Admin/manageV
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		if(request.getCharacterEncoding()==null)
-		{
-			request.setCharacterEncoding("UTF-8");
-		}
-		
-		Connection conn = DBConnection.CreateConnection();
-
-		String title = request.getParameter("titleExam");
-		
-		//String content = request.getParameter("content");
-		
-		vocabulary voc= new vocabulary();
-		voc.setVocabularyname(title);
-		
-		
-
-		boolean test= manageVocabularyDAO.InsertVocabulary(request, conn, voc);
-		
-		
-		if (test) {
-			
-			
-			RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/View/Admin/addimageVocabulary.jsp");
-			rd.forward(request, response);
-			
-		}
-		else {
-			request.setAttribute("mgsregister", "register Faild");
-			
-		}
+		// TODO Auto-generated method stub
+		doGet(request, response);
 	}
 
 }

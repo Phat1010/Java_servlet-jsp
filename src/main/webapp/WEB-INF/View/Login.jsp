@@ -48,12 +48,10 @@
                             </div>
                         </form>
                         <div class="social-login">
-                            <span class="social-label">Or login with</span>
-                            <ul class="socials">
-                                <li><a href="#"><i class="display-flex-center zmdi zmdi-facebook"></i></a></li>
-                                <li><a href="#"><i class="display-flex-center zmdi zmdi-twitter"></i></a></li>
-                                <li><a href="#"><i class="display-flex-center zmdi zmdi-google"></i></a></li>
-                            </ul>
+                            <span class="social-label"></span>
+                         
+                                <a class="list-group-item" href="TestConnectionForward"><i class="zmdi zmdi-home zmdi-hc-fw"></i> Home</a>
+                            
                         </div>
                     </div>
                                 		

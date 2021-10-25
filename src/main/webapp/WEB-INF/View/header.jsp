@@ -96,20 +96,8 @@
                 <div class="collapse navbar-collapse navbar-right">
                     <ul class="nav navbar-nav">
                         <li class="active"><a href="TestConnectionForward">Home</a></li>
-                        <li><a href="LoginForward">Register</a></li>
-                        <li><a href="a">Services</a></li>
-                        <li><a href="portfolio.html">Portfolio</a></li>
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Pages <i class="fa fa-angle-down"></i></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="blog-item.html">Blog Single</a></li>
-                                <li><a href="pricing.html">Pricing</a></li>
-                                <li><a href="404.html">404</a></li>
-                                <li><a href="shortcodes.html">Shortcodes</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="blog.html">Blog</a></li> 
-                        <li><a href="contact-us.html"><%=session.getAttribute("accountsession")!=null?session.getAttribute("accountsession"):"user"  %></a></li>                        
+                        <li><a href="LoginForward">Login</a></li>
+                        <li><a href="#"><%=session.getAttribute("accountsession")!=null?session.getAttribute("accountsession"):"User"  %></a></li>                        
                     </ul>
                 </div>
             </div><!--/.container-->
