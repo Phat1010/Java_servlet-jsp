@@ -2,6 +2,7 @@ package Controller;
 
 import java.io.IOException;
 import java.sql.Connection;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -12,6 +13,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import Bean.GrammarGuide;
 import DAO.GrammarGuideManageDAO;
+import DAO.HomeDAO;
+import DAO.PaginationDAO;
 import DB.DBConnection;
 
 /**
@@ -69,7 +72,55 @@ public class UpdateGrammarGuide extends HttpServlet {
 			
 			request.setAttribute("mgsupdatate", "update success");
 			GrammarGuideManageDAO.deleteGrammaredit(request, conn, idlast, "id");
-			RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/View/Admin/addimageGrammarGuide.jsp");
+String getcurrentpage = "1";
+			
+			int currentpage = Integer.parseInt(getcurrentpage);
+
+			
+			
+			
+		int total_record = HomeDAO.countslider(conn,"grammarguide");
+			
+			int totalItemsPerPage = 4;
+		
+			
+			
+			int totalpage = total_record/totalItemsPerPage;
+			int totalpagecheck = total_record%totalItemsPerPage;
+			if(totalpagecheck>0)
+			{
+				totalpage=totalpage+1;
+			}
+			
+			
+			
+			if(currentpage > totalpage)
+			{
+				currentpage = totalpage;
+			}
+			else if (currentpage <1) {
+				currentpage= 1;
+				
+			}
+			else {	
+			}
+
+			int start = (currentpage-1)*totalItemsPerPage;
+
+			//List<Emp> list = QuizDAO.selectAnswser(1,3 , conn);
+			List<GrammarGuide> listTitle =PaginationDAO.selectGrammar(start, totalItemsPerPage, "grammarguide", conn,request);
+
+			request.setAttribute("listgrammarguidemanager", listTitle);
+			
+			
+			
+			request.setAttribute("currentpage", currentpage);
+			request.setAttribute("totalpage",totalpage);
+			request.setAttribute("pageid",getcurrentpage);
+		
+			
+			
+			RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/View/Admin/tableAdmin.jsp");
 			rd.forward(request, response);
 			
 		}

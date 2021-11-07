@@ -47,41 +47,50 @@
   <script type="text/javascript">
 
 
-        function search()
-        {
-        	
-        	 
-        	var search = document.myform.search.value;
-         
-        	var url = "find_Grammar_Client?search="+search;
-        	
-        	if (window.XMLHttpRequest) 
-        	{        
-        	    xhttp = new XMLHttpRequest(); 
-        	} 
-        	else
-        	{            
-        		xhttp = new ActiveXObject("Microsoft.XMLHTTP");
-        	}
-        	
-        	
-        	xhttp.onreadystatechange= function()
-        	{
-        		if (xhttp.readyState == 4)
-        		{
-        			var data = xhttp.responseText;
-        			document.getElementById("findgrammar").innerHTML=data;
-        		}
-        			
+  <script type="text/javascript">
 
-        	}
-        	xhttp.open("POST",url,true);
-        	xhttp.send();
 
-        }
-        	
+  function search()
+  {
+  	
+	  var  = document.getElementById("search1");
+  	var search = document.myform.search.value;
+   
+  	var url = "find_Grammar_Client?search="+x;
+  	
+  	if (window.XMLHttpRequest) 
+  	{        
+  	    xhttp = new XMLHttpRequest(); 
+  	} 
+  	else
+  	{            
+  		xhttp = new ActiveXObject("Microsoft.XMLHTTP");
+  	}
+  	
+  	
+  	xhttp.onreadystatechange= function()
+  	{
+  		if (xhttp.readyState == 4)
+  		{
+  			var data = xhttp.responseText;
+  			document.getElementById("findgrammar").innerHTML=data;
+  		}
+  			
 
-        </script>
+  	}
+  	xhttp.open("POST",url,true);
+  	xhttp.send();
+
+  }
+  function myFunction() {
+	  var x = document.getElementById("search1");
+	  x.value = x.value.toUpperCase();
+	  }
+  	
+
+  </script>
+
+   
  
     </head>
     
@@ -98,20 +107,17 @@
 
 
 <form name="myform">
- <input type="text" name="search" onkeyup="search()">
+ <input type="text" name="search" onkeyup="myFunction()" id="search1">
 </form>
 
-<div id="findgrammar">
-hello
-	
-</div>
+
 
 <form action="pagination" method="post" name="myform">
     <section id="services" class="service-item">
 	   <div class="container">
             <div class="center wow fadeInDown">
-                <h2>Our Service</h2>
-                <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut <br> et dolore magna aliqua. Ut enim ad minim veniam</p>
+                <h2>List Exam</h2>
+                <p class="lead">This web site is for people studying for an English language exam.<br> These pages contain free online practice tests for the most important international </p>
             	 <!--  area find grammar -->
             	   <!-- <input type="text" name="search" onkeyup="search()"> --> 
             </div>
@@ -124,7 +130,7 @@ hello
 
 
 
-
+<div id="findgrammar">
 
 	<% if(session.getAttribute("accountsession")==null) 
 	{	
@@ -187,7 +193,7 @@ hello
 		%>
 		
 	
-
+</div>
 
          <!--/.row-->
             <!-- PAGINATION -->
@@ -205,7 +211,7 @@ hello
     <li ><a class="page-link" href="Exam_DisplayList?pageid=${currentpage+1}">Next</a></li>
  	   	
   	</c:if>
-  	<c:if test="${currentpage == totalpage}">
+  	<c:if test="${currentpage == totalpage &&currentpage!=1}">
   	
 
     <li class=""><a class="page-link" href="Exam_DisplayList?pageid=${currentpage-1}">Previous</a></li>

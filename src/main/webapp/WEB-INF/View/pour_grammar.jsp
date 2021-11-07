@@ -170,17 +170,36 @@
             <div class="container px-4">
                 <div class="row gx-4 justify-content-center">
                     <div class="col-lg-8">
-                    <p id="ketqua">  <jsp:include page="comment-Grammar.jsp"/></p>
+                  
+                   <div id="ketqua">
                    
-                        
-                        <p class="lead" >This is a great place to talk about your webpage. This template is purposefully unstyled so you can use it as a boilerplate or starting point for you own landing page designs! This template features:</p>
-                        <ul>
-                            <li>Clickable nav links that smooth scroll to page sections</li>
-                            <li>Responsive behavior when clicking nav links perfect for a one page website</li>
-                            <li>Bootstrap's scrollspy feature which highlights which section of the page you're on in the navbar</li>
-                            <li>Minimal custom CSS so you are free to explore your own unique design options</li>
+                   
+                   
+                   
+                     <c:forEach items="${listcomment }" var="listcomment">
+                <!-- COMMENT 1 - START -->
+                <div class="media">
+                    <a class="pull-left" href="#"><img class="media-object" src="${pageContext.request.contextPath}/imagesmall/comment.png" alt=""></a>
+       
+                    <div class="media-body">
+                        <h4 class="media-heading">${listcomment.comment_Grammar_Username}</h4>
+                        <p>${listcomment.comment_Grammarcontent}</p>
+                        <ul class="list-unstyled list-inline media-detail pull-left">
+                            <li><i class="fa fa-calendar"> ${listcomment.times}</i></li>
+                            <li><i class="fa fa-thumbs-up"></i>1</li>
                         </ul>
+                        <ul class="list-unstyled list-inline media-detail pull-right">
+                            <li class=""><a href="">Like</a></li>
+                            <li class=""><a href="">Reply</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- COMMENT 1 - END -->
+                 </c:forEach>
+                   
+                   </div>
                         
+                       
                  
                     </div>
                 </div>

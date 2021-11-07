@@ -16,7 +16,7 @@
     <!-- Custom CSS -->
    <link href="${pageContext.request.contextPath}/template_admin/css/style.min.css" rel="stylesheet">
    
-
+   <link href="${pageContext.request.contextPath}/cssExtra/addimage.css" rel="stylesheet">
    
 
    
@@ -66,6 +66,7 @@
 
 <body>
   
+
     <div class="preloader">
         <div class="lds-ripple">
             <div class="lds-pos"></div>
@@ -83,6 +84,7 @@
      
         <!-- ============================================================== -->
         <!-- End Topbar header -->
+         <jsp:include page="header.jsp"></jsp:include>
         <!-- ============================================================== -->
         <!-- ============================================================== -->
         <!-- Left Sidebar - style you can find in sidebar.scss  -->
@@ -140,68 +142,32 @@
           <!-- image -->
           
           
-<div class="container">
+<div class="container" style="  width: 28%;">
   <h2>ADD IMAGE</h2>
 
-
-
-<!-- Trigger the modal with a button -->
-<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button>
-<!-- form hide -->
- 
-
-  <!-- Modal -->
- <!-- <div class="modal fade" id="myModal" role="dialog">
-    <div class="modal-dialog">
-    
-     
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Modal Header</h4>
-        </div>
-        <div class="modal-body">
-             </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-         <input type="submit" value="submittitle" name="submittitle" class="btn btn-default" >
-        </div>
-      </div>
-          
-  
-    </div>
-  </div> --> 
-
-</div>
-             <form method="post" action="upLoadFileControllerEdit" enctype="multipart/form-data">
+          <form method="post" action="upLoadFileControllerEdit" enctype="multipart/form-data">
       
 
       
     Select file to upload: <input type="file" name="file" size="60" /><br />
     <input type="submit" value="Upload" />
   </form>
+
+
+</div>
+   
              	<h5>${requestScope.message}</h5>
-             	 	<h5>${requestScope.message1} alo</h5>
-             	<%= request.getAttribute("imageexists") %>
+             	 	<h5>link: ${requestScope.message1}${requestScope.message2}</h5>
+         
              	
              	
-             	<h5>${requestScope.message2}</h5>
+           
 	
 	
         <!-- end image -->  
           
           
-          
-                
-          
-           <div><%= request.getAttribute("mgsregister")%></div> 
-          
-          
-          
-          
-       	<%= request.getAttribute("mgsupdatate") %>
-             	
-	     	<%= request.getAttribute("mgsupdatate") %>
+
              <c:forEach items="${listlast}" var="listlast">    	
              	
              	<!-- TITLE AND CONTENT -->
@@ -244,11 +210,9 @@
         <div class="col-sm-4">
         </div>
         <div class="col-sm-2">
-            <input type="submit" class="btn btn-block btn-primary"><i class="fa fa-check"></i> Submit
+            <input type="submit" class="btn btn-block btn-primary">
         </div>
-        <div class="col-sm-2">
-            <button type="reset" class="btn btn-block btn-default"><i class="fa fa-ban"></i> Reset</button>
-        </div>
+       
         <div class="col-sm-4">
         </div>
     </div>

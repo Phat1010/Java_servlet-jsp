@@ -13,7 +13,7 @@
 
 
                 
-                <h3><%=request.getAttribute("countcomment")!=null?"Hava "+request.getAttribute("countcomment")+" Comment":"" %></h3>
+               
                     <c:forEach items="${listcomment }" var="listcomment">
                 <!-- COMMENT 1 - START -->
                 <div class="media">
@@ -24,7 +24,7 @@
                         <p>${listcomment.comment_Grammarcontent}</p>
                         <ul class="list-unstyled list-inline media-detail pull-left">
                             <li><i class="fa fa-calendar"> ${listcomment.times}</i></li>
-                            <li><i class="fa fa-thumbs-up"></i>13</li>
+                            <li><i class="fa fa-thumbs-up"></i>1</li>
                         </ul>
                         <ul class="list-unstyled list-inline media-detail pull-right">
                             <li class=""><a href="">Like</a></li>

@@ -44,12 +44,12 @@ public class find_Grammar_Client extends HttpServlet {
 Connection conn = DBConnection.CreateConnection();
 
 
-		String name = request.getParameter("search");
+		String name = request.getParameter("search1");
 		
 			List<GrammarGuide> list = GrammarGuideManageDAO.searchGrammarGuide(request, conn, name);
 			
 			request.setAttribute("listTitle", list);
-RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/View/result-Search-Grammar.jsp");
+RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/View/findGrammar.jsp");
 rd.forward(request, response);
 	
 	

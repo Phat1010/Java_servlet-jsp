@@ -33,14 +33,14 @@
                         <form method="POST" class="register-form" id="login-form" action="SignIn_Controller">
                             <div class="form-group">
                                 <label for="your_name"><i class="zmdi zmdi-account material-icons-name"></i></label>
-                                <input type="text" name="your_name" id="your_name" placeholder="Your Name"/>
+                                <input type="text" name="your_name" id="your_name" placeholder="Your Name" value="<%=session.getAttribute("accountsession1")!=null?session.getAttribute("accountsession1"):""  %>"/>
                             </div>
                             <div class="form-group">
                                 <label for="your_pass"><i class="zmdi zmdi-lock"></i></label>
-                                <input type="password" name="your_pass" id="your_pass" placeholder="Password"/>
+                                <input type="password" name="your_pass" id="your_pass" placeholder="Password" value="<%=session.getAttribute("passwordsession")!=null?session.getAttribute("passwordsession"):""  %>"/>
                             </div>
                             <div class="form-group">
-                                <input type="checkbox" name="remember-me" id="remember-me" class="agree-term" />
+                                <input type="checkbox" name="remember-me" id="remember-me" class="agree-term"  value="1" <%=session.getAttribute("checked")!=null?session.getAttribute("checked"):""  %>/>
                                 <label for="remember-me" class="label-agree-term"><span><span></span></span>Remember me</label>
                             </div>
                             <div class="form-group form-button">

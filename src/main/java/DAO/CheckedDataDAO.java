@@ -2,12 +2,12 @@ package DAO;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
+
 import java.sql.SQLException;
 
 import javax.servlet.http.HttpServletRequest;
 
-import Bean.GrammarGuide;
+
 
 public class CheckedDataDAO {
 	public static   boolean Checked(HttpServletRequest request, Connection conn, int id) {

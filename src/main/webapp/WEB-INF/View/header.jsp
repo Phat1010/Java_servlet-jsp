@@ -90,7 +90,16 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="TestConnectionForward"><img src="${pageContext.request.contextPath}/Template_frontend/images/logo.png" alt="logo"></a>
+                    <a class="navbar-brand" href="TestConnectionForward"><script src="https://cdn.lordicon.com/libs/mssddfmo/lord-icon-2.1.0.js"></script>
+<script src="https://cdn.lordicon.com/libs/mssddfmo/lord-icon-2.1.0.js"></script>
+<script src="https://cdn.lordicon.com/libs/mssddfmo/lord-icon-2.1.0.js"></script>
+<script src="https://cdn.lordicon.com/libs/mssddfmo/lord-icon-2.1.0.js"></script>
+<lord-icon
+    src="https://cdn.lordicon.com/nocovwne.json"
+    trigger="loop"
+    colors="primary:#66ee78,secondary:#08a88a"
+    style="width:70px;height:70px">
+</lord-icon>Home Page</a>
                 </div>
 				
                 <div class="collapse navbar-collapse navbar-right">

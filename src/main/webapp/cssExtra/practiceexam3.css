@@ -1,4 +1,7 @@
 .left img {
     width: 250px;
     height: 250px;
+}button.btn.btn-outline-primary {
+    color: #2700ff;
+    border: 1px #2700ff solid;
 }

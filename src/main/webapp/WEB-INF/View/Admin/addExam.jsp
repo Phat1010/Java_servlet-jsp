@@ -120,7 +120,7 @@
                     <div class="page-breadcrumb bg-white">
                 <div class="row align-items-center">
                     <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-                        <h4 class="page-title">IMAGE</h4>
+                        <h4 class="page-title">import file excel</h4>
                     </div>
                    
               
@@ -138,29 +138,7 @@
   </form>
              	<h5>${requestScope.message}</h5>
              	 	<h5>${requestScope.message1}${requestScope.message2}</h5>
-             	<%= request.getAttribute("imageexists") %>
-             	
-             	
-             	<h5>${requestScope.message2}</h5>
-	
-	
-        <!-- end image -->  
-          
-          
-          
-                
-          
-           <div><%= request.getAttribute("mgsregister")%></div> 
-          
-          
-          
-          
-       	<%= request.getAttribute("mgsupdatate") %>
-             	
-	     	<%= request.getAttribute("mgsupdatate") %>
-	     	day la id	<%= session.getAttribute("id") %>
-           
-          
+             
           
           
           

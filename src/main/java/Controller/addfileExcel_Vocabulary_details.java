@@ -1,6 +1,7 @@
 package Controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.SQLException;
 
@@ -14,6 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 import DAO.DetailsVocabularyExcelDAO;
 import DAO.detailsExamExcelDAO;
 import DB.DBConnection;
+
 
 /**
  * Servlet implementation class addfileExcel_Vocabulary_details
@@ -54,7 +56,12 @@ public class addfileExcel_Vocabulary_details extends HttpServlet {
 		if(check) {
 			DAO.CheckedDataDAO.Checkedvocab(request, conn, id);
 			
-
+			
+						
+			
+		
+			
+			
 		}
 		try {
 			conn.close();
@@ -64,8 +71,13 @@ public class addfileExcel_Vocabulary_details extends HttpServlet {
 		}
 		//fix error commit 
 		if(!response.isCommitted()) {
-			RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/View/Admin/manageVocabulary.jsp");
+			request.getRequestDispatcher("/WEB-INF/View/Admin/homeAdmin.jsp").forward(request, response);
+			/*request.setAttribute("insertsuccess","insertsuccess");
+			RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/View/Admin/homeAdmin.jsp");
 			rd.forward(request, response);
+			response.setContentType("text/html");
+			PrintWriter out = response.getWriter();
+			out.print("insert COmplete");*/
 
 		}
 		

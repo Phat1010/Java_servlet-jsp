@@ -138,27 +138,7 @@
   </form>
              	<h5>${requestScope.message}</h5>
              	 	<h5>${requestScope.message1}${requestScope.message2}</h5>
-             	<%= request.getAttribute("imageexists") %>
-             	
-             	
-             	<h5>${requestScope.message2}</h5>
-	
-	
-        <!-- end image -->  
-          
-          
-          
-                
-          
-           <div><%= request.getAttribute("mgsregister")%></div> 
-          
-          
-          
-          
-       	<%= request.getAttribute("mgsupdatate") %>
-             	
-	     	<%= request.getAttribute("mgsupdatate") %>
-           
+             
           
           
           

@@ -69,7 +69,9 @@ public class add_image_exam extends HttpServlet {
 		
 		if (test) {
 			
-		
+			request.setAttribute("insertsuccess","insertsuccess");
+			RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/View/Admin/homeAdmin.jsp");
+			rd.forward(request, response);
 			
 			
 		}
@@ -77,7 +79,8 @@ public class add_image_exam extends HttpServlet {
 			request.setAttribute("mgsregister", "register Faild");
 			
 		}
-		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/View/Admin/manageVocabulary.jsp");
+		request.setAttribute("insertsuccess","insertsuccess");
+		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/View/Admin/homeAdmin.jsp");
 		rd.forward(request, response);
 	}
 	

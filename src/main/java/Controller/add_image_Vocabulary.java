@@ -69,15 +69,16 @@ public class add_image_Vocabulary extends HttpServlet {
 		if (test) {
 			
 		
-			
+			request.setAttribute("insertsuccess","insertsuccess");
+			RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/View/Admin/homeAdmin.jsp");
+			rd.forward(request, response);
 			
 		}
 		else {
 			request.setAttribute("mgsregister", "register Faild");
 			
 		}
-		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/View/Admin/manageExam.jsp");
-		rd.forward(request, response);
+	
 	
 	}
 

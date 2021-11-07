@@ -110,8 +110,8 @@ hello
     <section id="services" class="service-item">
 	   <div class="container">
             <div class="center wow fadeInDown">
-                <h2>Our Service</h2>
-                <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut <br> et dolore magna aliqua. Ut enim ad minim veniam</p>
+                <h2>Vocabulary</h2>
+                <p class="lead">Sometimes, reading exams have a section which focuses on vocabulary. These tips will help you get good marks in this section.</p>
             	 <!--  area find grammar -->
             	   <!-- <input type="text" name="search" onkeyup="search()"> --> 
             </div>
@@ -174,7 +174,8 @@ hello
     <li ><a class="page-link" href="Vocabulary_Subject_View?pageid=${currentpage+1}">Next</a></li>
  	   	
   	</c:if>
-  	<c:if test="${currentpage == totalpage}">
+  	
+  	<c:if test="${currentpage == totalpage && currentpage!=1}">
   	
 
     <li class=""><a class="page-link" href="Vocabulary_Subject_View?pageid=${currentpage-1}">Previous</a></li>

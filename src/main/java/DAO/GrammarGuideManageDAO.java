@@ -349,7 +349,7 @@ public class GrammarGuideManageDAO {
 		try {
 			
 			PreparedStatement ptmt = null;
-			String sql = "select * from grammarguide where grammarguidename like '%"+search+"%'";
+			String sql = "select * from toeic.grammarguide where grammarguidename like '%"+search+"%'";
 			ptmt = conn.prepareStatement(sql);
 			
 			

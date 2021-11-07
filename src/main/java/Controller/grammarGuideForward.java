@@ -34,7 +34,7 @@ public class grammarGuideForward extends HttpServlet {
 	
 
 
-RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/View/Admin/grammarGuide.jsp");
+RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/View/Admin/homeAdmin.jsp");
 		rd.forward(request, response);
 	}
 

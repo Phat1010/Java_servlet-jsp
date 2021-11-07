@@ -79,14 +79,8 @@
 	});
 </script>
 
-<script type="text/javascript">
-	function auto_submit() {
-		document.form.submit();
-	}
-	function auto_submit1() {
-		setTimeout(auto_submit, 500000);
-	}
-</script>
+
+
 
 
 <!-- Count Down timmer -->
@@ -96,16 +90,22 @@
 <body onload="auto_submit1()">
 	<jsp:include page="header.jsp"></jsp:include>
 
-	<div class="timer" data-seconds-left="25"></div>
-	<div class="left">
+	<div class="timer">Result</div>
+
+	<div class="left"
+		style="min-height: 100%; overflow-y: scroll; overflow-x: hidden;">
 
 
-	
+
 		<!-- CHeck answer -->
 		<!-- CHeck answer -->
 		<!-- CHeck answer -->
 		<!-- CHeck answer -->
 		<c:forEach items="${listpourdata}" var="list">
+			<h2>
+				&nbsp;&nbsp;
+				<ins> Excercise ${list.num} :</ins>
+			</h2>
 			<c:forEach items="${listansweruser}" var="list2">
 				<!-- CHeck NULL -->
 				<c:if
@@ -128,25 +128,21 @@
 						Question: <p>${list.question}</p>
 
 						
-						<input type="radio" name="${list.idexaminationquestion}"
-							value="${list.option1}">${list.option1}
+						A. ${list.option1}
 	<br>
-						<input type="radio" name="${list.idexaminationquestion}"
-							value="${list.option2}">${list.option2}
+						B. ${list.option2}
 	<br>
-						<input type="radio" name="${list.idexaminationquestion}"
-							value="${list.option3}">${list.option3}
+						C. ${list.option3}
 	<br>
-<img alt=""
+						<img alt=""
 							src="${pageContext.request.contextPath}/imagesmall/error.png"
 							class="imgokcheck">
-						<input type="radio" name="${list.idexaminationquestion}"
-							value="${list.option4}">${list.option4}
+						D. ${list.option4}
 							
 							</c:if>
 					<!-- CHECK D /-->
-					
-						<!-- CHECK C -->
+
+					<!-- CHECK C -->
 					<c:if
 						test="${(empty list2.answerUser)&&(list.option3 == list.correctanswser)}">
 
@@ -163,26 +159,22 @@
 						Question: <p>${list.question}</p>
 
 						
-						<input type="radio" name="${list.idexaminationquestion}"
-							value="${list.option1}">${list.option1}
+						A. ${list.option1}
 	<br>
-						<input type="radio" name="${list.idexaminationquestion}"
-							value="${list.option2}">${list.option2}
+						B. ${list.option2}
 	<br>
-	<img alt=""
+						<img alt=""
 							src="${pageContext.request.contextPath}/imagesmall/error.png"
 							class="imgokcheck">
-						<input type="radio" name="${list.idexaminationquestion}"
-							value="${list.option3}">${list.option3}
+					C. ${list.option3}
 	<br>
 
-						<input type="radio" name="${list.idexaminationquestion}"
-							value="${list.option4}">${list.option4}
+						D. ${list.option4}
 							
 							</c:if>
 					<!-- CHECK C /-->
-					
-						<!-- CHECK B -->
+
+					<!-- CHECK B -->
 					<c:if
 						test="${(empty list2.answerUser)&&(list.option2 == list.correctanswser)}">
 
@@ -199,26 +191,22 @@
 						Question: <p>${list.question}</p>
 
 					
-						<input type="radio" name="${list.idexaminationquestion}"
-							value="${list.option1}">${list.option1}
+						A. ${list.option1}
 	<br>
-		<img alt=""
+						<img alt=""
 							src="${pageContext.request.contextPath}/imagesmall/error.png"
 							class="imgokcheck">
-						<input type="radio" name="${list.idexaminationquestion}"
-							value="${list.option2}">${list.option2}
+						B. ${list.option2}
 	<br>
-						<input type="radio" name="${list.idexaminationquestion}"
-							value="${list.option3}">${list.option3}
+						C. ${list.option3}
 	<br>
 
-						<input type="radio" name="${list.idexaminationquestion}"
-							value="${list.option4}">${list.option4}
+						D. ${list.option4}
 							
 							</c:if>
 					<!-- CHECK B /-->
-					
-						<!-- CHECK A -->
+
+					<!-- CHECK A -->
 					<c:if
 						test="${(empty list2.answerUser)&&(list.option1 == list.correctanswser)}">
 
@@ -237,18 +225,14 @@
 						<img alt=""
 							src="${pageContext.request.contextPath}/imagesmall/error.png"
 							class="imgokcheck">
-						<input type="radio" name="${list.idexaminationquestion}"
-							value="${list.option1}">${list.option1}
+						A. ${list.option1}
 	<br>
-						<input type="radio" name="${list.idexaminationquestion}"
-							value="${list.option2}">${list.option2}
+						B. ${list.option2}
 	<br>
-						<input type="radio" name="${list.idexaminationquestion}"
-							value="${list.option3}">${list.option3}
+						C. ${list.option3}
 	<br>
 
-						<input type="radio" name="${list.idexaminationquestion}"
-							value="${list.option4}">${list.option4}
+						D. ${list.option4}
 							
 							</c:if>
 					<!-- CHECK D /-->
@@ -281,20 +265,16 @@
 						Question: <p>${list.question}</p>
 
 
-						<input type="radio" name="${list.idexaminationquestion}"
-							value="${list.option1}">${list.option1}
+						A. ${list.option1}
 	<br>
-						<input type="radio" name="${list.idexaminationquestion}"
-							value="${list.option2}">${list.option2}
+						B. ${list.option2}
 	<br>
-						<input type="radio" name="${list.idexaminationquestion}"
-							value="${list.option3}">${list.option3}
+						C. ${list.option3}
 	<br>
 						<img alt=""
 							src="${pageContext.request.contextPath}/imagesmall/iconok.png"
 							class="imgokcheck" class="imgokcheck">
-						<input type="radio" name="${list.idexaminationquestion}"
-							value="${list.option4}">${list.option4}
+						D. ${list.option4}
 						</c:if>
 
 					<!-- CORRECT PICK ANSWER A-->
@@ -315,18 +295,14 @@
 						<img alt=""
 							src="${pageContext.request.contextPath}/imagesmall/iconok.png"
 							class="imgokcheck" class="imgokcheck">
-						<input type="radio" name="${list.idexaminationquestion}"
-							value="${list.option1}">${list.option1}
+						A. ${list.option1}
 	<br>
-						<input type="radio" name="${list.idexaminationquestion}"
-							value="${list.option2}">${list.option2}
+						B. ${list.option2}
 	<br>
-						<input type="radio" name="${list.idexaminationquestion}"
-							value="${list.option3}">${list.option3}
+						C. ${list.option3}
 	<br>
 
-						<input type="radio" name="${list.idexaminationquestion}"
-							value="${list.option4}">${list.option4}
+						D. ${list.option4}
 						</c:if>
 
 
@@ -346,21 +322,17 @@
 						Question: <p>${list.question}</p>
 
 
-						<input type="radio" name="${list.idexaminationquestion}"
-							value="${list.option1}">${list.option1}
+						A. ${list.option1}
 	<br>
-						<input type="radio" name="${list.idexaminationquestion}"
-							value="${list.option2}">${list.option2}
+						B. ${list.option2}
 	<br>
 						<img alt=""
 							src="${pageContext.request.contextPath}/imagesmall/iconok.png"
 							class="imgokcheck" class="imgokcheck">
-						<input type="radio" name="${list.idexaminationquestion}"
-							value="${list.option3}">${list.option3}
+						C. ${list.option3}
 	<br>
 
-						<input type="radio" name="${list.idexaminationquestion}"
-							value="${list.option4}">${list.option4}
+						D. ${list.option4}
 						</c:if>
 
 					<!-- CORRECT PICK ANSWER B-->
@@ -379,21 +351,17 @@
 						Question: <p>${list.question}</p>
 
 
-						<input type="radio" name="${list.idexaminationquestion}"
-							value="${list.option1}">${list.option1}
+						A. ${list.option1}
 	<br>
 						<img alt=""
 							src="${pageContext.request.contextPath}/imagesmall/iconok.png"
 							class="imgokcheck" class="imgokcheck">
-						<input type="radio" name="${list.idexaminationquestion}"
-							value="${list.option2}">${list.option2}
+						B. ${list.option2}
 	<br>
-						<input type="radio" name="${list.idexaminationquestion}"
-							value="${list.option3}">${list.option3}
+						C. ${list.option3}
 	<br>
 
-						<input type="radio" name="${list.idexaminationquestion}"
-							value="${list.option4}">${list.option4}
+						D. ${list.option4}
 						</c:if>
 
 
@@ -422,20 +390,16 @@
 						<img alt=""
 							src="${pageContext.request.contextPath}/imagesmall/error.png"
 							class="imgokcheck">
-						<input type="radio" name="${list.idexaminationquestion}"
-							value="${list.option1}">${list.option1}
+						A. ${list.option1}
 	<br>
-						<input type="radio" name="${list.idexaminationquestion}"
-							value="${list.option2}">${list.option2}
+						B. ${list.option2}
 	<br>
-						<input type="radio" name="${list.idexaminationquestion}"
-							value="${list.option3}">${list.option3}
+						C. ${list.option3}
 	<br>
 						<img alt=""
 							src="${pageContext.request.contextPath}/imagesmall/iconok.png"
 							class="imgokcheck">
-						<input type="radio" name="${list.idexaminationquestion}"
-							value="${list.option4}">${list.option4}
+						D. ${list.option4}
 	<br>
 
 					</c:if>
@@ -453,23 +417,19 @@
 						<p>paragraph: ${list.paragraph}</p>
 									Question: <p>${list.question}</p>
 
-						<input type="radio" name="${list.idexaminationquestion}"
-							value="${list.option1}">${list.option1}
+						A. ${list.option1}
 	<br>
 						<img alt=""
 							src="${pageContext.request.contextPath}/imagesmall/error.png"
 							class="imgokcheck">
-						<input type="radio" name="${list.idexaminationquestion}"
-							value="${list.option2}">${list.option2}
+						B. ${list.option2}
 	<br>
-						<input type="radio" name="${list.idexaminationquestion}"
-							value="${list.option3}">${list.option3}
+						C. ${list.option3}
 	<br>
 						<img alt=""
 							src="${pageContext.request.contextPath}/imagesmall/iconok.png"
 							class="imgokcheck">
-						<input type="radio" name="${list.idexaminationquestion}"
-							value="${list.option4}">${list.option4}
+						D. ${list.option4}
 	<br>
 
 					</c:if>
@@ -487,23 +447,19 @@
 						<p>paragraph: ${list.paragraph}</p>
 									Question: <p>${list.question}</p>
 
-						<input type="radio" name="${list.idexaminationquestion}"
-							value="${list.option1}">${list.option1}
+						A. ${list.option1}
 	<br>
-						<input type="radio" name="${list.idexaminationquestion}"
-							value="${list.option2}">${list.option2}
+						B. ${list.option2}
 	<br>
 						<img alt=""
 							src="${pageContext.request.contextPath}/imagesmall/error.png"
 							class="imgokcheck">
-						<input type="radio" name="${list.idexaminationquestion}"
-							value="${list.option3}">${list.option3}
+						C. ${list.option3}
 	<br>
 						<img alt=""
 							src="${pageContext.request.contextPath}/imagesmall/iconok.png"
 							class="imgokcheck">
-						<input type="radio" name="${list.idexaminationquestion}"
-							value="${list.option4}">${list.option4}
+						D. ${list.option4}
 	<br>
 
 					</c:if>
@@ -525,21 +481,17 @@
 						<img alt=""
 							src="${pageContext.request.contextPath}/imagesmall/error.png"
 							class="imgokcheck">
-						<input type="radio" name="${list.idexaminationquestion}"
-							value="${list.option1}">${list.option1}
+						A. ${list.option1}
 	<br>
-						<input type="radio" name="${list.idexaminationquestion}"
-							value="${list.option2}">${list.option2}
+						B. ${list.option2}
 	<br>
 						<img alt=""
 							src="${pageContext.request.contextPath}/imagesmall/iconok.png"
 							class="imgokcheck">
-						<input type="radio" name="${list.idexaminationquestion}"
-							value="${list.option3}">${list.option3}
+						C. ${list.option3}
 	<br>
 
-						<input type="radio" name="${list.idexaminationquestion}"
-							value="${list.option4}">${list.option4}
+						D. ${list.option4}
 	<br>
 
 					</c:if>
@@ -558,24 +510,20 @@
 						<p>paragraph: ${list.paragraph}</p>
 									Question: <p>${list.question}</p>
 
-						<input type="radio" name="${list.idexaminationquestion}"
-							value="${list.option1}">${list.option1}
+						A. ${list.option1}
 	<br>
 						<img alt=""
 							src="${pageContext.request.contextPath}/imagesmall/error.png"
 							class="imgokcheck">
-						<input type="radio" name="${list.idexaminationquestion}"
-							value="${list.option2}">${list.option2}
+						B. ${list.option2}
 	<br>
 						<img alt=""
 							src="${pageContext.request.contextPath}/imagesmall/iconok.png"
 							class="imgokcheck">
-						<input type="radio" name="${list.idexaminationquestion}"
-							value="${list.option3}">${list.option3}
+						C. ${list.option3}
 	<br>
 
-						<input type="radio" name="${list.idexaminationquestion}"
-							value="${list.option4}">${list.option4}
+						D. ${list.option4}
 	<br>
 
 					</c:if>
@@ -594,23 +542,19 @@
 						<p>paragraph: ${list.paragraph}</p>
 									Question: <p>${list.question}</p>
 
-						<input type="radio" name="${list.idexaminationquestion}"
-							value="${list.option1}">${list.option1}
+						A. ${list.option1}
 	<br>
-						<input type="radio" name="${list.idexaminationquestion}"
-							value="${list.option2}">${list.option2}
+						B. ${list.option2}
 	<br>
 						<img alt=""
 							src="${pageContext.request.contextPath}/imagesmall/iconok.png"
 							class="imgokcheck">
-						<input type="radio" name="${list.idexaminationquestion}"
-							value="${list.option3}">${list.option3}
+						C. ${list.option3}
 	<br>
 						<img alt=""
 							src="${pageContext.request.contextPath}/imagesmall/error.png"
 							class="imgokcheck">
-						<input type="radio" name="${list.idexaminationquestion}"
-							value="${list.option4}">${list.option4}
+						D. ${list.option4}
 	<br>
 
 					</c:if>
@@ -637,23 +581,19 @@
 						<p>paragraph: ${list.paragraph}</p>
 									Question: <p>${list.question}</p>
 
-						<input type="radio" name="${list.idexaminationquestion}"
-							value="${list.option1}">${list.option1}
+						A. ${list.option1}
 	<br>
 						<img alt=""
 							src="${pageContext.request.contextPath}/imagesmall/iconok.png"
 							class="imgokcheck">
-						<input type="radio" name="${list.idexaminationquestion}"
-							value="${list.option2}">${list.option2}
+						B. ${list.option2}
 	<br>
-						<input type="radio" name="${list.idexaminationquestion}"
-							value="${list.option3}">${list.option3}
+						C. ${list.option3}
 	<br>
 						<img alt=""
 							src="${pageContext.request.contextPath}/imagesmall/error.png"
 							class="imgokcheck">
-						<input type="radio" name="${list.idexaminationquestion}"
-							value="${list.option4}">${list.option4}
+						D. ${list.option4}
 	<br>
 
 					</c:if>
@@ -673,25 +613,21 @@
 						<p>paragraph: ${list.paragraph}</p>
 									Question: <p>${list.question}</p>
 
-						<input type="radio" name="${list.idexaminationquestion}"
-							value="${list.option1}">${list.option1}
+						A. ${list.option1}
 	<br>
 
 						<img alt=""
 							src="${pageContext.request.contextPath}/imagesmall/iconok.png"
 							class="imgokcheck">
-						<input type="radio" name="${list.idexaminationquestion}"
-							value="${list.option2}">${list.option2}
+						B. ${list.option2}
 	<br>
 						<img alt=""
 							src="${pageContext.request.contextPath}/imagesmall/error.png"
 							class="imgokcheck">
-						<input type="radio" name="${list.idexaminationquestion}"
-							value="${list.option3}">${list.option3}
+						C. ${list.option3}
 	<br>
 
-						<input type="radio" name="${list.idexaminationquestion}"
-							value="${list.option4}">${list.option4}
+						D. ${list.option4}
 	<br>
 
 					</c:if>
@@ -713,21 +649,17 @@
 						<img alt=""
 							src="${pageContext.request.contextPath}/imagesmall/error.png"
 							class="imgokcheck">
-						<input type="radio" name="${list.idexaminationquestion}"
-							value="${list.option1}">${list.option1}
+						A. ${list.option1}
 	<br>
 						<img alt=""
 							src="${pageContext.request.contextPath}/imagesmall/iconok.png"
 							class="imgokcheck">
-						<input type="radio" name="${list.idexaminationquestion}"
-							value="${list.option2}">${list.option2}
+						B. ${list.option2}
 	<br>
-						<input type="radio" name="${list.idexaminationquestion}"
-							value="${list.option3}">${list.option3}
+						C. ${list.option3}
 	<br>
 
-						<input type="radio" name="${list.idexaminationquestion}"
-							value="${list.option4}">${list.option4}
+						D. ${list.option4}
 	<br>
 
 					</c:if>
@@ -751,20 +683,16 @@
 						<img alt=""
 							src="${pageContext.request.contextPath}/imagesmall/iconok.png"
 							class="imgokcheck">
-						<input type="radio" name="${list.idexaminationquestion}"
-							value="${list.option1}">${list.option1}
+						A. ${list.option1}
 	<br>
-						<input type="radio" name="${list.idexaminationquestion}"
-							value="${list.option2}">${list.option2}
+						B. ${list.option2}
 	<br>
-						<input type="radio" name="${list.idexaminationquestion}"
-							value="${list.option3}">${list.option3}
+						C. ${list.option3}
 	<br>
 						<img alt=""
 							src="${pageContext.request.contextPath}/imagesmall/error.png"
 							class="imgokcheck">
-						<input type="radio" name="${list.idexaminationquestion}"
-							value="${list.option4}">${list.option4}
+						D. ${list.option4}
 	<br>
 
 					</c:if>
@@ -786,22 +714,18 @@
 						<img alt=""
 							src="${pageContext.request.contextPath}/imagesmall/iconok.png"
 							class="imgokcheck">
-						<input type="radio" name="${list.idexaminationquestion}"
-							value="${list.option1}">${list.option1}
+						A. ${list.option1}
 	<br>
 
-						<input type="radio" name="${list.idexaminationquestion}"
-							value="${list.option2}">${list.option2}
+						B. ${list.option2}
 	<br>
 						<img alt=""
 							src="${pageContext.request.contextPath}/imagesmall/error.png"
 							class="imgokcheck">
-						<input type="radio" name="${list.idexaminationquestion}"
-							value="${list.option3}">${list.option3}
+						C. ${list.option3}
 	<br>
 
-						<input type="radio" name="${list.idexaminationquestion}"
-							value="${list.option4}">${list.option4}
+						D. ${list.option4}
 	<br>
 
 					</c:if>
@@ -824,21 +748,17 @@
 						<img alt=""
 							src="${pageContext.request.contextPath}/imagesmall/iconok.png"
 							class="imgokcheck">
-						<input type="radio" name="${list.idexaminationquestion}"
-							value="${list.option1}">${list.option1}
+						A. ${list.option1}
 	<br>
 						<img alt=""
 							src="${pageContext.request.contextPath}/imagesmall/error.png"
 							class="imgokcheck">
-						<input type="radio" name="${list.idexaminationquestion}"
-							value="${list.option2}">${list.option2}
+						B. ${list.option2}
 	<br>
-						<input type="radio" name="${list.idexaminationquestion}"
-							value="${list.option3}">${list.option3}
+						C. ${list.option3}
 	<br>
 
-						<input type="radio" name="${list.idexaminationquestion}"
-							value="${list.option4}">${list.option4}
+						D. ${list.option4}
 	<br>
 
 					</c:if>
@@ -849,6 +769,9 @@
 
 
 			</c:forEach>
+			<br>
+			======================================================================
+			<br>
 		</c:forEach>
 
 
@@ -870,26 +793,35 @@
 
 	<form action="practice_Exam" method="post" name="form">
 
-		<div class="right">
+		<div class="right"
+			style="min-height: 100%; overflow-y: scroll; overflow-x: hidden;">
 			<div class="container mt-sm-5 my-1">
 				<div class="question ml-sm-5 pl-sm-5 pt-2">
 
 					Answer your choice
-					so cau hoi dung ne<%=request.getAttribute("countcorrect") %>
-					so cau hoi sai ne<%=request.getAttribute("countincorrect") %>
-						so cau hoi sai ne<%=request.getAttribute("name") %>
+
+
+
 					<c:forEach items="${listansweruser}" var="list">
 
 
 
-						<p>paragraph: ${list.idexaminationquestion}</p>
+						<p>
+							<ins>excercise</ins>
+							${list.idexaminationquestion - get_Id_Head+1}: ${list.answerUser}
+						</p>
 
-						<p>Question:${list.answerUser}</p>
+
 
 
 					</c:forEach>
-
-
+					<h2 style="color: #02dd09">
+						number of correct sentences: <%=request.getAttribute("countcorrect")%>
+					</h2>
+					<h2 style="color: #ff0000">
+						wrong number of sentences: <%=request.getAttribute("countincorrect")%>
+						</h2>
+							
 				</div>
 
 			</div>
@@ -897,17 +829,10 @@
 
 
 
-		<input type="submit"
-			class="btn btn-outline-primary mr-md-3 mb-md-0 mb-2" value="submit">
-		<button type="button"
-			class="btn btn-outline-primary mr-md-3 mb-md-0 mb-2">Default
-			Outline</button>
 
 
-		<input type="text" value="<%=request.getParameter("id")%>"
-			name="idExam"> head <input type="text" value="${get_Id_Head}"
-			name="idExam"> last<input type="text"
-			value="<%=request.getAttribute("get_Id_Last")%>" name="idExam">
+
+		
 	</form>
 
 
@@ -917,47 +842,6 @@
 
 
 
-	<div class="clearfix"></div>
-	<ul class="pagination pull-right">
-
-
-
-		<c:if test="${currentpage==1}">
-
-
-			<li class="disabled"><a class="page-link" href="#">Previous</a></li>
-			<!--  <li ><a class="page-link" href="pagination?pageid=1">1</a></li>
-    <li ><a class="page-link" href="pagination?pageid=2">2</a></li>
-    <li ><a class="page-link" href="pagination?pageid=3">3</a></li> -->
-			<li><a class="page-link"
-				href="practice_Exam?id=${id}&pageid=${currentpage+1}">Next</a></li>
-
-		</c:if>
-		<c:if test="${currentpage == totalpage}">
-
-
-			<li class=""><a class="page-link"
-				href="practice_Exam?id=${id}&pageid=${currentpage-1}">Previous</a></li>
-			<!--  <li ><a class="page-link" href="pagination?pageid=1">1</a></li>
-    <li ><a class="page-link" href="pagination?pageid=2">2</a></li>
-    <li ><a class="page-link" href="pagination?pageid=3">3</a></li> -->
-			<li class="disabled"><a class="page-link" href="#">Next</a></li>
-
-		</c:if>
-		<c:if test="${(currentpage >1) && (currentpage <totalpage)}">
-
-
-			<li class="page-item"><a class="page-link"
-				href="practice_Exam?id=${id}&pageid=${currentpage-1}">Previous</a></li>
-			<!--  <li ><a class="page-link" href="pagination?pageid=1">1</a></li>
-    <li ><a class="page-link" href="pagination?pageid=2">2</a></li>
-    <li ><a class="page-link" href="pagination?pageid=3">3</a></li> -->
-			<li class="page-item"><a class="page-link"
-				href="practice_Exam?id=${id}&pageid=${currentpage+1}">Next</a></li>
-
-		</c:if>
-
-	</ul>
 
 
 	<jsp:include page="footer.jsp"></jsp:include>

@@ -6,11 +6,15 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
+
+
+
+
 </head>
 <body>
 
-   
-    
+
+      <h2> &nbsp;&nbsp;<ins>  Excercise ${currentpage}:</ins></h2>
 <c:forEach items="${listpourdata}" var="list">
 
 	<img src="${pageContext.request.contextPath}/upLoad_Image_Audio/${list.imagequestion}"></img>
@@ -35,42 +39,54 @@
 	<br>
 
 </c:forEach>
-    
-    
+         
+       
 <ul class="pagination pull-right" style="width: 57%;">
 
-  
+
 
   <c:if test="${currentpage==1}">
   	
 
-    <li class="disabled"><a class="page-link" href="#">Previous</a></li>
+ <a href="#" > <button type="button" class="btn btn-outline-secondary">previous</button></a>
    <!--  <li ><a class="page-link" href="pagination?pageid=1">1</a></li>
     <li ><a class="page-link" href="pagination?pageid=2">2</a></li>
     <li ><a class="page-link" href="pagination?pageid=3">3</a></li> -->
-    <li ><a class="page-link" href="practice_Exam?id=${id}&pageid=${currentpage+1}">Next</a></li>
- 	   	
+    <li > <button type="button" onclick="next()" class="btn btn-outline-primary">next</button></li>
+ 	<input type="text" name="id" value="${id}" hidden="true">
+ 	<input type="text" name="pageid" value="${currentpage+1}" hidden="true">
+ 	
   	</c:if>
-  	<c:if test="${currentpage == totalpage}">
+  	<c:if test="${currentpage == totalpage && totalpage!=1 }">
   	
+<input type="text" name="idp" value="${id}" hidden="true">
+ 	<input type="text" name="pageidp" value="${currentpage-1}" hidden="true">
 
-    <li class=""><a class="page-link" href="practice_Exam?id=${id}&pageid=${currentpage-1}">Previous</a></li>
+  <li > <button type="button" onclick="prev()" class="btn btn-outline-primary">previous</button></li>
       <!--  <li ><a class="page-link" href="pagination?pageid=1">1</a></li>
     <li ><a class="page-link" href="pagination?pageid=2">2</a></li>
-    <li ><a class="page-link" href="pagination?pageid=3">3</a></li> -->
-    <li class="disabled"><a class="page-link" href="#">Next</a></li>
- 	   	
+    <li ><a  href="pagination?pageid=3">3</a></li> -->
+  
+ 	 <a href="#" > <button type="button" class="btn btn-outline-secondary">next</button></a>
   	</c:if>
   		<c:if test="${(currentpage >1) && (currentpage <totalpage)}">
+  		
+  		    <li > <button type="button" onclick="prev()" class="btn btn-outline-primary">previous</button></li>
+ 	<input type="text" name="idp" value="${id}" hidden="true">
+ 	<input type="text" name="pageidp" value="${currentpage-1}" hidden="true">
+  		
   	
-
-    <li class="page-item"><a class="page-link" href="practice_Exam?id=${id}&pageid=${currentpage-1}">Previous</a></li>
-   <!--  <li ><a class="page-link" href="pagination?pageid=1">1</a></li>
-    <li ><a class="page-link" href="pagination?pageid=2">2</a></li>
-    <li ><a class="page-link" href="pagination?pageid=3">3</a></li> -->
-    <li class="page-item"><a class="page-link" href="practice_Exam?id=${id}&pageid=${currentpage+1}">Next</a></li>
+     <li > <button type="button" onclick="next()" class="btn btn-outline-primary">next</button></li>
+ 	<input type="text" name="id" value="${id}" hidden="true">
+ 	<input type="text" name="pageid" value="${currentpage+1}" hidden="true">
+   
+   
+   
+  
  	   	
   	</c:if>
+  	
+  	
   
 </ul>
 </body>

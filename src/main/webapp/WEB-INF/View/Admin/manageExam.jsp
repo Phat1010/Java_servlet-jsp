@@ -289,7 +289,7 @@
     <li ><a class="page-link" href="manageexam?pageid=${currentpage+1}">Next</a></li>
  	   	
   	</c:if>
-  	<c:if test="${currentpage == totalpage}">
+  	<c:if test="${currentpage == totalpage && currentpage!=1}">
   	
 
     <li class=""><a class="page-link" href="manageexam?pageid=${currentpage-1}">Previous</a></li>
@@ -321,7 +321,7 @@
 <!-- MODEL --><!-- MODEL --><!-- MODEL -->
 <form action="manageexam" method="post">
 <div class="container">
-  <h2>Modal Example</h2>
+  <h2>Modal Exam</h2>
   <!-- Trigger the modal with a button -->
   <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Add Exam</button>
 
@@ -333,10 +333,10 @@
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Modal Header</h4>
+          <h4 class="modal-title">add exam</h4>
         </div>
         <div class="modal-body">
-          <p>Some text in the modal.</p>
+          <p>please enter title.</p>
           <input type="text" name="titleExam" required>
         </div>
         <div class="modal-footer">
@@ -356,7 +356,7 @@
 
 
 <div class="container">
-  <h2>Modal Example</h2>
+  <h2>Modal Multifile</h2>
   <!-- Trigger the modal with a button -->
   <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal2">Add file and image</button>
 

@@ -91,7 +91,7 @@ public class LoginDAO {
 	
 	
 	
-	public static boolean checkaccountlogin (String account,String password, Connection conn,HttpServletRequest request){
+	public static int checkaccountlogin (String account,String password, Connection conn,HttpServletRequest request){
 		 
 	
 		
@@ -108,9 +108,14 @@ public class LoginDAO {
 		
 				 String nameaccount= rs.getString("username");
 				 String passaccount= rs.getString("password");
-				 if(account.equals(nameaccount) && password.equals(passaccount))
+				 String accountcategory = rs.getString("accountcategory");
+				 if(account.equals(nameaccount) && password.equals(passaccount)&&accountcategory.equals("1"))
 				 {
-					 return false;
+					 return 1;
+				 }
+				 if(account.equals(nameaccount) && password.equals(passaccount)&&accountcategory.equals("2"))
+				 {
+					 return 2;
 				 }
 				
 				
@@ -127,7 +132,7 @@ public class LoginDAO {
 		} catch (SQLException e) {
 			request.setAttribute("error", e.getMessage());
 		}	
-		return true ;
+		return 0 ;
 	}
 	
 	

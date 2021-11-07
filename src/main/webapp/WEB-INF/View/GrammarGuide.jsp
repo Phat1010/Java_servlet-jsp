@@ -44,24 +44,27 @@
   <link href="${pageContext.request.contextPath}/cssExtra/hundered_pagination.css" rel="stylesheet">
 
 
-  <script type="text/javascript">
+  <script>
 
 
-        function search()
+        function next()
         {
         	
         	 
-        	var search = document.myform.search.value;
-         
-        	var url = "find_Grammar_Client?search="+search;
+        	var id = document.myform.search.value;
+         	
+       
+        	var url = "find_Grammar_Client?search1="+id+";
         	
-        	if�(window.XMLHttpRequest) 
-        	{��      
-        	    xhttp =�new�XMLHttpRequest();�
-        	}�
+        
+        	
+        	if (window.XMLHttpRequest) 
+        	{        
+        	    xhttp = new XMLHttpRequest(); 
+        	} 
         	else
-        	{���         
-        		xhttp =�new�ActiveXObject("Microsoft.XMLHTTP");
+        	{            
+        		xhttp = new ActiveXObject("Microsoft.XMLHTTP");
         	}
         	
         	
@@ -70,7 +73,7 @@
         		if (xhttp.readyState == 4)
         		{
         			var data = xhttp.responseText;
-        			document.getElementById("findgrammar").innerHTML=data;
+        			document.getElementById("result").innerHTML=data;
         		}
         			
 
@@ -79,10 +82,40 @@
         	xhttp.send();
 
         }
+        
+        
+      
         	
-
+   
+    
         </script>
- 
+   <script>
+
+
+        function next1()
+        {
+        	
+        	 
+        	var id = document.myform.search.value;
+        	id.value =id.value.toUpperCase();
+       
+        	
+        
+
+        }
+        
+        
+      
+        	
+   
+    
+        </script>
+    <script>
+function myFunction() {
+var x = document.getElementById("search");
+x.value = x.value.toUpperCase();
+}
+</script>
     </head>
     
     
@@ -96,13 +129,18 @@
 
 
 
+<p>Hàm sẽ được kích hoạt khi người dùng thả một phím đã nhấn trong thẻ. Hàm này sẽ chuyển toàn bộ nội dung sang chữ viết hoa.</p>
+tesst: <input type="text" id="search" onkeyup="myFunction()">
+
+
+
 
 <form name="myform">
- <input type="text" name="search" onkeyup="search()">
+ <input type="text" name="search" onkeyup="myFunction()">
 </form>
 
-<div id="findgrammar">
-hello
+<div id="result">
+hello1
 	
 </div>
 
@@ -110,8 +148,8 @@ hello
     <section id="services" class="service-item">
 	   <div class="container">
             <div class="center wow fadeInDown">
-                <h2>Our Service</h2>
-                <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut <br> et dolore magna aliqua. Ut enim ad minim veniam</p>
+                <h2>Grammar Theory</h2>
+                <p class="lead">Grammar is the way we arrange words to make proper sentences.<br>Word level grammar covers verbs and tenses, nouns, adverbs etc. Sentence level grammar covers phrases, clauses, reported speech etc.</p>
             	 <!--  area find grammar -->
             	   <!-- <input type="text" name="search" onkeyup="search()"> --> 
             </div>

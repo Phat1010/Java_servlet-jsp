@@ -163,8 +163,9 @@ public class detailsExamExcelDAO {
 			
 		}
 		
-		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/View/Result.jsp");
-		rd.forward(request,response);
+		request.setAttribute("insertsuccess","insertsuccess");
+		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/View/Admin/homeAdmin.jsp");
+		rd.forward(request, response);
 		return true;
 	}
 

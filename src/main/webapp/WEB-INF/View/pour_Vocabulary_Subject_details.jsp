@@ -39,47 +39,7 @@
         <script type="text/javascript">
 
 
-        function Display()
-        {
-        	
-        	   var today = new Date();
-        	   var date = today.getDate()+'-'+(today.getMonth()+1)+'-'+today.getFullYear();
-        	   var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
-        	   var dateTime = date+' '+time;
-        	   
-        	var xhttp;
         
-        	var comment = document.myform.comment.value;
-            
-        	var id = document.myform.id.value;
-            
-        	var name = document.myform.name.value;
-        	var url = "Comment_Grammar?comment="+comment+"&id="+id+"&name="+name+"&dateTime="+dateTime;
-        	
-        	if (window.XMLHttpRequest) 
-        	{        
-        	    xhttp = new XMLHttpRequest(); 
-        	} 
-        	else
-        	{            
-        		xhttp = new ActiveXObject("Microsoft.XMLHTTP");
-        	}
-        	
-        	
-        	xhttp.onreadystatechange= function()
-        	{
-        		if (xhttp.readyState == 4)
-        		{
-        			var data = xhttp.responseText;
-        			document.getElementById("ketqua").innerHTML=data;
-        		}
-        			
-
-        	}
-        	xhttp.open("POST",url,true);
-        	xhttp.send();
-
-        }
         	
 
         </script>
@@ -89,10 +49,10 @@
 <jsp:include page="header.jsp"></jsp:include>
 
         <header class="bg-primary bg-gradient text-white">
-            <div class="container px-4 text-center">
-                <h1 class="fw-bolder">Welcome to Scrolling Nav</h1>
-                <p class="lead">A functional Bootstrap 5 boilerplate for one page scrolling websites</p>
-                <a class="btn btn-lg btn-light"  href="${pageContext.request.contextPath}/template_scroll/#about">Start scrolling!</a>
+            <div class="container px-4 text-center" style=" background: #2d2c2b;">
+                <h1 class="fw-bolder">vocabulary by topic</h1>
+                <p class="lead"></p>
+               
             </div>
         </header>
       
@@ -104,19 +64,17 @@
                 <div class="col-sm-6 col-md-4" > 
                 
                     <div class="media services-wrap wow fadeInDown">
-                        <div class="pull-left" >
+                        
    <p>${content_pour.num} .${content_pour.vocabularydetailsname} </p>
    <p> transcribe : ${content_pour.transcribe} </p>
    
       <p> transcribe : ${content_pour.mean} </p>
- <img class="img-responsive" src="${pageContext.request.contextPath}/multifile_Vocabulary/${content_pour.image}" style=" width: 200px;height: 200px;">
-                        </div>
-                        <div class="media-body">
-                           <audio controls>
+       <audio controls style="display: block;margin: auto;">
     <source src="${pageContext.request.contextPath}/multifile_Vocabulary/${content_pour.audiomp3}">
 </audio>
+ <img class="img-responsive" src="${pageContext.request.contextPath}/multifile_Vocabulary/${content_pour.image}" style=" width: 200px;height: 200px;margin: auto;">
                         
-                        </div>
+                       
                     </div>
                 </div>
 </c:forEach>
@@ -126,48 +84,10 @@
      
                <!-- Services section-->
         <section class="bg-light" id="services">
-            <div class="container px-4">
+            <div class="container px-4" style="clear: both;">
                 <div class="row gx-4 justify-content-center">
                     <div class="col-lg-8">
-                        <h2>Comment</h2>
-                        <p id="account" style="color: red;"><%=session.getAttribute("accountsession")!=null?session.getAttribute("accountsession"):"user"  %></p>
-	<% if(session.getAttribute("accountsession")==null) 
-	{	
-	%>
-<form name="myform">
-<textarea rows="5" cols="120" name="comment"></textarea>
-
-
-<br/>
-<br/>
-<input type="button" value="Post" onclick="Comment()" disabled="disabled"/>
-
-</form>
-
-<% }
-	else{
-		
-	
-%>
-<form name="myform">
-
-
-<textarea rows="5" cols="120" name="comment"></textarea>
-
-
-<br/>
-<br/>
-<input type="button" value="comment" onclick="Display()" />
-<input type="text" name="id" value="${idgrammar}" hidden="true">
-<input type="text" name="name" value="<%= session.getAttribute("accountsession")%>" hidden="true"> 
-
-</form>
-	
-	
-
-
-
-<%} %>
+         
 
                     </div>
                 </div>
@@ -178,27 +98,7 @@
         
           <!-- About comment-->
     
-        <section id="about">
-            <div class="container px-4">
-                <div class="row gx-4 justify-content-center">
-                    <div class="col-lg-8">
-                    <p id="ketqua">  <jsp:include page="comment-Grammar.jsp"/></p>
-                   
-                        
-                        <p class="lead" >This is a great place to talk about your webpage. This template is purposefully unstyled so you can use it as a boilerplate or starting point for you own landing page designs! This template features:</p>
-                        <ul>
-                            <li>Clickable nav links that smooth scroll to page sections</li>
-                            <li>Responsive behavior when clicking nav links perfect for a one page website</li>
-                            <li>Bootstrap's scrollspy feature which highlights which section of the page you're on in the navbar</li>
-                            <li>Minimal custom CSS so you are free to explore your own unique design options</li>
-                        </ul>
-                        
-                 
-                    </div>
-                </div>
-            </div>
-        </section>
-        
+
         
         
         

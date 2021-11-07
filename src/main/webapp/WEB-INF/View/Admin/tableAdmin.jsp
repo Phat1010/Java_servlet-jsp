@@ -188,7 +188,6 @@
         
 </table>
 
-<a href="EditGrammar?id=108">chao cac ban</a>
 
 <!-- table -->
  <div class="modal fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
@@ -322,7 +321,7 @@
     
     
 
-  <a href="grammarGuideForward">  <button name="btnadd" value="btnadd" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal"><img alt="" src="${pageContext.request.contextPath}/imagesmall/edit.png"> addtitle</button> 
+  <a href="grammarGuideForward">  <button name="btnadd" value="btnadd" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal"><img alt="" src="${pageContext.request.contextPath}/imagesmall/edit.png"> ADD GRAMMAR</button> 
     </a>
 
 

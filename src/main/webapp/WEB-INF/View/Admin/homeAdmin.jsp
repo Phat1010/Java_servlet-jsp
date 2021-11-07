@@ -61,7 +61,7 @@
                             <ol class="breadcrumb ms-auto">
                                 <li><a href="#" class="fw-normal">Dashboard</a></li>
                             </ol>
-                            <a href="https://www.wrappixel.com/templates/ampleadmin/" target="_blank"
+                            <a href="#" target="_blank"
                                 class="btn btn-danger  d-none d-md-block pull-right ms-3 hidden-xs hidden-sm waves-effect waves-light text-white">Upgrade
                                 to Pro</a>
                         </div>
@@ -82,7 +82,9 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="white-box">
-                            <h3 class="box-title">Blank Page</h3>
+                            <h3 class="box-title">ADMIN PAGE</h3>
+                           <h3><%= request.getAttribute(" insertsuccess")!=null?request.getAttribute(" insertsuccess"):""  %></h3>
+                            insertsuccess
                         </div>
                     </div>
                 </div>

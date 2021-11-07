@@ -13,7 +13,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
+import javax.servlet.http.HttpSession;
 
 import Bean.answeruser;
 import Bean.examinationquestion;
@@ -98,8 +98,10 @@ public class practice_Exam extends HttpServlet {
 		request.setAttribute("totalpage",totalpage);
 		request.setAttribute("pageid",getcurrentpage);
 		request.setAttribute("currentpage",currentpage);
+		
 		request.setAttribute("currentpag1",currentpag1);
 		
+
 	
 		request.setAttribute("total_record",total_record);
 		
@@ -185,6 +187,10 @@ int get_Id_Head =practiceExamDAO.head(conn, idExam);
 		request.setAttribute("listansweruser", listansweruser);
 		request.setAttribute("get_Id_Head", get_Id_Head);request.setAttribute("get_Id_Last", get_Id_Last);
 		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/View/resultExam.jsp");
+		int numberofquestions= 0;
+		request.setAttribute("numberofquestions", numberofquestions);
+		
+		
 		rd.forward(request, response);
 
 	}
