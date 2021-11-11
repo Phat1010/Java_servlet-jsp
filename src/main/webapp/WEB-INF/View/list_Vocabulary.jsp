@@ -44,45 +44,6 @@
   <link href="${pageContext.request.contextPath}/cssExtra/hundered_pagination.css" rel="stylesheet">
 
 
-  <script type="text/javascript">
-
-
-        function search()
-        {
-        	
-        	 
-        	var search = document.myform.search.value;
-         
-        	var url = "find_Grammar_Client?search="+search;
-        	
-        	if (window.XMLHttpRequest) 
-        	{        
-        	    xhttp = new XMLHttpRequest(); 
-        	} 
-        	else
-        	{            
-        		xhttp = new ActiveXObject("Microsoft.XMLHTTP");
-        	}
-        	
-        	
-        	xhttp.onreadystatechange= function()
-        	{
-        		if (xhttp.readyState == 4)
-        		{
-        			var data = xhttp.responseText;
-        			document.getElementById("findgrammar").innerHTML=data;
-        		}
-        			
-
-        	}
-        	xhttp.open("POST",url,true);
-        	xhttp.send();
-
-        }
-        	
-
-        </script>
- 
     </head>
     
     
@@ -97,14 +58,15 @@
 
 
 
-<form name="myform">
- <input type="text" name="search" onkeyup="search()">
-</form>
-
-<div id="findgrammar">
-hello
-	
-</div>
+	<div class="search" style="  background: #191919;
+}">
+                                <form role="form" action="Vocabulary_Subject_View" method="post" name="myform">
+                                    <input type="text" class="search-form" autocomplete="off" placeholder="Search" id="searchfind" name="search">
+                                    <i class="fa fa-search"></i>
+                                    
+                                     <input type="submit" value="find">
+                                </form>
+                           </div>
 
 <form action="pagination" method="post" name="myform">
     <section id="services" class="service-item">

@@ -137,8 +137,7 @@
 						<img alt=""
 							src="${pageContext.request.contextPath}/imagesmall/error.png"
 							class="imgokcheck">
-						D. ${list.option4}
-							
+							D. ${list.option4}<br><p class="explain" style="color: green;">${list.examinationquestionexplain}</p><br><p class="explain" style="color: green;">${list.examinationquestionexplain}</p>
 							</c:if>
 					<!-- CHECK D /-->
 
@@ -169,7 +168,7 @@
 					C. ${list.option3}
 	<br>
 
-						D. ${list.option4}
+							D. ${list.option4}<br><p class="explain" style="color: green;">${list.examinationquestionexplain}</p>
 							
 							</c:if>
 					<!-- CHECK C /-->
@@ -201,7 +200,7 @@
 						C. ${list.option3}
 	<br>
 
-						D. ${list.option4}
+							D. ${list.option4}<br><p class="explain" style="color: green;">${list.examinationquestionexplain}</p>
 							
 							</c:if>
 					<!-- CHECK B /-->
@@ -232,7 +231,7 @@
 						C. ${list.option3}
 	<br>
 
-						D. ${list.option4}
+							D. ${list.option4}<br><p class="explain" style="color: green;">${list.examinationquestionexplain}</p>
 							
 							</c:if>
 					<!-- CHECK D /-->
@@ -274,7 +273,7 @@
 						<img alt=""
 							src="${pageContext.request.contextPath}/imagesmall/iconok.png"
 							class="imgokcheck" class="imgokcheck">
-						D. ${list.option4}
+							D. ${list.option4}<br><p class="explain" style="color: green;">${list.examinationquestionexplain}</p>
 						</c:if>
 
 					<!-- CORRECT PICK ANSWER A-->
@@ -302,7 +301,7 @@
 						C. ${list.option3}
 	<br>
 
-						D. ${list.option4}
+							D. ${list.option4}<br><p class="explain" style="color: green;">${list.examinationquestionexplain}</p>
 						</c:if>
 
 
@@ -332,7 +331,7 @@
 						C. ${list.option3}
 	<br>
 
-						D. ${list.option4}
+							D. ${list.option4}<br><p class="explain" style="color: green;">${list.examinationquestionexplain}</p>
 						</c:if>
 
 					<!-- CORRECT PICK ANSWER B-->
@@ -361,7 +360,7 @@
 						C. ${list.option3}
 	<br>
 
-						D. ${list.option4}
+							D. ${list.option4}<br><p class="explain" style="color: green;">${list.examinationquestionexplain}</p>
 						</c:if>
 
 
@@ -399,7 +398,7 @@
 						<img alt=""
 							src="${pageContext.request.contextPath}/imagesmall/iconok.png"
 							class="imgokcheck">
-						D. ${list.option4}
+							D. ${list.option4}<br><p class="explain" style="color: green;">${list.examinationquestionexplain}</p>
 	<br>
 
 					</c:if>
@@ -429,7 +428,7 @@
 						<img alt=""
 							src="${pageContext.request.contextPath}/imagesmall/iconok.png"
 							class="imgokcheck">
-						D. ${list.option4}
+							D. ${list.option4}<br><p class="explain" style="color: green;">${list.examinationquestionexplain}</p>
 	<br>
 
 					</c:if>
@@ -459,7 +458,7 @@
 						<img alt=""
 							src="${pageContext.request.contextPath}/imagesmall/iconok.png"
 							class="imgokcheck">
-						D. ${list.option4}
+							D. ${list.option4}<br><p class="explain" style="color: green;">${list.examinationquestionexplain}</p>
 	<br>
 
 					</c:if>
@@ -491,7 +490,7 @@
 						C. ${list.option3}
 	<br>
 
-						D. ${list.option4}
+							D. ${list.option4}<br><p class="explain" style="color: green;">${list.examinationquestionexplain}</p>
 	<br>
 
 					</c:if>
@@ -523,7 +522,7 @@
 						C. ${list.option3}
 	<br>
 
-						D. ${list.option4}
+							D. ${list.option4}<br><p class="explain" style="color: green;">${list.examinationquestionexplain}</p>
 	<br>
 
 					</c:if>
@@ -554,7 +553,7 @@
 						<img alt=""
 							src="${pageContext.request.contextPath}/imagesmall/error.png"
 							class="imgokcheck">
-						D. ${list.option4}
+							D. ${list.option4}<br><p class="explain" style="color: green;">${list.examinationquestionexplain}</p>
 	<br>
 
 					</c:if>
@@ -593,7 +592,7 @@
 						<img alt=""
 							src="${pageContext.request.contextPath}/imagesmall/error.png"
 							class="imgokcheck">
-						D. ${list.option4}
+							D. ${list.option4}<br><p class="explain" style="color: green;">${list.examinationquestionexplain}</p>
 	<br>
 
 					</c:if>
@@ -627,7 +626,7 @@
 						C. ${list.option3}
 	<br>
 
-						D. ${list.option4}
+							D. ${list.option4}<br><p class="explain" style="color: green;">${list.examinationquestionexplain}</p>
 	<br>
 
 					</c:if>
@@ -659,7 +658,7 @@
 						C. ${list.option3}
 	<br>
 
-						D. ${list.option4}
+							D. ${list.option4}<br><p class="explain" style="color: green;">${list.examinationquestionexplain}</p>
 	<br>
 
 					</c:if>
@@ -692,7 +691,7 @@
 						<img alt=""
 							src="${pageContext.request.contextPath}/imagesmall/error.png"
 							class="imgokcheck">
-						D. ${list.option4}
+							D. ${list.option4}<br><p class="explain" style="color: green;" style="color: green">${list.examinationquestionexplain}</p>
 	<br>
 
 					</c:if>
@@ -725,7 +724,7 @@
 						C. ${list.option3}
 	<br>
 
-						D. ${list.option4}
+							D. ${list.option4}<br><p class="explain" style="color: green;">${list.examinationquestionexplain}</p>
 	<br>
 
 					</c:if>
@@ -758,7 +757,7 @@
 						C. ${list.option3}
 	<br>
 
-						D. ${list.option4}
+							D. ${list.option4}<br><p class="explain" style="color: green;" style="color: green;">${list.examinationquestionexplain}</p>
 	<br>
 
 					</c:if>

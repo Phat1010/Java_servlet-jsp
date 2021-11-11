@@ -10,7 +10,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="">
 <meta name="author" content="">
-<title>Home | Corlate</title>
+<title>Home </title>
 
 
 
@@ -74,22 +74,21 @@
 			<div class="carousel-inner">
 
 				<div class="item active"
-					style="background-image: url(${pageContext.request.contextPath}/Template_frontend/images/slider/toeic_panner_active.jpeg)">
+					style="background-image: url(${pageContext.request.contextPath}/Template_frontend/images/slider/bg1.jpg)">
 					<div class="container">
 						<div class="row slide-margin">
 							<div class="col-sm-6">
 								<div class="carousel-content">
-									<h1 class="animation animated-item-1">HEADER</h1>
-									<h2 class="animation animated-item-2">TITLE TEST</h2>
-									<a class="btn-slide animation animated-item-3" href="#">Read
-										More</a>
+									<h1 class="animation animated-item-1">Rita Mae Brown</h1>
+									<h2 class="animation animated-item-2">Language is the road map of a culture. It tells you where its people come from and where they are going.</h2>
+									
 								</div>
 							</div>
 
 							<div class="col-sm-6 hidden-xs animation animated-item-4">
 								<div class="slider-img">
 									<img
-										src="${pageContext.request.contextPath}/Template_frontend/images/slider/img1.png"
+										src="${pageContext.request.contextPath}/Template_frontend/images/slider/mlot.png"
 										class="img-responsive">
 								</div>
 							</div>
@@ -107,8 +106,7 @@
 									<div class="carousel-content">
 										<h1 class="animation animated-item-1">${listbanner.bannername}</h1>
 										<h2 class="animation animated-item-2">"${listbanner.bannercontent}"</h2>
-										<a class="btn-slide animation animated-item-3" href="#">Read
-											More</a>
+										
 									</div>
 								</div>
 

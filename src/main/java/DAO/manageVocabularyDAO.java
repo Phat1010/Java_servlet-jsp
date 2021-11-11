@@ -177,4 +177,51 @@ public class manageVocabularyDAO {
 	
 	
 	
+	
+	public static List<vocabulary> Vocabularyfind (Connection conn,HttpServletRequest request, String search){
+		 
+		List<vocabulary> list = new ArrayList<vocabulary>();
+		
+		try {
+			
+			PreparedStatement ptmt = null;
+			String sql = "select * from toeic.vocabulary where vocabularyname like '%"+search+"%'";
+			ptmt = conn.prepareStatement(sql);
+			
+			
+			ResultSet rs = ptmt.executeQuery();
+			while(rs.next()) {
+		
+				vocabulary ex= new vocabulary();
+				 Integer idvocabulary = rs.getInt("idvocabulary");
+				 String vocabularyname = rs.getString("vocabularyname");
+				 String vocabularyimage= rs.getString("vocabularyimage");
+				 Integer checktable = rs.getInt("checktable");
+				 
+			ex.setIdvocabulary(idvocabulary);
+				
+				ex.setVocabularyname(vocabularyname);
+				ex.setVocabularyimage(vocabularyimage);
+			ex.setChecktable(checktable);
+			
+				
+			
+				 list.add(ex);
+		
+		
+			
+			}
+			ptmt.close();
+			rs.close();
+			
+			
+			
+		} catch (SQLException e) {
+			request.setAttribute("error", e.getMessage());
+		}	
+		return list ;
+	}
+	
+	
+	
 }

@@ -376,7 +376,7 @@ public class GrammarGuideManageDAO {
 			
 			}
 			else {
-				request.setAttribute("msggrammer", "There are no tutorials");
+				request.setAttribute("msggrammer", "No Documents");
 			}
 			
 			ptmt.close();

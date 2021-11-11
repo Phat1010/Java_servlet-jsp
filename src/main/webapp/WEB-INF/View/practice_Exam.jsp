@@ -54,7 +54,7 @@
 		document.form.submit();
 	}
 	function auto_submit1() {
-		setTimeout(auto_submit, 500000);
+		setTimeout(auto_submit, 1800000);
 	}
 	
 </script>
@@ -151,7 +151,7 @@
     <body onload="auto_submit1()">
     <jsp:include page="header.jsp"></jsp:include>
     
-    <div class="timer" data-seconds-left="25"></div>  <form name="myform">
+    <div class="timer" data-seconds-left="1800"></div>  <form name="myform">
     <div class="left">
     
      <div id="result">

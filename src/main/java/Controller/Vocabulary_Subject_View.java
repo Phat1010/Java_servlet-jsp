@@ -13,8 +13,10 @@ import javax.servlet.http.HttpServletResponse;
 
 import Bean.GrammarGuide;
 import Bean.vocabulary;
+import DAO.GrammarGuideManageDAO;
 import DAO.HomeDAO;
 import DAO.PaginationDAO;
+import DAO.manageVocabularyDAO;
 import DB.DBConnection;
 
 /**
@@ -103,8 +105,21 @@ RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/View/list_Vocabula
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+		if(request.getCharacterEncoding()==null)
+		{
+			request.setCharacterEncoding("UTF-8");
+		}
+Connection conn = DBConnection.CreateConnection();
+
+
+		String name = request.getParameter("search");
+		
+			List<vocabulary> list = manageVocabularyDAO.Vocabularyfind(conn, request, name);
+			
+			request.setAttribute("listvocalbulary", list);
+			RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/View/list_Vocabulary.jsp");
+//RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/View/result_Search_Grammar.jsp");
+rd.forward(request, response);
 	}
 
 }

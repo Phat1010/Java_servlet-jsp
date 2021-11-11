@@ -44,7 +44,7 @@ public class detailsExamExcelDAO {
 			String option3 = " ";
 			String option4 = " ";
 			String correctanswser = " ";
-		
+			String explain = " ";
 			for (int i=1; i<=sheet.getLastRowNum() ;i++)
 			{
 				Row row = sheet.getRow(i);
@@ -115,6 +115,14 @@ public class detailsExamExcelDAO {
 				 else {
 					 correctanswser = row.getCell(10).getStringCellValue(); 
 				 }
+				 if(row.getCell(11)==null) {
+					 explain = " ";
+						}
+					 else {
+						 explain = row.getCell(11).getStringCellValue(); 
+					 }
+				 
+				 
 			/*	else {
 					 num = (int) row.getCell(0).getNumericCellValue();
 					 imagequestion = row.getCell(1).getStringCellValue();
@@ -144,6 +152,7 @@ public class detailsExamExcelDAO {
 				ex.setOption4(option4);
 				ex.setCorrectanswser(correctanswser);
 				ex.setExaminationid(idexam);
+				ex.setExaminationquestionexplain(explain);
 				
 				detailsExamExcelDAO.InsertDataFromExcel(request, ex, conn);
 				
@@ -174,7 +183,7 @@ public static void InsertDataFromExcel(HttpServletRequest request,examinationque
 	
 	
 	
-	String sql = "insert into examinationquestion(num,imagequestion,audio,audiomp3,paragraph,question,option1,option2,option3,option4,correctanswser,examinationid) values (?,?,?,?,?,?,?,?,?,?,?,?)";
+	String sql = "insert into examinationquestion(num,imagequestion,audio,audiomp3,paragraph,question,option1,option2,option3,option4,correctanswser,examinationid,examinationquestionexplain) values (?,?,?,?,?,?,?,?,?,?,?,?,?)";
 	try 
 	{
 		PreparedStatement ptmt = conn.prepareStatement(sql);
@@ -192,6 +201,7 @@ public static void InsertDataFromExcel(HttpServletRequest request,examinationque
 		ptmt.setString(10,ex.getOption4());
 		ptmt.setString(11,ex.getCorrectanswser());
 		ptmt.setInt(12,ex.getExaminationid());
+		ptmt.setString(13,ex.getExaminationquestionexplain());
 		
 
 		

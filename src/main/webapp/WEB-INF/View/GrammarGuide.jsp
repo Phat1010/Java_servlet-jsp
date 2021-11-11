@@ -44,78 +44,7 @@
   <link href="${pageContext.request.contextPath}/cssExtra/hundered_pagination.css" rel="stylesheet">
 
 
-  <script>
 
-
-        function next()
-        {
-        	
-        	 
-        	var id = document.myform.search.value;
-         	
-       
-        	var url = "find_Grammar_Client?search1="+id+";
-        	
-        
-        	
-        	if (window.XMLHttpRequest) 
-        	{        
-        	    xhttp = new XMLHttpRequest(); 
-        	} 
-        	else
-        	{            
-        		xhttp = new ActiveXObject("Microsoft.XMLHTTP");
-        	}
-        	
-        	
-        	xhttp.onreadystatechange= function()
-        	{
-        		if (xhttp.readyState == 4)
-        		{
-        			var data = xhttp.responseText;
-        			document.getElementById("result").innerHTML=data;
-        		}
-        			
-
-        	}
-        	xhttp.open("POST",url,true);
-        	xhttp.send();
-
-        }
-        
-        
-      
-        	
-   
-    
-        </script>
-   <script>
-
-
-        function next1()
-        {
-        	
-        	 
-        	var id = document.myform.search.value;
-        	id.value =id.value.toUpperCase();
-       
-        	
-        
-
-        }
-        
-        
-      
-        	
-   
-    
-        </script>
-    <script>
-function myFunction() {
-var x = document.getElementById("search");
-x.value = x.value.toUpperCase();
-}
-</script>
     </head>
     
     
@@ -129,21 +58,22 @@ x.value = x.value.toUpperCase();
 
 
 
-<p>Hàm sẽ được kích hoạt khi người dùng thả một phím đã nhấn trong thẻ. Hàm này sẽ chuyển toàn bộ nội dung sang chữ viết hoa.</p>
-tesst: <input type="text" id="search" onkeyup="myFunction()">
 
 
 
+ 
 
-<form name="myform">
- <input type="text" name="search" onkeyup="myFunction()">
-</form>
 
-<div id="result">
-hello1
-	
-</div>
 
+	<div class="search" style="  background: #191919;
+}">
+                                <form role="form" action="find_Grammar_Client" method="post" name="myform">
+                                    <input type="text" class="search-form" autocomplete="off" placeholder="Search" id="searchfind" name="search">
+                                    <i class="fa fa-search"></i>
+                                    
+                                     <input type="submit" value="find">
+                                </form>
+                           </div>
 <form action="pagination" method="post" name="myform">
     <section id="services" class="service-item">
 	   <div class="container">
@@ -160,7 +90,7 @@ hello1
 
 
 
-
+<h1 class="notification" style="text-align: center;"> <%=request.getAttribute("msggrammer")!=null?request.getAttribute("msggrammer"):""  %></h1>
 
 
 

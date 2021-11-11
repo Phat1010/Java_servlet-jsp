@@ -178,6 +178,7 @@ public class practiceExamDAO {
 				
 				String correctanswser = rs.getString("correctanswser");
 				int examinationid = rs.getInt("examinationid");
+				String examinationquestionexplain = rs.getString("examinationquestionexplain");
 				
 				incomplete.setIdexaminationquestion(idexaminationquestion);
 				incomplete.setNum(num);
@@ -192,6 +193,8 @@ public class practiceExamDAO {
 				incomplete.setOption4(option4);
 				incomplete.setCorrectanswser(correctanswser);
 				incomplete.setExaminationid(examinationid);
+				incomplete.setExaminationquestionexplain(examinationquestionexplain);
+		
 				
 				list.add(incomplete);
 				

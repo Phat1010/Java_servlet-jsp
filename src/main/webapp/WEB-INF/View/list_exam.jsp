@@ -44,51 +44,7 @@
   <link href="${pageContext.request.contextPath}/cssExtra/hundered_pagination.css" rel="stylesheet">
 
 
-  <script type="text/javascript">
 
-
-  <script type="text/javascript">
-
-
-  function search()
-  {
-  	
-	  var  = document.getElementById("search1");
-  	var search = document.myform.search.value;
-   
-  	var url = "find_Grammar_Client?search="+x;
-  	
-  	if (window.XMLHttpRequest) 
-  	{        
-  	    xhttp = new XMLHttpRequest(); 
-  	} 
-  	else
-  	{            
-  		xhttp = new ActiveXObject("Microsoft.XMLHTTP");
-  	}
-  	
-  	
-  	xhttp.onreadystatechange= function()
-  	{
-  		if (xhttp.readyState == 4)
-  		{
-  			var data = xhttp.responseText;
-  			document.getElementById("findgrammar").innerHTML=data;
-  		}
-  			
-
-  	}
-  	xhttp.open("POST",url,true);
-  	xhttp.send();
-
-  }
-  function myFunction() {
-	  var x = document.getElementById("search1");
-	  x.value = x.value.toUpperCase();
-	  }
-  	
-
-  </script>
 
    
  
@@ -101,15 +57,15 @@
 <body class="homepage">
 <jsp:include page="header.jsp"></jsp:include>
 
-
-
-
-
-
-<form name="myform">
- <input type="text" name="search" onkeyup="myFunction()" id="search1">
-</form>
-
+	<div class="search" style="  background: #191919;
+}">
+                                <form role="form" action="Exam_DisplayList" method="post" name="myform">
+                                    <input type="text" class="search-form" autocomplete="off" placeholder="Search" id="searchfind" name="search">
+                                    <i class="fa fa-search"></i>
+                                    
+                                     <input type="submit" value="find">
+                                </form>
+                           </div>
 
 
 <form action="pagination" method="post" name="myform">
@@ -129,7 +85,7 @@
 
 
 
-
+		<h1 class="notification" style="text-align: center;"> <%=request.getAttribute("msglistexam")!=null?request.getAttribute("msglistexam"):""  %></h1>
 <div id="findgrammar">
 
 	<% if(session.getAttribute("accountsession")==null) 

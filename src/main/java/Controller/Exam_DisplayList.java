@@ -11,7 +11,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import Bean.GrammarGuide;
 import Bean.examination;
+import DAO.ExaminationDAO;
+import DAO.GrammarGuideManageDAO;
 import DAO.HomeDAO;
 import DAO.PaginationDAO;
 import DB.DBConnection;
@@ -99,8 +102,21 @@ RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/View/list_exam.jsp
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+		if(request.getCharacterEncoding()==null)
+		{
+			request.setCharacterEncoding("UTF-8");
+		}
+Connection conn = DBConnection.CreateConnection();
+
+
+		String name = request.getParameter("search");
+		
+			List<examination> list = ExaminationDAO.listExamfind(request, conn, name);
+			
+			request.setAttribute("listexamination", list);
+			RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/View/list_exam.jsp");
+//RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/View/result_Search_Grammar.jsp");
+rd.forward(request, response);
 	}
 
 }

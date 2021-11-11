@@ -14,6 +14,7 @@ public class examinationquestion {
 	private String correctanswser;
 	private int num;
 	private int examinationid;
+	private String examinationquestionexplain;
 	public int getIdexaminationquestion() {
 		return idexaminationquestion;
 	}
@@ -91,5 +92,11 @@ public class examinationquestion {
 	}
 	public void setExaminationid(int examinationid) {
 		this.examinationid = examinationid;
+	}
+	public String getExaminationquestionexplain() {
+		return examinationquestionexplain;
+	}
+	public void setExaminationquestionexplain(String examinationquestionexplain) {
+		this.examinationquestionexplain = examinationquestionexplain;
 	}
 }
