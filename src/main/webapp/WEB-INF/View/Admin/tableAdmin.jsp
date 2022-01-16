@@ -254,7 +254,7 @@
     <li ><a class="page-link" href="tableAdminForward?pageid=${currentpage+1}">Next</a></li>
  	   	
   	</c:if>
-  	<c:if test="${currentpage == totalpage}">
+  	<c:if test="${currentpage == totalpage && currentpage!=1}">
   	
 
     <li class=""><a class="page-link" href="tableAdminForward?pageid=${currentpage-1}">Previous</a></li>
@@ -321,8 +321,8 @@
     
     
 
-  <a href="grammarGuideForward">  <button name="btnadd" value="btnadd" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal"><img alt="" src="${pageContext.request.contextPath}/imagesmall/edit.png"> ADD GRAMMAR</button> 
-    </a>
+  <a href="grammarGuideGrammar">  <button name="btnadd" value="btnadd" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal"><img alt="" src="${pageContext.request.contextPath}/imagesmall/edit.png"> ADD GRAMMAR</button> 
+    </a> grammarGuideGrammar
 
 
                 <!-- ============================================================== -->

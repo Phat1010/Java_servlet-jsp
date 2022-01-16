@@ -48,9 +48,9 @@ public class grammarGuideGrammar extends HttpServlet {
 		
 		
 		/*RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/View/TestConnection.jsp");
-		rd.forward(request, response);
-		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/View/Admin/addimageGrammarGuide.jsp");
 		rd.forward(request, response);*/
+		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/View/Admin/grammarGuide.jsp");
+		rd.forward(request, response);
 	}
 
 	/**

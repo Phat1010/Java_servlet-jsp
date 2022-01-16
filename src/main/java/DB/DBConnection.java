@@ -8,7 +8,7 @@ public class DBConnection {
 	public static Connection CreateConnection(){
 		Connection conn = null;
 	//	conn = DriverManager.getConnection(url,username,password);
-		String url = "jdbc:mysql://localhost:3306/toeic";
+		String url = "jdbc:mysql://localhost:3307/toeic";
 		String username ="root";
 		String password = "phat";
 
