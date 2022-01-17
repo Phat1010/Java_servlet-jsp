@@ -82,12 +82,16 @@ public class grammarGuideImage extends HttpServlet {
 		if (test) {
 			
 			request.setAttribute("mgsupdatate", "update success");
-			RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/View/Admin/addimageGrammarGuide.jsp");
+			RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/View/Admin/homeAdmin.jsp");
 			rd.forward(request, response);
 			
 		}
 		else {
 			request.setAttribute("mgsregister", "register Faild");
+		
+			RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/View/Admin/homeAdmin.jsp");
+			rd.forward(request, response);
+			
 			
 		}
 	}

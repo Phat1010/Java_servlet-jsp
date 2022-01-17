@@ -322,7 +322,7 @@
     
 
   <a href="grammarGuideGrammar">  <button name="btnadd" value="btnadd" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal"><img alt="" src="${pageContext.request.contextPath}/imagesmall/edit.png"> ADD GRAMMAR</button> 
-    </a> grammarGuideGrammar
+    </a> 
 
 
                 <!-- ============================================================== -->

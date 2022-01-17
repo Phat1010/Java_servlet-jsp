@@ -126,15 +126,7 @@
           
           
           
-                  <div class="page-breadcrumb bg-white">
-                <div class="row align-items-center">
-                    <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-                        <h4 class="page-title">IMAGE</h4>
-                    </div>
-                   
-                </div>
-                <!-- /.col-lg-12 -->
-            </div>         
+                  
           
           
           <!-- image -->
@@ -195,13 +187,9 @@
         <div class="col-sm-4">
         </div>
         <div class="col-sm-2">
-            <input type="submit" class="btn btn-block btn-primary"><i class="fa fa-check"></i> Submit
+              <input type="submit" class="btn btn-block btn-primary">
         </div>
-        <div class="col-sm-2">
-            <button type="reset" class="btn btn-block btn-default"><i class="fa fa-ban"></i> Reset</button>
-        </div>
-        <div class="col-sm-4">
-        </div>
+       
     </div>
           
           </form>
@@ -221,7 +209,7 @@
           
           
           
-           <div><%= request.getAttribute("mgsregister")%></div> 
+   <!--         <div>//  request.getAttribute("mgsregister")%></div> -->
           
           
           
