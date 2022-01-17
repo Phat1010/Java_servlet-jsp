@@ -68,7 +68,7 @@
    <p>${content_pour.num} .${content_pour.vocabularydetailsname} </p>
    <p> transcribe : ${content_pour.transcribe} </p>
    
-      <p> transcribe : ${content_pour.mean} </p>
+      <p> explain : ${content_pour.mean} </p>
        <audio controls style="display: block;margin: auto;">
     <source src="${pageContext.request.contextPath}/multifile_Vocabulary/${content_pour.audiomp3}">
 </audio>

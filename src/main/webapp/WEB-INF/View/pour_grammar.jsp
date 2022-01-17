@@ -90,9 +90,11 @@
 
         <header class="bg-primary bg-gradient text-white">
             <div class="container px-4 text-center">
-                <h1 class="fw-bolder">Welcome to Scrolling Nav</h1>
-                <p class="lead">A functional Bootstrap 5 boilerplate for one page scrolling websites</p>
-                <a class="btn btn-lg btn-light"  href="${pageContext.request.contextPath}/template_scroll/#about">Start scrolling!</a>
+                <h1 class="fw-bolder">Welcome to </h1>
+                <p class="lead">
+This is a comprehensive article on English grammar, written to help you understand how sentence components and words combine to form a sentence, and at the same time for you to refer back to later. this when needed.</p>
+                <p class="btn btn-lg btn-light">
+If you're ready, let's get started!!</p>
             </div>
         </header>
       
