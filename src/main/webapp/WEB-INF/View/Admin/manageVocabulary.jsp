@@ -355,7 +355,7 @@
 
 
 <div class="container">
-  <h2>Modal Multifle</h2>
+  <h2>Modal Multifile</h2>
   <!-- Trigger the modal with a button -->
   <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal2">Add file and image</button>
 

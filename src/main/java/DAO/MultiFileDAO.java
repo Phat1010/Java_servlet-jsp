@@ -117,7 +117,7 @@ public class MultiFileDAO {
 			
 		}
 
-		RequestDispatcher rd = request.getRequestDispatcher("View/Result.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/View/Admin/homeAdmin.jsp");
 		
 		rd.forward(request,response);
 		
@@ -233,7 +233,7 @@ public class MultiFileDAO {
 			
 		}
 
-		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/View/Admin/manageVocabulary.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/View/Admin/homeAdmin.jsp");
 		rd.forward(request, response);
 		
 		
