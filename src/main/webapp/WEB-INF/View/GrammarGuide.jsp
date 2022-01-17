@@ -128,7 +128,7 @@
     <li ><a class="page-link" href="pagination?pageid=${currentpage+1}">Next</a></li>
  	   	
   	</c:if>
-  	<c:if test="${currentpage == totalpage}">
+  	<c:if test="${currentpage == totalpage && currentpage!=1}">
   	
 
     <li class=""><a class="page-link" href="pagination?pageid=${currentpage-1}">Previous</a></li>
